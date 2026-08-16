@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare Alliance — A Specialized Ecosystem for Healthcare Success</title>
+<meta name="description" content="Healthcare Alliance — Connecting Expertise. Empowering Growth. Transforming Healthcare.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy:  { DEFAULT:'#0B315C', deep:'#001C52', 700:'#0A2A55', 800:'#062347', 900:'#001536' },
+        flame: { DEFAULT:'#E36414', bright:'#FD5B02', soft:'#FDEDE3' },
+        mist:  '#F5F7FB'
+      },
+      fontFamily: {
+        head: ['Montserrat','system-ui','sans-serif'],
+        body: ['"Nunito Sans"','system-ui','sans-serif']
+      },
+      boxShadow: {
+        card: '0 4px 20px -4px rgba(11,49,92,.10), 0 1px 3px rgba(11,49,92,.06)',
+        lift: '0 22px 44px -14px rgba(11,49,92,.28)',
+        ring: '0 6px 22px -6px rgba(11,49,92,.22)'
+      }
+    }
+  }
+}
+</script>
+<style>
+  :root{ --navy:#0B315C; --deep:#001C52; --flame:#E36414; }
+  html{ -webkit-font-smoothing:antialiased; }
+  body{ font-family:'Nunito Sans',system-ui,sans-serif; color:#33445c; background:#fff; overflow-x:hidden; }
+  h1,h2,h3,h4,.font-head{ font-family:'Montserrat',system-ui,sans-serif; }
+
+  /* ---------- scroll reveal ---------- */
+  .rv{ opacity:0; transform:translateY(28px); transition:opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1); }
+  .rv.in{ opacity:1; transform:none; }
+  .rv-l{ opacity:0; transform:translateX(-40px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .rv-l.in{ opacity:1; transform:none; }
+  .rv-r{ opacity:0; transform:translateX(40px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .rv-r.in{ opacity:1; transform:none; }
+  .rv-s{ opacity:0; transform:scale(.86); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.34,1.56,.64,1); }
+  .rv-s.in{ opacity:1; transform:none; }
+  .rv.done,.rv-l.done,.rv-r.done,.rv-s.done{ transition:none!important; transform:none!important; will-change:auto; }
+  @media (prefers-reduced-motion: reduce){ .rv,.rv-l,.rv-r,.rv-s{opacity:1!important;transform:none!important;transition:none} }
+
+  /* ---------- brand bits ---------- */
+  .bar-orange{ width:96px;height:4px;background:var(--flame);border-radius:2px;transform-origin:left;transform:scaleX(0);transition:transform .8s .15s cubic-bezier(.16,1,.3,1); }
+  .in .bar-orange, .bar-orange.in{ transform:scaleX(1); }
+  .pill-navy{ background:var(--deep); color:#fff; border-radius:999px; letter-spacing:.06em; }
+  .pill-flame{ background:var(--flame); color:#fff; border-radius:999px; letter-spacing:.06em; }
+  .justified{ text-align:justify; text-justify:inter-word; }
+
+  /* ---------- hero ---------- */
+  @media (min-width:1024px){
+    .hero-photo{ -webkit-mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 12%, #000 42%); mask-image:linear-gradient(to right, transparent 0%, rgba(0,0,0,.35) 12%, #000 42%); }
+  }
+  @keyframes floaty{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-16px)} }
+  @keyframes floaty2{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(12px)} }
+  .float{ animation:floaty 6s ease-in-out infinite; }
+  .float2{ animation:floaty2 7.5s ease-in-out infinite; }
+  @keyframes pulseRing{ 0%{transform:scale(.85);opacity:.55} 70%{transform:scale(1.35);opacity:0} 100%{opacity:0} }
+  .pulse-ring::after{ content:'';position:absolute;inset:0;border-radius:999px;border:2px solid var(--flame);animation:pulseRing 2.8s ease-out infinite; }
+  .draw{ stroke-dasharray:var(--len,1200); stroke-dashoffset:var(--len,1200); transition:stroke-dashoffset 1.8s ease; }
+  .in .draw, .draw.in{ stroke-dashoffset:0; }
+
+  /* ---------- market ---------- */
+  @media (min-width:1024px){
+    .market-photo{ -webkit-mask-image:linear-gradient(115deg, #000 0%, #000 62%, transparent 92%); mask-image:linear-gradient(115deg, #000 0%, #000 62%, transparent 92%); }
+
+    /* Scale the desktop artwork and overlays as one 1672 x 940 composition. */
+    .market-desktop{ container-type:inline-size; width:100%; }
+    .market-desktop__canvas{ position:relative; width:100%; aspect-ratio:1672/940; }
+    .market-desktop__copy{ position:absolute; left:6.1%; top:6.7%; width:43.5%; z-index:10; }
+    .market-desktop__title{ font-size:clamp(2rem,3.55cqw,4.25rem); line-height:1.14; letter-spacing:-.025em; }
+    .market-desktop__rule{ width:9.8cqw; height:2px; margin-top:1.2cqw; }
+    .market-desktop__lead{ max-width:43cqw; margin-top:1.45cqw; font-size:clamp(.95rem,1.72cqw,2rem); line-height:1.35; letter-spacing:-.025em; text-wrap:balance; }
+    .market-desktop__body{ max-width:43cqw; margin-top:1.35cqw; font-size:clamp(.75rem,1.28cqw,1.5rem); line-height:1.42; text-align:left; text-wrap:pretty; }
+    .market-feature{
+      position:absolute; left:55.5%; width:42.5%; height:18.5%; z-index:10;
+      box-sizing:border-box; display:flex; align-items:center; gap:1.3cqw;
+      padding:1.4cqw 2.2cqw 1.4cqw 9cqw; border-radius:3.1cqw;
+      background:rgba(255,255,255,.9);
+      box-shadow:0 1.1cqw 2.6cqw -1.8cqw rgba(11,49,92,.24);
+      transform:translateY(-50%);
+    }
+    .market-feature__rule{ width:2px; height:6.9cqw; flex:0 0 2px; border-radius:999px; background:#FD5B02; }
+    .market-feature h3{ font-size:clamp(.78rem,1.42cqw,1.7rem); line-height:1.22; letter-spacing:-.015em; text-wrap:balance; }
+    .market-feature p{ margin-top:.75cqw; font-size:clamp(.68rem,1.18cqw,1.35rem); line-height:1.48; text-wrap:pretty; }
+    .market-feature.rv-r,
+    .market-feature.rv-r.in{ transform:translateY(-50%); }
+    .market-feature.rv-r.done{ transform:translateY(-50%) !important; }
+    .market-feature.card:hover{ transform:translateY(calc(-50% - 8px)); }
+    .market-feature.rv-r.done:hover{ transform:translateY(calc(-50% - 8px)) !important; }
+    .market-feature__icon{ position:absolute; width:10.1%; z-index:20; transform:translate(-50%,-50%); filter:drop-shadow(0 .65cqw .65cqw rgba(11,49,92,.14)); }
+    .market-desktop__caption{ position:absolute; left:1.5%; bottom:1.1%; z-index:10; display:flex; align-items:center; gap:1.9cqw; color:#fff; }
+    .market-desktop__caption svg{ width:4.5cqw; height:7.2cqw; flex:none; }
+    .market-desktop__caption p{ max-width:34cqw; font-size:clamp(.75rem,1.25cqw,1.5rem); line-height:1.55; letter-spacing:-.01em; }
+  }
+
+  /* ---------- cards ---------- */
+  .card{ transition:transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s ease; }
+  .card:hover{ transform:translateY(-8px); }
+  .ico-shift{ transition:transform .45s cubic-bezier(.34,1.56,.64,1); }
+  .group:hover .ico-shift{ transform:scale(1.12) rotate(-4deg); }
+
+  /* ---------- orbit ---------- */
+  @keyframes spin{ to{transform:rotate(360deg)} }
+  .orbit-ring{ animation:spin 46s linear infinite; }
+  .orbit-ring-r{ animation:spin 62s linear infinite reverse; }
+
+  /* ---------- tabs ---------- */
+  .tab-btn.active{ background:var(--deep); color:#fff; box-shadow:0 10px 24px -10px rgba(0,28,82,.7); }
+  .tab-btn.active .tb-dot{ background:var(--flame); }
+  .panel{ display:none; }
+  .panel.show{ display:block; animation:panelIn .55s cubic-bezier(.16,1,.3,1); }
+  @keyframes panelIn{ from{opacity:0; transform:translateY(18px)} to{opacity:1;transform:none} }
+
+  /* ---------- marquee ---------- */
+  @keyframes scrollX{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  .marquee-track{ display:flex; width:max-content; animation:scrollX 42s linear infinite; }
+  .marquee:hover .marquee-track{ animation-play-state:paused; }
+
+  /* ---------- misc ---------- */
+  .clip-photo-r{ clip-path: path('M0,0 H86% Q100%,50% 86%,100% H0 Z'); }
+  .lang-hide{ display:none !important; }
+  .grain{ background-image:radial-gradient(circle at 1px 1px, rgba(11,49,92,.07) 1px, transparent 0); background-size:22px 22px; }
+  ::selection{ background:#FDD8C2; color:#0B315C; }
+  #bar{ transform-origin:left; transform:scaleX(0); }
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-6px; height:2px; width:100%; background:var(--flame); transform:scaleX(0); transform-origin:right; transition:transform .35s cubic-bezier(.16,1,.3,1); }
+  .nav-link:hover::after, .nav-link.active::after{ transform:scaleX(1); transform-origin:left; }
+</style>
+</head>
+<body class="font-body antialiased">
+
+<!-- ============ scroll progress ============ -->
+<div class="fixed top-0 left-0 right-0 h-[3px] z-[60] bg-transparent">
+  <div id="bar" class="h-full bg-gradient-to-r from-navy-deep via-flame to-flame-bright"></div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <div class="mx-auto max-w-[1320px] px-5 lg:px-8">
+    <div id="navInner" class="flex items-center justify-between gap-4 rounded-2xl bg-white/80 backdrop-blur-xl ring-1 ring-navy/5 shadow-card transition-all duration-500 px-4 lg:px-6 py-2.5 mt-2.5">
+      <a href="#hero" class="flex items-center gap-2 shrink-0">
+        <img id="navLogo" src="assets/logo_ha.png" alt="Healthcare Alliance" class="h-8 lg:h-10 w-auto transition-all duration-500">
+      </a>
+
+      <nav class="hidden xl:flex items-center gap-5 2xl:gap-7 text-[12px] 2xl:text-[13px] font-semibold text-navy font-head tracking-wide [&>a]:whitespace-nowrap">
+        <a href="#about"     class="nav-link" data-en="ABOUT" data-vi="GIỚI THIỆU">ABOUT</a>
+        <a href="#vision"    class="nav-link" data-en="VISION" data-vi="TẦM NHÌN">VISION</a>
+        <a href="#leadership"class="nav-link" data-en="LEADERSHIP" data-vi="LÃNH ĐẠO">LEADERSHIP</a>
+        <a href="#ecosystem" class="nav-link" data-en="ECOSYSTEM" data-vi="HỆ SINH THÁI">ECOSYSTEM</a>
+        <a href="#solutions" class="nav-link" data-en="SOLUTIONS" data-vi="GIẢI PHÁP">SOLUTIONS</a>
+        <a href="#impact"    class="nav-link" data-en="IMPACT" data-vi="TÁC ĐỘNG">IMPACT</a>
+        <a href="#projects"  class="nav-link" data-en="PROJECTS" data-vi="DỰ ÁN">PROJECTS</a>
+        <a href="#partners"  class="nav-link" data-en="PARTNERS" data-vi="ĐỐI TÁC">PARTNERS</a>
+        <a href="#clients"   class="nav-link" data-en="CLIENTS" data-vi="KHÁCH HÀNG">CLIENTS</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <!-- lang switch -->
+        <div class="flex items-center rounded-full bg-navy-deep/5 p-1 ring-1 ring-navy/10">
+          <button data-lang="en" class="lang-btn px-2.5 py-1 text-[11px] font-head font-bold rounded-full transition-all duration-300 bg-navy-deep text-white">EN</button>
+          <button data-lang="vi" class="lang-btn px-2.5 py-1 text-[11px] font-head font-bold rounded-full transition-all duration-300 text-navy">VI</button>
+        </div>
+        <a href="#contact" class="hidden sm:inline-flex whitespace-nowrap items-center gap-2 rounded-full bg-flame px-5 py-2.5 text-[12px] font-head font-bold text-white tracking-wide shadow-ring hover:bg-flame-bright hover:shadow-lift transition-all duration-300 hover:-translate-y-0.5">
+          <span data-en="CONTACT US" data-vi="LIÊN HỆ">CONTACT US</span>
+        </a>
+        <button id="burger" class="xl:hidden grid place-items-center h-10 w-10 rounded-xl bg-navy-deep text-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="xl:hidden max-h-0 overflow-hidden transition-all duration-500 bg-white/97 backdrop-blur-xl border-t border-navy/5">
+    <nav class="mx-auto max-w-[1320px] px-6 py-4 grid grid-cols-2 gap-x-4 gap-y-1 text-[13px] font-head font-semibold text-navy">
+      <a href="#about"      class="py-2.5 border-b border-navy/5" data-en="ABOUT" data-vi="GIỚI THIỆU">ABOUT</a>
+      <a href="#vision"     class="py-2.5 border-b border-navy/5" data-en="VISION" data-vi="TẦM NHÌN">VISION</a>
+      <a href="#founder"    class="py-2.5 border-b border-navy/5" data-en="FOUNDER" data-vi="NHÀ SÁNG LẬP">FOUNDER</a>
+      <a href="#leadership" class="py-2.5 border-b border-navy/5" data-en="LEADERSHIP" data-vi="LÃNH ĐẠO">LEADERSHIP</a>
+      <a href="#ecosystem"  class="py-2.5 border-b border-navy/5" data-en="ECOSYSTEM" data-vi="HỆ SINH THÁI">ECOSYSTEM</a>
+      <a href="#solutions"  class="py-2.5 border-b border-navy/5" data-en="SOLUTIONS" data-vi="GIẢI PHÁP">SOLUTIONS</a>
+      <a href="#impact"     class="py-2.5 border-b border-navy/5" data-en="IMPACT" data-vi="TÁC ĐỘNG">IMPACT</a>
+      <a href="#projects"   class="py-2.5 border-b border-navy/5" data-en="PROJECTS" data-vi="DỰ ÁN">PROJECTS</a>
+      <a href="#partners"   class="py-2.5 border-b border-navy/5" data-en="PARTNERS" data-vi="ĐỐI TÁC">PARTNERS</a>
+      <a href="#contact"    class="py-2.5 border-b border-navy/5 text-flame" data-en="CONTACT" data-vi="LIÊN HỆ">CONTACT</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO (slide 1) ============ -->
+<section id="hero" class="relative min-h-[100svh] lg:min-h-[860px] overflow-hidden bg-gradient-to-br from-[#EEF4FB] via-[#F7FAFD] to-white">
+  <!-- soft city silhouette left -->
+  <div class="absolute inset-y-0 left-0 w-1/2 opacity-[.35] pointer-events-none"
+       style="background:radial-gradient(ellipse at 10% 90%, rgba(11,49,92,.16), transparent 60%);"></div>
+  <div class="absolute inset-0 grain opacity-40 pointer-events-none"></div>
+
+  <!-- right photo -->
+  <div class="absolute top-0 right-0 h-[62%] w-full lg:h-full lg:w-[62%] overflow-hidden hero-photo">
+    <img src="assets/hero_doctor.png" alt="" id="heroImg"
+         class="h-full w-full object-cover object-[62%_center] scale-105 transition-transform duration-[1600ms] ease-out">
+    <div class="absolute inset-0 bg-gradient-to-t from-[#EEF4FB] via-[#EEF4FB]/55 to-transparent lg:hidden"></div>
+  </div>
+
+  <!-- floating medical crosses -->
+  <div class="absolute inset-0 pointer-events-none hidden lg:block">
+    <div class="float absolute left-[54%] top-[22%] h-9 w-9 rounded-lg bg-white/70 backdrop-blur-sm shadow-ring grid place-items-center">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1D7BD8" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </div>
+    <div class="float2 absolute left-[88%] top-[46%] h-11 w-11 rounded-full bg-white/70 backdrop-blur-sm shadow-ring grid place-items-center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E36414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>
+    </div>
+    <div class="float absolute left-[70%] top-[70%] h-8 w-8 rounded-lg bg-white/60 backdrop-blur-sm shadow-ring grid place-items-center" style="animation-delay:-2.4s">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1D7BD8" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+    </div>
+  </div>
+
+  <!-- content -->
+  <div class="relative z-10 mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="pt-[30svh] lg:pt-[210px] pb-[22vh] lg:pb-0 max-w-[640px]">
+      <img src="assets/logo_ha.png" alt="Healthcare Alliance" class="h-[52px] lg:h-[64px] w-auto rv" style="transition-delay:.05s">
+
+      <h1 class="mt-8 lg:mt-10 font-head font-extrabold leading-[1.12] tracking-[-.02em] text-[34px] sm:text-[44px] lg:text-[54px] text-navy">
+        <span class="block rv" style="transition-delay:.18s" data-en="A Specialized" data-vi="Hệ Sinh Thái">A Specialized</span>
+        <span class="block rv" style="transition-delay:.30s"><span class="text-flame" data-en="Ecosystem" data-vi="Chuyên Biệt">Ecosystem</span> <span data-en="for" data-vi="cho">for</span></span>
+        <span class="block rv" style="transition-delay:.42s" data-en="Healthcare Success" data-vi="Thành Công Y Tế">Healthcare Success</span>
+      </h1>
+
+      <div class="mt-7 bar-orange rv in" style="transition-delay:.6s"></div>
+
+      <p class="mt-6 text-[16px] lg:text-[19px] leading-relaxed text-navy/75 max-w-[440px] rv" style="transition-delay:.68s"
+         data-en="Connecting Expertise. Empowering Growth. Transforming Healthcare."
+         data-vi="Kết Nối Chuyên Môn. Thúc Đẩy Tăng Trưởng. Chuyển Đổi Y Tế.">
+        Connecting Expertise. Empowering Growth. Transforming Healthcare.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-3 rv" style="transition-delay:.8s">
+        <a href="#ecosystem" class="group inline-flex items-center gap-2.5 rounded-full bg-navy-deep px-7 py-3.5 text-[13px] font-head font-bold text-white tracking-wide shadow-lift hover:bg-navy transition-all duration-300 hover:-translate-y-0.5">
+          <span data-en="EXPLORE OUR ECOSYSTEM" data-vi="KHÁM PHÁ HỆ SINH THÁI">EXPLORE OUR ECOSYSTEM</span>
+          <svg class="transition-transform duration-300 group-hover:translate-x-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full border-2 border-navy/15 bg-white/70 backdrop-blur px-7 py-3.5 text-[13px] font-head font-bold text-navy tracking-wide hover:border-flame hover:text-flame transition-all duration-300">
+          <span data-en="TALK TO US" data-vi="LIÊN HỆ NGAY">TALK TO US</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- navy wave bottom (as in slide 1) -->
+  <div class="absolute bottom-0 inset-x-0 pointer-events-none">
+    <svg class="w-full h-[130px] lg:h-[190px]" viewBox="0 0 1366 190" preserveAspectRatio="none" fill="none">
+      <path d="M0,74 C260,150 520,196 1366,120 L1366,190 L0,190 Z" fill="#001C52"/>
+      <path d="M0,60 C270,140 540,186 1366,104" stroke="#2C5C9E" stroke-width="1.5" opacity=".55"/>
+    </svg>
+  </div>
+  <div class="absolute bottom-5 lg:bottom-7 left-6 lg:left-8 z-10 text-white/85 text-[12px] lg:text-[13px] font-medium tracking-wide">
+    Ho Chi Minh City, 2026
+  </div>
+</section>
+
+<!-- ============ VIETNAM HEALTHCARE MARKET (slide 2) ============ -->
+<section id="market" style="scroll-margin-top:96px" class="relative overflow-hidden">
+
+  <!-- ============ DESKTOP: finished background artwork + text/card overlay ============ -->
+  <div class="market-desktop hidden lg:block">
+    <div class="market-desktop__canvas">
+      <img src="assets/VIETNAM-HEAKTHCARE-MARKET.png" alt="Hanoi skyline and Vietnam map" class="absolute inset-0 h-full w-full object-fill pointer-events-none select-none">
+
+      <!-- left content -->
+      <div class="market-desktop__copy rv-l">
+        <h2 class="market-desktop__title font-head font-extrabold">
+          <span class="block text-navy" data-en="VIETNAM" data-vi="THỊ TRƯỜNG">VIETNAM</span>
+          <span class="block text-flame" data-en="HEALTHCARE MARKET" data-vi="Y TẾ VIỆT NAM">HEALTHCARE MARKET</span>
+        </h2>
+        <div class="market-desktop__rule bar-orange"></div>
+        <p class="market-desktop__lead font-head font-medium text-navy"
+           data-en="A Market Driven by Growth, Innovation, and Opportunity"
+           data-vi="Thị trường được dẫn dắt bởi Tăng trưởng, Đổi mới và Cơ hội">
+          A Market Driven by Growth, Innovation, and Opportunity
+        </p>
+        <p class="market-desktop__body text-navy"
+           data-en="Vietnam's healthcare sector is undergoing rapid transformation, fueled by rising demand, increasing investment, workforce development needs, and stronger ecosystem collaboration."
+           data-vi="Ngành y tế Việt Nam đang chuyển mình mạnh mẽ, được thúc đẩy bởi nhu cầu gia tăng, dòng vốn đầu tư mở rộng, nhu cầu phát triển nguồn nhân lực và sự hợp tác chặt chẽ hơn trong toàn hệ sinh thái.">
+          Vietnam's healthcare sector is undergoing rapid transformation, fueled by rising demand, increasing investment, workforce development needs, and stronger ecosystem collaboration.
+        </p>
+      </div>
+
+      <!-- Four feature cards aligned to the reference slide artwork -->
+      <article class="market-feature rv-r card group" style="top:20.9%; transition-delay:.05s;">
+        <div class="market-feature__rule"></div>
+        <div>
+          <h3 class="font-head font-bold text-navy tracking-wide text-[clamp(13px,1.1vw,16px)]" data-en="GROWING HEALTHCARE DEMAND" data-vi="NHU CẦU Y TẾ TĂNG TRƯỞNG">GROWING HEALTHCARE DEMAND</h3>
+          <p class="mt-1.5 text-navy/65 leading-relaxed text-[clamp(11.5px,1vw,14px)]"
+             data-en="Increasing healthcare awareness, demographic shifts, and rising incomes continue to accelerate healthcare consumption."
+             data-vi="Nhận thức về sức khỏe gia tăng, chuyển dịch nhân khẩu học và thu nhập tăng đang thúc đẩy tiêu dùng y tế.">
+            Increasing healthcare awareness, demographic shifts, and rising incomes continue to accelerate healthcare consumption.</p>
+        </div>
+      </article>
+      <img src="assets/ico_mkt1.png" alt="Healthcare demand growth" class="market-feature__icon ico-shift" style="left:57.5%; top:20.9%;">
+
+      <article class="market-feature rv-r card group" style="top:41.4%; transition-delay:.18s;">
+        <div class="market-feature__rule"></div>
+        <div>
+          <h3 class="font-head font-bold text-navy tracking-wide text-[clamp(13px,1.1vw,16px)]" data-en="EXPANDING WORKFORCE NEEDS" data-vi="NHU CẦU NHÂN LỰC MỞ RỘNG">EXPANDING WORKFORCE NEEDS</h3>
+          <p class="mt-1.5 text-navy/65 leading-relaxed text-[clamp(11.5px,1vw,14px)]"
+             data-en="Healthcare organizations require qualified talent, leadership capabilities, and continuous professional development."
+             data-vi="Các tổ chức y tế cần nhân sự chất lượng, năng lực lãnh đạo và phát triển chuyên môn liên tục.">
+            Healthcare organizations require qualified talent, leadership capabilities, and continuous professional development.</p>
+        </div>
+      </article>
+      <img src="assets/ico_mkt2.png" alt="Healthcare workforce" class="market-feature__icon ico-shift" style="left:59.3%; top:41.4%;">
+
+      <article class="market-feature rv-r card group" style="top:61.2%; transition-delay:.31s;">
+        <div class="market-feature__rule"></div>
+        <div>
+          <h3 class="font-head font-bold text-navy tracking-wide text-[clamp(13px,1.1vw,16px)]" data-en="INCREASED INVESTMENT &amp; INNOVATION" data-vi="ĐẦU TƯ &amp; ĐỔI MỚI GIA TĂNG">INCREASED INVESTMENT &amp; INNOVATION</h3>
+          <p class="mt-1.5 text-navy/65 leading-relaxed text-[clamp(11.5px,1vw,14px)]"
+             data-en="Growing investment is strengthening healthcare infrastructure, innovation, and service quality."
+             data-vi="Đầu tư gia tăng đang củng cố hạ tầng y tế, đổi mới sáng tạo và chất lượng dịch vụ.">
+            Growing investment is strengthening healthcare infrastructure, innovation, and service quality.</p>
+        </div>
+      </article>
+      <img src="assets/ico_mkt3.png" alt="Healthcare investment" class="market-feature__icon ico-shift" style="left:59.3%; top:61.2%;">
+
+      <article class="market-feature rv-r card group" style="top:80.6%; transition-delay:.44s;">
+        <div class="market-feature__rule"></div>
+        <div>
+          <h3 class="font-head font-bold text-navy tracking-wide text-[clamp(13px,1.1vw,16px)]" data-en="ECOSYSTEM COLLABORATION OPPORTUNITIES" data-vi="CƠ HỘI HỢP TÁC HỆ SINH THÁI">ECOSYSTEM COLLABORATION OPPORTUNITIES</h3>
+          <p class="mt-1.5 text-navy/65 leading-relaxed text-[clamp(11.5px,1vw,14px)]"
+             data-en="Strategic partnerships and integrated solutions are becoming critical for sustainable growth."
+             data-vi="Quan hệ đối tác chiến lược và giải pháp tích hợp trở nên thiết yếu cho tăng trưởng bền vững.">
+            Strategic partnerships and integrated solutions are becoming critical for sustainable growth.</p>
+        </div>
+      </article>
+      <img src="assets/ico_mkt4.png" alt="Healthcare ecosystem collaboration" class="market-feature__icon ico-shift" style="left:57.6%; top:80.6%;">
+
+      <div class="market-desktop__caption">
+        <svg viewBox="0 0 120 220" aria-hidden="true" fill="currentColor"><path d="M62 4c8 14 12 30 9 44-3 15-14 25-16 40-2 14 6 26 8 40 2 15-3 30-13 42-8 10-19 17-26 27 6-16 14-31 17-48 3-16-1-32-3-48-2-18-1-37 8-53C53 32 60 19 62 4z"/></svg>
+        <p class="font-head font-semibold" data-en="A Dynamic Market Creating New Opportunities Across Healthcare" data-vi="Một thị trường năng động, mở ra cơ hội mới trên toàn ngành y tế">A Dynamic Market Creating New<br>Opportunities Across Healthcare</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MOBILE / TABLET: stacked fallback ============ -->
+  <div class="lg:hidden relative">
+    <!-- background wash -->
+    <div class="absolute inset-0 -z-10" style="background:
+        radial-gradient(circle at 26% 18%, rgba(151,197,240,.55), transparent 55%),
+        radial-gradient(circle at 88% 78%, rgba(151,197,240,.28), transparent 50%),
+        linear-gradient(160deg, #EAF3FC 0%, #F5FAFE 45%, #FFFFFF 100%);"></div>
+
+    <!-- medical + decorations -->
+    <div class="absolute inset-0 pointer-events-none select-none hidden sm:block">
+      <svg class="float absolute left-[31%] top-[7%] h-6 w-6 opacity-[.18]" viewBox="0 0 24 24" fill="none" stroke="#0B315C" stroke-width="3" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+      <svg class="float2 absolute left-[43%] top-[4%] h-4 w-4 opacity-[.14]" viewBox="0 0 24 24" fill="none" stroke="#0B315C" stroke-width="3" stroke-linecap="round" style="animation-delay:-1.6s"><path d="M12 5v14M5 12h14"/></svg>
+      <svg class="float absolute left-[37%] top-[14%] h-3.5 w-3.5 opacity-[.16]" viewBox="0 0 24 24" fill="none" stroke="#0B315C" stroke-width="3" stroke-linecap="round" style="animation-delay:-3s"><path d="M12 5v14M5 12h14"/></svg>
+      <svg class="float2 absolute left-[64%] top-[10%] h-5 w-5 opacity-[.12]" viewBox="0 0 24 24" fill="none" stroke="#E36414" stroke-width="3" stroke-linecap="round" style="animation-delay:-2s"><path d="M12 5v14M5 12h14"/></svg>
+    </div>
+
+    <!-- Vietnam watermark -->
+    <div class="absolute right-0 top-0 bottom-0 w-[42%] opacity-[.09] pointer-events-none select-none">
+      <svg viewBox="0 0 120 220" fill="#3C77B4" class="h-full w-full" preserveAspectRatio="xMaxYMid slice"><path d="M62 4c8 14 12 30 9 44-3 15-14 25-16 40-2 14 6 26 8 40 2 15-3 30-13 42-8 10-19 17-26 27 6-16 14-31 17-48 3-16-1-32-3-48-2-18-1-37 8-53C53 32 60 19 62 4z"/></svg>
+    </div>
+
+    <div class="relative px-6 sm:px-8 pt-16 pb-10">
+      <div class="grid gap-10">
+        <!-- LEFT -->
+        <div class="rv-l relative z-20">
+          <h2 class="font-head font-extrabold leading-[1.04] tracking-[-.01em] text-[38px] sm:text-[46px] lg:text-[52px]">
+            <span class="block text-navy" data-en="VIETNAM" data-vi="THỊ TRƯỜNG">VIETNAM</span>
+            <span class="block text-flame" data-en="HEALTHCARE MARKET" data-vi="Y TẾ VIỆT NAM">HEALTHCARE MARKET</span>
+          </h2>
+          <div class="mt-5 bar-orange"></div>
+          <p class="mt-6 font-head font-bold text-[22px] lg:text-[26px] leading-snug text-navy max-w-[480px]"
+             data-en="A Market Driven by Growth, Innovation, and Opportunity"
+             data-vi="Thị trường được dẫn dắt bởi Tăng trưởng, Đổi mới và Cơ hội">
+            A Market Driven by Growth, Innovation, and Opportunity
+          </p>
+          <p class="mt-4 text-[16px] lg:text-[18px] leading-[1.7] text-navy/70 justified max-w-[480px]"
+             data-en="Vietnam's healthcare sector is undergoing rapid transformation, fueled by rising demand, increasing investment, workforce development needs, and stronger ecosystem collaboration."
+             data-vi="Ngành y tế Việt Nam đang chuyển mình mạnh mẽ, được thúc đẩy bởi nhu cầu gia tăng, dòng vốn đầu tư mở rộng, nhu cầu phát triển nguồn nhân lực và sự hợp tác chặt chẽ hơn trong toàn hệ sinh thái.">
+            Vietnam's healthcare sector is undergoing rapid transformation, fueled by rising demand, increasing investment, workforce development needs, and stronger ecosystem collaboration.
+          </p>
+
+          <!-- Hanoi photo -->
+          <div class="mt-8 -mx-6 sm:-mx-8 relative h-[240px] sm:h-[320px] overflow-hidden">
+            <img src="assets/vn_market.jpg" alt="Vietnam" class="h-full w-full object-cover object-top origin-top scale-[1.27]">
+          </div>
+        </div>
+
+        <!-- RIGHT: 4 feature blocks -->
+        <div class="relative z-20 mt-2">
+          <div class="space-y-7">
+            <!-- 01 -->
+            <div class="rv-r relative flex items-center" style="transition-delay:.05s">
+              <img src="assets/ico_mkt1.png" class="ico-shift absolute -left-7 sm:-left-8 z-10 h-[80px] sm:h-[92px] w-auto drop-shadow-lg" alt="">
+              <article class="card group w-full bg-white/95 rounded-[24px] shadow-card hover:shadow-lift pl-12 sm:pl-14 pr-5 py-5 sm:py-6 flex items-center gap-4">
+                <div class="hidden sm:block shrink-0 w-[2px] h-[60px] bg-flame/70 rounded-full"></div>
+                <div>
+                  <h3 class="font-head font-bold text-[14.5px] tracking-wide text-navy" data-en="GROWING HEALTHCARE DEMAND" data-vi="NHU CẦU Y TẾ TĂNG TRƯỞNG">GROWING HEALTHCARE DEMAND</h3>
+                  <p class="mt-1.5 text-[13.5px] leading-relaxed text-navy/65"
+                     data-en="Increasing healthcare awareness, demographic shifts, and rising incomes continue to accelerate healthcare consumption."
+                     data-vi="Nhận thức về sức khỏe gia tăng, chuyển dịch nhân khẩu học và thu nhập tăng đang thúc đẩy tiêu dùng y tế.">
+                    Increasing healthcare awareness, demographic shifts, and rising incomes continue to accelerate healthcare consumption.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- 02 -->
+            <div class="rv-r relative flex items-center" style="transition-delay:.18s">
+              <img src="assets/ico_mkt2.png" class="ico-shift absolute -left-7 sm:-left-8 z-10 h-[80px] sm:h-[92px] w-auto drop-shadow-lg" alt="">
+              <article class="card group w-full bg-white/95 rounded-[24px] shadow-card hover:shadow-lift pl-12 sm:pl-14 pr-5 py-5 sm:py-6 flex items-center gap-4">
+                <div class="hidden sm:block shrink-0 w-[2px] h-[60px] bg-flame/70 rounded-full"></div>
+                <div>
+                  <h3 class="font-head font-bold text-[14.5px] tracking-wide text-navy" data-en="EXPANDING WORKFORCE NEEDS" data-vi="NHU CẦU NHÂN LỰC MỞ RỘNG">EXPANDING WORKFORCE NEEDS</h3>
+                  <p class="mt-1.5 text-[13.5px] leading-relaxed text-navy/65"
+                     data-en="Healthcare organizations require qualified talent, leadership capabilities, and continuous professional development."
+                     data-vi="Các tổ chức y tế cần nhân sự chất lượng, năng lực lãnh đạo và phát triển chuyên môn liên tục.">
+                    Healthcare organizations require qualified talent, leadership capabilities, and continuous professional development.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- 03 -->
+            <div class="rv-r relative flex items-center" style="transition-delay:.31s">
+              <img src="assets/ico_mkt3.png" class="ico-shift absolute -left-7 sm:-left-8 z-10 h-[80px] sm:h-[92px] w-auto drop-shadow-lg" alt="">
+              <article class="card group w-full bg-white/95 rounded-[24px] shadow-card hover:shadow-lift pl-12 sm:pl-14 pr-5 py-5 sm:py-6 flex items-center gap-4">
+                <div class="hidden sm:block shrink-0 w-[2px] h-[60px] bg-flame/70 rounded-full"></div>
+                <div>
+                  <h3 class="font-head font-bold text-[14.5px] tracking-wide text-navy" data-en="INCREASED INVESTMENT &amp; INNOVATION" data-vi="ĐẦU TƯ &amp; ĐỔI MỚI GIA TĂNG">INCREASED INVESTMENT &amp; INNOVATION</h3>
+                  <p class="mt-1.5 text-[13.5px] leading-relaxed text-navy/65"
+                     data-en="Growing investment is strengthening healthcare infrastructure, innovation, and service quality."
+                     data-vi="Đầu tư gia tăng đang củng cố hạ tầng y tế, đổi mới sáng tạo và chất lượng dịch vụ.">
+                    Growing investment is strengthening healthcare infrastructure, innovation, and service quality.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- 04 -->
+            <div class="rv-r relative flex items-center" style="transition-delay:.44s">
+              <img src="assets/ico_mkt4.png" class="ico-shift absolute -left-7 sm:-left-8 z-10 h-[80px] sm:h-[92px] w-auto drop-shadow-lg" alt="">
+              <article class="card group w-full bg-white/95 rounded-[24px] shadow-card hover:shadow-lift pl-12 sm:pl-14 pr-5 py-5 sm:py-6 flex items-center gap-4">
+                <div class="hidden sm:block shrink-0 w-[2px] h-[60px] bg-flame/70 rounded-full"></div>
+                <div>
+                  <h3 class="font-head font-bold text-[14.5px] tracking-wide text-navy" data-en="ECOSYSTEM COLLABORATION OPPORTUNITIES" data-vi="CƠ HỘI HỢP TÁC HỆ SINH THÁI">ECOSYSTEM COLLABORATION OPPORTUNITIES</h3>
+                  <p class="mt-1.5 text-[13.5px] leading-relaxed text-navy/65"
+                     data-en="Strategic partnerships and integrated solutions are becoming critical for sustainable growth."
+                     data-vi="Quan hệ đối tác chiến lược và giải pháp tích hợp trở nên thiết yếu cho tăng trưởng bền vững.">
+                    Strategic partnerships and integrated solutions are becoming critical for sustainable growth.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- bottom organic navy shape -->
+  <div class="relative mt-8 lg:hidden">
+    <svg class="block w-full h-[80px] sm:h-[92px] lg:h-[110px]" viewBox="0 0 1440 110" preserveAspectRatio="none">
+      <path d="M0,55 L110,16 L1440,16 L1440,110 L0,110 Z" fill="#001C52"/>
+      <path d="M0,55 L110,16 L1440,16" stroke="#E36414" stroke-width="3" fill="none" vector-effect="non-scaling-stroke"/>
+    </svg>
+    <div class="absolute inset-0 flex items-center">
+      <div class="w-full mx-auto max-w-[1440px] px-6 lg:px-10 flex items-center gap-3 lg:gap-4">
+        <svg viewBox="0 0 120 220" class="h-6 sm:h-7 lg:h-9 w-auto shrink-0" fill="#fff"><path d="M62 4c8 14 12 30 9 44-3 15-14 25-16 40-2 14 6 26 8 40 2 15-3 30-13 42-8 10-19 17-26 27 6-16 14-31 17-48 3-16-1-32-3-48-2-18-1-37 8-53C53 32 60 19 62 4z"/></svg>
+        <p class="font-head font-bold text-[12.5px] sm:text-[14px] lg:text-[16px] leading-snug text-white max-w-[560px]"
+           data-en="A Dynamic Market Creating New Opportunities Across Healthcare"
+           data-vi="Một thị trường năng động, mở ra cơ hội mới trên toàn ngành y tế">
+          A Dynamic Market Creating New Opportunities Across Healthcare
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT (slide 3) ============ -->
+<section id="about" style="scroll-margin-top:96px" class="relative bg-white">
+  <div class="grid lg:grid-cols-[minmax(0,42%)_minmax(0,58%)] items-stretch">
+    <!-- photo with curved right edge -->
+    <div class="relative min-h-[320px] lg:min-h-[640px] overflow-hidden rv-l">
+      <img src="assets/about_meeting.jpg" alt="" class="absolute inset-0 h-full w-full object-cover">
+      <div class="absolute inset-0 bg-navy-deep/10"></div>
+      <!-- curved white edge + orange stroke -->
+      <svg class="hidden lg:block absolute top-0 right-[-2px] h-full w-[90px]" viewBox="0 0 90 640" preserveAspectRatio="none" fill="none">
+        <path d="M90,0 C24,0 88,180 88,320 C88,460 24,640 90,640 Z" fill="#ffffff"/>
+        <path d="M90,0 C24,0 88,180 88,320 C88,460 24,640 90,640" stroke="#E36414" stroke-width="4" fill="none"/>
+      </svg>
+      <div class="lg:hidden absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+    </div>
+
+    <!-- text -->
+    <div class="px-6 lg:px-14 py-14 lg:py-24 flex flex-col justify-center">
+      <div class="rv-r">
+        <h2 class="font-head font-extrabold leading-[1.06] tracking-[-.02em] text-[32px] sm:text-[40px] lg:text-[47px]">
+          <span class="block text-navy" data-en="ABOUT" data-vi="VỀ">ABOUT</span>
+          <span class="block text-flame" data-en="HEALTHCARE ALLIANCE" data-vi="HEALTHCARE ALLIANCE">HEALTHCARE ALLIANCE</span>
+        </h2>
+        <div class="mt-5 bar-orange"></div>
+        <p class="mt-5 font-head font-semibold text-[18px] lg:text-[21px] text-navy"
+           data-en="Building an Integrated Healthcare Ecosystem"
+           data-vi="Kiến tạo Hệ sinh thái Y tế Tích hợp">Building an Integrated Healthcare Ecosystem</p>
+        <p class="mt-5 text-[15px] leading-[1.8] text-navy/70 justified max-w-[640px]"
+           data-en="Healthcare Alliance brings together specialized expertise across consulting, talent solutions, capability development, health education, and market intelligence."
+           data-vi="Healthcare Alliance quy tụ chuyên môn chuyên sâu trên các lĩnh vực tư vấn, giải pháp nhân sự, phát triển năng lực, giáo dục sức khỏe và nghiên cứu thị trường.">
+          Healthcare Alliance brings together specialized expertise across consulting, talent solutions, capability development, health education, and market intelligence.</p>
+        <p class="mt-4 text-[15px] leading-[1.8] text-navy/70 justified max-w-[640px]"
+           data-en="By connecting industry knowledge, professional networks, and practical execution, we help healthcare organizations accelerate growth and create sustainable impact."
+           data-vi="Bằng việc kết nối tri thức ngành, mạng lưới chuyên gia và năng lực triển khai thực tiễn, chúng tôi giúp các tổ chức y tế tăng tốc phát triển và tạo ra tác động bền vững.">
+          By connecting industry knowledge, professional networks, and practical execution, we help healthcare organizations accelerate growth and create sustainable impact.</p>
+      </div>
+
+      <!-- 5 pillar cards -->
+      <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 lg:gap-3.5">
+        <div class="rv-s card group rounded-xl bg-white shadow-card hover:shadow-lift p-4 text-center" style="transition-delay:.05s">
+          <img src="assets/ico_ab1.png" class="ico-shift mx-auto h-12 w-12" alt="">
+          <div class="mx-auto mt-3 h-[3px] w-8 bg-flame rounded"></div>
+          <p class="mt-2.5 font-head font-semibold text-[12.5px] leading-tight text-navy" data-en="Consulting &amp; Partnership" data-vi="Tư vấn &amp; Hợp tác">Consulting &amp; Partnership</p>
+        </div>
+        <div class="rv-s card group rounded-xl bg-white shadow-card hover:shadow-lift p-4 text-center" style="transition-delay:.12s">
+          <img src="assets/ico_ab2.png" class="ico-shift mx-auto h-12 w-12" alt="">
+          <div class="mx-auto mt-3 h-[3px] w-8 bg-flame rounded"></div>
+          <p class="mt-2.5 font-head font-semibold text-[12.5px] leading-tight text-navy" data-en="Talent Solutions" data-vi="Giải pháp Nhân sự">Talent Solutions</p>
+        </div>
+        <div class="rv-s card group rounded-xl bg-white shadow-card hover:shadow-lift p-4 text-center" style="transition-delay:.19s">
+          <img src="assets/ico_ab3.png" class="ico-shift mx-auto h-12 w-12" alt="">
+          <div class="mx-auto mt-3 h-[3px] w-8 bg-flame rounded"></div>
+          <p class="mt-2.5 font-head font-semibold text-[12.5px] leading-tight text-navy" data-en="Capability Development" data-vi="Phát triển Năng lực">Capability Development</p>
+        </div>
+        <div class="rv-s card group rounded-xl bg-white shadow-card hover:shadow-lift p-4 text-center" style="transition-delay:.26s">
+          <img src="assets/ico_ab4.png" class="ico-shift mx-auto h-12 w-12" alt="">
+          <div class="mx-auto mt-3 h-[3px] w-8 bg-flame rounded"></div>
+          <p class="mt-2.5 font-head font-semibold text-[12.5px] leading-tight text-navy" data-en="Health Education" data-vi="Giáo dục Sức khỏe">Health Education</p>
+        </div>
+        <div class="rv-s card group rounded-xl bg-white shadow-card hover:shadow-lift p-4 text-center col-span-2 sm:col-span-1" style="transition-delay:.33s">
+          <img src="assets/ico_ab5.png" class="ico-shift mx-auto h-12 w-12" alt="">
+          <div class="mx-auto mt-3 h-[3px] w-8 bg-flame rounded"></div>
+          <p class="mt-2.5 font-head font-semibold text-[12.5px] leading-tight text-navy" data-en="Market Intelligence" data-vi="Nghiên cứu Thị trường">Market Intelligence</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- navy band -->
+  <div class="relative bg-navy-deep">
+    <svg class="absolute -top-[1px] inset-x-0 w-full h-8 lg:h-12" viewBox="0 0 1366 48" preserveAspectRatio="none" fill="none">
+      <path d="M0,48 L0,26 C220,-14 420,4 1366,4 L1366,48 Z" fill="#001C52"/>
+      <path d="M0,26 C220,-14 420,4 1366,4" stroke="#E36414" stroke-width="2.5"/>
+    </svg>
+    <div class="mx-auto max-w-[1320px] px-6 lg:px-8 py-5 lg:py-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div class="flex gap-1.5">
+        <span class="h-2 w-2 rounded-full bg-flame"></span><span class="h-2 w-2 rounded-full bg-[#8E5BD3]"></span>
+        <span class="h-2 w-2 rounded-full bg-[#17A398]"></span><span class="h-2 w-2 rounded-full bg-[#3B72C4]"></span>
+      </div>
+      <p class="font-head font-semibold text-white text-[13px] lg:text-[15px] leading-tight"
+         data-en="Connecting Expertise Across Healthcare" data-vi="Kết nối Chuyên môn trên toàn ngành Y tế">Connecting Expertise Across Healthcare</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION & MISSION (slide 4) ============ -->
+<section id="vision" style="scroll-margin-top:96px" class="relative py-20 lg:py-28 bg-gradient-to-b from-white to-mist overflow-hidden">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="rv">
+      <h2 class="font-head font-extrabold tracking-[-.02em] text-[32px] sm:text-[40px] lg:text-[46px]">
+        <span class="text-navy" data-en="VISION" data-vi="TẦM NHÌN">VISION</span>
+        <span class="text-flame" data-en="&amp; MISSION" data-vi="&amp; SỨ MỆNH">&amp; MISSION</span>
+      </h2>
+      <div class="mt-4 bar-orange"></div>
+    </div>
+
+    <div class="mt-10 lg:mt-12 grid lg:grid-cols-2 gap-5 lg:gap-7">
+      <!-- VISION -->
+      <article class="rv-l group relative overflow-hidden rounded-3xl p-7 lg:p-9 shadow-lift"
+               style="background:radial-gradient(120% 140% at 78% 20%, #123C7E 0%, #072253 45%, #01143C 100%);">
+        <div class="absolute inset-0 opacity-[.10]" style="background-image:radial-gradient(circle at 2px 2px,#fff 1px,transparent 0);background-size:26px 26px"></div>
+        <div class="absolute -right-10 -bottom-10 h-56 w-56 rounded-full bg-white/5 blur-2xl"></div>
+        <div class="relative flex items-start gap-5 lg:gap-7">
+          <div class="relative shrink-0 pulse-ring rounded-full">
+            <img src="assets/ico_vision.png" class="ico-shift h-[92px] w-[92px] lg:h-[118px] lg:w-[118px]" alt="">
+          </div>
+          <div class="border-l border-white/25 pl-5 lg:pl-7">
+            <h3 class="font-head font-bold text-[19px] lg:text-[22px] tracking-wide">
+              <span class="text-white" data-en="OUR" data-vi="TẦM NHÌN">OUR</span>
+              <span class="text-flame" data-en="VISION" data-vi="CỦA CHÚNG TÔI">VISION</span>
+            </h3>
+            <div class="mt-2.5 h-[3px] w-16 bg-flame rounded"></div>
+            <p class="mt-4 text-[14.5px] lg:text-[15.5px] leading-[1.8] text-white/85 justified"
+               data-en="Become the leading healthcare ecosystem platform in Vietnam, connecting expertise, talent, knowledge, and innovation to create sustainable value for the healthcare industry."
+               data-vi="Trở thành nền tảng hệ sinh thái y tế hàng đầu tại Việt Nam, kết nối chuyên môn, nhân tài, tri thức và đổi mới sáng tạo nhằm tạo ra giá trị bền vững cho ngành y tế.">
+              Become the leading healthcare ecosystem platform in Vietnam, connecting expertise, talent, knowledge, and innovation to create sustainable value for the healthcare industry.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- MISSION -->
+      <article class="rv-r group relative overflow-hidden rounded-3xl p-7 lg:p-9 shadow-lift"
+               style="background:radial-gradient(120% 140% at 78% 20%, #FF7A2E 0%, #F2620A 45%, #DE5405 100%);">
+        <div class="absolute inset-0 opacity-[.12]" style="background-image:radial-gradient(circle at 2px 2px,#fff 1px,transparent 0);background-size:26px 26px"></div>
+        <div class="absolute -right-10 -bottom-10 h-56 w-56 rounded-full bg-white/10 blur-2xl"></div>
+        <div class="relative flex items-start gap-5 lg:gap-7">
+          <div class="shrink-0">
+            <img src="assets/ico_mission.png" class="ico-shift h-[92px] w-[92px] lg:h-[118px] lg:w-[118px]" alt="">
+          </div>
+          <div class="border-l border-white/35 pl-5 lg:pl-7">
+            <h3 class="font-head font-bold text-[19px] lg:text-[22px] tracking-wide">
+              <span class="text-white/85" data-en="OUR" data-vi="SỨ MỆNH">OUR</span>
+              <span class="text-white" data-en="MISSION" data-vi="CỦA CHÚNG TÔI">MISSION</span>
+            </h3>
+            <div class="mt-2.5 h-[3px] w-16 bg-white rounded"></div>
+            <p class="mt-4 text-[14.5px] lg:text-[15.5px] leading-[1.8] text-white/95 justified"
+               data-en="Empower healthcare organizations and professionals through integrated solutions, strategic partnerships, capability development, and industry intelligence that drive growth and positive healthcare outcomes."
+               data-vi="Trao quyền cho các tổ chức và chuyên gia y tế thông qua giải pháp tích hợp, quan hệ đối tác chiến lược, phát triển năng lực và tri thức ngành, thúc đẩy tăng trưởng và kết quả y tế tích cực.">
+              Empower healthcare organizations and professionals through integrated solutions, strategic partnerships, capability development, and industry intelligence that drive growth and positive healthcare outcomes.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- 4 values -->
+    <div class="mt-6 lg:mt-7 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
+      <div class="rv-s card group rounded-2xl bg-white shadow-card hover:shadow-lift p-5 flex items-start gap-4" style="transition-delay:.05s">
+        <img src="assets/ico_val1.png" class="ico-shift h-14 w-14 lg:h-[68px] lg:w-[68px] shrink-0" alt="">
+        <div class="border-l border-navy/10 pl-4">
+          <h4 class="font-head font-bold text-[13px] tracking-wide text-navy" data-en="EXPERTISE" data-vi="CHUYÊN MÔN">EXPERTISE</h4>
+          <div class="mt-1.5 h-[2px] w-9 bg-flame rounded"></div>
+          <p class="mt-2 text-[12.5px] leading-relaxed text-navy/65" data-en="Deep healthcare industry knowledge and specialization." data-vi="Kiến thức chuyên sâu và chuyên môn hóa trong ngành y tế.">Deep healthcare industry knowledge and specialization.</p>
+        </div>
+      </div>
+      <div class="rv-s card group rounded-2xl bg-white shadow-card hover:shadow-lift p-5 flex items-start gap-4" style="transition-delay:.13s">
+        <img src="assets/ico_val2.png" class="ico-shift h-14 w-14 lg:h-[68px] lg:w-[68px] shrink-0" alt="">
+        <div class="border-l border-navy/10 pl-4">
+          <h4 class="font-head font-bold text-[13px] tracking-wide text-navy" data-en="COLLABORATION" data-vi="HỢP TÁC">COLLABORATION</h4>
+          <div class="mt-1.5 h-[2px] w-9 bg-flame rounded"></div>
+          <p class="mt-2 text-[12.5px] leading-relaxed text-navy/65" data-en="Building meaningful partnerships across the healthcare ecosystem." data-vi="Xây dựng quan hệ đối tác ý nghĩa trên toàn hệ sinh thái y tế.">Building meaningful partnerships across the healthcare ecosystem.</p>
+        </div>
+      </div>
+      <div class="rv-s card group rounded-2xl bg-white shadow-card hover:shadow-lift p-5 flex items-start gap-4" style="transition-delay:.21s">
+        <img src="assets/ico_val3.png" class="ico-shift h-14 w-14 lg:h-[68px] lg:w-[68px] shrink-0" alt="">
+        <div class="border-l border-navy/10 pl-4">
+          <h4 class="font-head font-bold text-[13px] tracking-wide text-navy" data-en="INNOVATION" data-vi="ĐỔI MỚI">INNOVATION</h4>
+          <div class="mt-1.5 h-[2px] w-9 bg-flame rounded"></div>
+          <p class="mt-2 text-[12.5px] leading-relaxed text-navy/65" data-en="Embracing new ideas and opportunities for growth." data-vi="Đón nhận ý tưởng mới và cơ hội để tăng trưởng.">Embracing new ideas and opportunities for growth.</p>
+        </div>
+      </div>
+      <div class="rv-s card group rounded-2xl bg-white shadow-card hover:shadow-lift p-5 flex items-start gap-4" style="transition-delay:.29s">
+        <img src="assets/ico_val4.png" class="ico-shift h-14 w-14 lg:h-[68px] lg:w-[68px] shrink-0" alt="">
+        <div class="border-l border-navy/10 pl-4">
+          <h4 class="font-head font-bold text-[13px] tracking-wide text-navy" data-en="IMPACT" data-vi="TÁC ĐỘNG">IMPACT</h4>
+          <div class="mt-1.5 h-[2px] w-9 bg-flame rounded"></div>
+          <p class="mt-2 text-[12.5px] leading-relaxed text-navy/65" data-en="Creating measurable value for organizations and communities." data-vi="Tạo ra giá trị đo lường được cho tổ chức và cộng đồng.">Creating measurable value for organizations and communities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- navy statement band -->
+  <div class="relative mt-16 lg:mt-20 bg-navy-deep overflow-hidden">
+    <svg class="absolute -top-[1px] inset-x-0 w-full h-9 lg:h-14" viewBox="0 0 1366 56" preserveAspectRatio="none" fill="none">
+      <path d="M0,56 L0,30 C260,-16 500,6 1366,6 L1366,56 Z" fill="#001C52"/>
+      <path d="M0,30 C260,-16 500,6 1366,6" stroke="#E36414" stroke-width="2.5"/>
+    </svg>
+    <div class="absolute inset-0 opacity-30" style="background-image:radial-gradient(circle at 2px 2px,#5B9BE8 1px,transparent 0);background-size:40px 40px"></div>
+    <div class="relative py-7 lg:py-9 text-center">
+      <p class="font-head font-bold tracking-wide text-[15px] sm:text-[19px] lg:text-[23px] text-white">
+        <span class="text-flame">•</span>
+        <span data-en="DRIVEN BY" data-vi="DẪN DẮT BỞI">DRIVEN BY</span>
+        <span class="text-flame" data-en="PURPOSE" data-vi="MỤC ĐÍCH">PURPOSE</span>.
+        <span data-en="FOCUSED ON" data-vi="TẬP TRUNG VÀO">FOCUSED ON</span>
+        <span class="text-flame" data-en="IMPACT" data-vi="TÁC ĐỘNG">IMPACT</span>.
+        <span class="text-flame">•</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER (slide 5) ============ -->
+<section id="founder" style="scroll-margin-top:96px" class="relative bg-white overflow-hidden">
+  <div class="grid lg:grid-cols-[minmax(0,34%)_minmax(0,66%)]">
+    <!-- portrait panel -->
+    <div class="relative overflow-hidden rv-l" style="background:radial-gradient(120% 100% at 50% 30%, #0F3E82 0%, #04205A 50%, #01123A 100%);">
+      <div class="absolute inset-0 opacity-25" style="background-image:radial-gradient(circle at 2px 2px,#6FA8F0 1px,transparent 0);background-size:34px 34px"></div>
+      <!-- glow arcs -->
+      <svg class="absolute left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 w-[130%] opacity-60" viewBox="0 0 400 400" fill="none">
+        <circle cx="200" cy="200" r="150" stroke="#4E8FE0" stroke-width="1.2" opacity=".4"/>
+        <circle cx="200" cy="200" r="118" stroke="#7FB6F5" stroke-width="1.6" opacity=".55"/>
+        <circle cx="200" cy="200" r="182" stroke="#3C79C9" stroke-width="1" opacity=".3"/>
+      </svg>
+      <div class="relative px-7 lg:px-9 pt-12 lg:pt-14 text-white">
+        <h3 class="font-head font-bold text-[24px] lg:text-[28px] leading-tight">Mr. Nguyen Hoang Linh</h3>
+        <p class="mt-1 italic text-[15px] lg:text-[17px] text-white/85" data-en="Founder &amp; Chief Executive Officer" data-vi="Nhà sáng lập &amp; Tổng Giám đốc">Founder &amp; Chief Executive Officer</p>
+      </div>
+      <img src="assets/founder.png" alt="Nguyen Hoang Linh" class="relative mt-4 w-full max-w-[420px] mx-auto lg:max-w-none object-contain object-bottom">
+      <!-- orange curve edge -->
+      <svg class="hidden lg:block absolute top-0 right-[-1px] h-full w-[70px]" viewBox="0 0 70 700" preserveAspectRatio="none" fill="none">
+        <path d="M70,0 C10,0 62,200 62,350 C62,500 10,700 70,700 Z" fill="#ffffff"/>
+        <path d="M70,0 C10,0 62,200 62,350 C62,500 10,700 70,700" stroke="#E36414" stroke-width="4"/>
+      </svg>
+    </div>
+
+    <!-- content -->
+    <div class="relative px-6 lg:px-14 py-14 lg:py-16">
+      <div class="absolute inset-0 opacity-[.5] pointer-events-none" style="background:radial-gradient(ellipse at 90% 5%, rgba(60,120,200,.10), transparent 55%)"></div>
+      <div class="relative rv-r">
+        <h2 class="font-head font-extrabold tracking-[-.02em] text-[32px] sm:text-[40px] lg:text-[46px]">
+          <span class="text-navy" data-en="OUR" data-vi="NHÀ">OUR</span>
+          <span class="text-flame" data-en="FOUNDER" data-vi="SÁNG LẬP">FOUNDER</span>
+        </h2>
+        <p class="mt-5 border-l-[3px] border-flame pl-4 text-[14.5px] lg:text-[15.5px] leading-[1.75] text-navy/75 max-w-[720px]"
+           data-en="Nearly 20 years of leadership experience across pharmaceutical, healthcare services, healthcare consulting, commercial strategy, and talent development."
+           data-vi="Gần 20 năm kinh nghiệm lãnh đạo trong lĩnh vực dược phẩm, dịch vụ y tế, tư vấn y tế, chiến lược thương mại và phát triển nhân tài.">
+          Nearly 20 years of leadership experience across pharmaceutical, healthcare services, healthcare consulting, commercial strategy, and talent development.</p>
+      </div>
+
+      <div class="relative mt-9 grid lg:grid-cols-[minmax(0,1fr)_260px] gap-8 lg:gap-10 items-start">
+        <div class="space-y-5">
+          <div class="rv card group flex items-start gap-4" style="transition-delay:.05s">
+            <img src="assets/ico_fd1.png" class="ico-shift h-[58px] w-[58px] shrink-0" alt="">
+            <div>
+              <h4 class="font-head font-bold text-[14.5px] text-navy" data-en="Healthcare Commercial Leadership" data-vi="Lãnh đạo Thương mại Y tế">Healthcare Commercial Leadership</h4>
+              <p class="mt-1 text-[13px] leading-relaxed text-navy/65 justified" data-en="Nearly two decades leading commercial growth across pharmaceutical and healthcare organizations." data-vi="Gần hai thập kỷ dẫn dắt tăng trưởng thương mại tại các tổ chức dược phẩm và y tế.">Nearly two decades leading commercial growth across pharmaceutical and healthcare organizations.</p>
+            </div>
+          </div>
+          <div class="rv card group flex items-start gap-4" style="transition-delay:.13s">
+            <img src="assets/ico_fd2.png" class="ico-shift h-[58px] w-[58px] shrink-0" alt="">
+            <div>
+              <h4 class="font-head font-bold text-[14.5px] text-navy" data-en="Healthcare Ecosystem Builder" data-vi="Kiến tạo Hệ sinh thái Y tế">Healthcare Ecosystem Builder</h4>
+              <p class="mt-1 text-[13px] leading-relaxed text-navy/65 justified" data-en="Founder of Healthcare Alliance, connecting executive search, consulting, media, education, and healthcare business solutions." data-vi="Nhà sáng lập Healthcare Alliance, kết nối tuyển dụng cấp cao, tư vấn, truyền thông, giáo dục và giải pháp kinh doanh y tế.">Founder of Healthcare Alliance, connecting executive search, consulting, media, education, and healthcare business solutions.</p>
+            </div>
+          </div>
+          <div class="rv card group flex items-start gap-4" style="transition-delay:.21s">
+            <img src="assets/ico_fd3.png" class="ico-shift h-[58px] w-[58px] shrink-0" alt="">
+            <div>
+              <h4 class="font-head font-bold text-[14.5px] text-navy" data-en="Strategic Business Development" data-vi="Phát triển Kinh doanh Chiến lược">Strategic Business Development</h4>
+              <p class="mt-1 text-[13px] leading-relaxed text-navy/65 justified" data-en="Extensive experience in sales leadership, marketing strategy, channel development, and organizational growth." data-vi="Kinh nghiệm sâu rộng về lãnh đạo bán hàng, chiến lược marketing, phát triển kênh và tăng trưởng tổ chức.">Extensive experience in sales leadership, marketing strategy, channel development, and organizational growth.</p>
+            </div>
+          </div>
+          <div class="rv card group flex items-start gap-4" style="transition-delay:.29s">
+            <img src="assets/ico_fd4.png" class="ico-shift h-[58px] w-[58px] shrink-0" alt="">
+            <div>
+              <h4 class="font-head font-bold text-[14.5px] text-navy" data-en="Industry Network &amp; Partnership" data-vi="Mạng lưới &amp; Quan hệ Đối tác">Industry Network &amp; Partnership</h4>
+              <p class="mt-1 text-[13px] leading-relaxed text-navy/65 justified" data-en="Strong relationships with pharmaceutical companies, hospitals, distributors, investors, and healthcare professionals across Vietnam." data-vi="Quan hệ bền chặt với các công ty dược, bệnh viện, nhà phân phối, nhà đầu tư và chuyên gia y tế trên toàn Việt Nam.">Strong relationships with pharmaceutical companies, hospitals, distributors, investors, and healthcare professionals across Vietnam.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- quote -->
+        <figure class="rv-s relative rounded-2xl bg-white ring-1 ring-navy/10 shadow-card p-6 lg:sticky lg:top-28" style="transition-delay:.2s">
+          <svg class="text-navy/85" width="30" height="24" viewBox="0 0 30 24" fill="currentColor"><path d="M0 24V13.7C0 6.2 4.2 1.2 12 0l1.4 3.9C9 5.4 6.6 8 6.4 11.6H12V24H0zm17 0V13.7c0-7.5 4.2-12.5 12-13.7l1.4 3.9c-4.4 1.5-6.8 4.1-7 7.7H29V24H17z"/></svg>
+          <blockquote class="mt-3 font-head font-semibold text-[17px] lg:text-[19px] leading-snug text-navy"
+            data-en="Building connections that accelerate healthcare innovation and sustainable growth."
+            data-vi="Kiến tạo những kết nối thúc đẩy đổi mới y tế và tăng trưởng bền vững.">
+            Building connections that accelerate healthcare innovation and sustainable growth.</blockquote>
+          <svg class="mt-3 ml-auto text-navy/85 rotate-180" width="30" height="24" viewBox="0 0 30 24" fill="currentColor"><path d="M0 24V13.7C0 6.2 4.2 1.2 12 0l1.4 3.9C9 5.4 6.6 8 6.4 11.6H12V24H0zm17 0V13.7c0-7.5 4.2-12.5 12-13.7l1.4 3.9c-4.4 1.5-6.8 4.1-7 7.7H29V24H17z"/></svg>
+        </figure>
+      </div>
+
+      <!-- previous experience -->
+      <div class="relative mt-11 rv">
+        <div class="flex items-center gap-4">
+          <span class="h-px flex-1 bg-navy/15"></span>
+          <p class="font-head font-bold text-[12px] lg:text-[13px] tracking-[.12em] text-navy" data-en="PREVIOUS LEADERSHIP EXPERIENCE" data-vi="KINH NGHIỆM LÃNH ĐẠO TRƯỚC ĐÂY">PREVIOUS LEADERSHIP EXPERIENCE</p>
+          <span class="h-px flex-1 bg-navy/15"></span>
+        </div>
+        <div class="mt-5 flex flex-col lg:flex-row items-center gap-6 lg:gap-9">
+          <img src="assets/exp_logos.png" alt="DKSH, IQVIA, MSG, Phano Pharmacy" class="h-11 lg:h-[52px] w-auto object-contain lg:border-r lg:border-navy/15 lg:pr-8">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 lg:gap-6 text-center">
+            <div><p class="font-head font-extrabold text-[17px] text-navy">20+</p><p class="text-[11px] leading-tight text-navy/60" data-en="Years of Experience" data-vi="Năm Kinh nghiệm">Years of Experience</p></div>
+            <div><p class="font-head font-extrabold text-[15px] text-navy" data-en="Multiple" data-vi="Đa dạng">Multiple</p><p class="text-[11px] leading-tight text-navy/60" data-en="Healthcare Sectors" data-vi="Lĩnh vực Y tế">Healthcare Sectors</p></div>
+            <div><p class="font-head font-extrabold text-[15px] text-navy" data-en="Proven" data-vi="Chứng minh">Proven</p><p class="text-[11px] leading-tight text-navy/60" data-en="Executive Leadership" data-vi="Lãnh đạo Cấp cao">Executive Leadership</p></div>
+            <div><p class="font-head font-extrabold text-[15px] text-navy" data-en="Extensive" data-vi="Rộng khắp">Extensive</p><p class="text-[11px] leading-tight text-navy/60" data-en="Healthcare Network" data-vi="Mạng lưới Y tế">Healthcare Network</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-navy-deep py-4 lg:py-5">
+    <div class="mx-auto max-w-[1320px] px-6 lg:px-8 flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div class="flex gap-1.5">
+        <span class="h-2 w-2 rounded-full bg-flame"></span><span class="h-2 w-2 rounded-full bg-[#3B72C4]"></span>
+        <span class="h-2 w-2 rounded-full bg-[#17A398]"></span><span class="h-2 w-2 rounded-full bg-[#8E5BD3]"></span>
+        <span class="h-2 w-2 rounded-full bg-[#3B72C4]"></span>
+      </div>
+      <span class="h-5 w-px bg-white/25"></span>
+      <p class="font-head font-semibold text-white text-[13px] lg:text-[15px]" data-en="Leadership. Vision. Impact." data-vi="Lãnh đạo. Tầm nhìn. Tác động.">Leadership. Vision. Impact.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEADERSHIP (slide 6) ============ -->
+<section id="leadership" style="scroll-margin-top:96px" class="relative py-20 lg:py-28 bg-mist overflow-hidden">
+  <div class="absolute inset-0 grain opacity-60 pointer-events-none"></div>
+  <div class="relative mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="rv">
+      <h2 class="font-head font-extrabold tracking-[-.02em] text-[32px] sm:text-[40px] lg:text-[46px]">
+        <span class="text-navy" data-en="OUR" data-vi="ĐỘI NGŨ">OUR</span>
+        <span class="text-flame" data-en="LEADERSHIP" data-vi="LÃNH ĐẠO">LEADERSHIP</span>
+      </h2>
+      <p class="mt-3 font-head font-semibold text-[16px] lg:text-[19px] text-navy/90 max-w-[820px]"
+         data-en="A leadership team combining deep industry expertise, strategic vision, and execution excellence."
+         data-vi="Đội ngũ lãnh đạo hội tụ chuyên môn ngành sâu sắc, tầm nhìn chiến lược và năng lực triển khai xuất sắc.">
+        A leadership team combining deep industry expertise, strategic vision, and execution excellence.</p>
+      <div class="mt-3 bar-orange"></div>
+      <p class="mt-4 text-[14px] text-navy/65" data-en="Experienced leaders. Trusted advisor. Proven impact." data-vi="Lãnh đạo giàu kinh nghiệm. Cố vấn tin cậy. Tác động đã được chứng minh.">Experienced leaders. Trusted advisor. Proven impact.</p>
+    </div>
+
+    <!-- ADVISORS -->
+    <div class="mt-12 rv">
+      <div class="flex items-center gap-4">
+        <span class="h-px flex-1 bg-navy/15"></span>
+        <p class="font-head font-bold text-[12px] lg:text-[14px] tracking-[.34em] text-navy">ADVISORS</p>
+        <span class="h-px flex-1 bg-navy/15"></span>
+      </div>
+    </div>
+
+    <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 lg:gap-6" id="advisors"></div>
+
+    <!-- LEADERSHIP TEAM -->
+    <div class="mt-14 rv">
+      <div class="flex items-center gap-4">
+        <span class="h-px flex-1 bg-navy/15"></span>
+        <p class="font-head font-bold text-[12px] lg:text-[14px] tracking-[.24em] text-navy"><span class="text-flame">•</span> LEADERSHIP TEAM <span class="text-flame">•</span></p>
+        <span class="h-px flex-1 bg-navy/15"></span>
+      </div>
+    </div>
+    <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 lg:gap-6 lg:max-w-[1080px] lg:mx-auto" id="leaders"></div>
+  </div>
+</section>
+
+<!-- ============ ECOSYSTEM ORBIT (slide 7) ============ -->
+<section id="ecosystem" style="scroll-margin-top:96px" class="relative pt-20 lg:pt-24 pb-0 overflow-hidden"
+         style="background:linear-gradient(160deg,#EAF2FB 0%,#F7FAFD 40%,#FFFFFF 100%)">
+  <div class="absolute inset-0 opacity-[.35] pointer-events-none" style="background:radial-gradient(ellipse at 8% 80%, rgba(30,90,170,.20), transparent 55%)"></div>
+  <div class="relative mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="grid lg:grid-cols-[minmax(0,26%)_minmax(0,74%)] gap-10 lg:gap-6 items-center">
+      <!-- heading -->
+      <div class="rv-l">
+        <h2 class="font-head font-extrabold leading-[1.05] tracking-[-.02em] text-[34px] sm:text-[42px] lg:text-[48px]">
+          <span class="block text-navy" data-en="OUR" data-vi="HỆ SINH">OUR</span>
+          <span class="block text-flame" data-en="ECOSYSTEM" data-vi="THÁI">ECOSYSTEM</span>
+        </h2>
+        <div class="mt-4 bar-orange"></div>
+        <p class="mt-5 font-head font-semibold text-[17px] lg:text-[20px] leading-snug text-navy"
+           data-en="Five Specialized Businesses. One Integrated Vision."
+           data-vi="Năm Doanh nghiệp Chuyên biệt. Một Tầm nhìn Thống nhất.">Five Specialized Businesses.<br>One Integrated Vision.</p>
+        <p class="mt-4 text-[14px] leading-[1.8] text-navy/70 justified"
+           data-en="Healthcare Alliance brings together specialized businesses that address critical needs across the healthcare ecosystem, delivering integrated solutions that drive sustainable growth."
+           data-vi="Healthcare Alliance quy tụ các doanh nghiệp chuyên biệt giải quyết những nhu cầu trọng yếu của hệ sinh thái y tế, mang đến giải pháp tích hợp thúc đẩy tăng trưởng bền vững.">
+          Healthcare Alliance brings together specialized businesses that address critical needs across the healthcare ecosystem, delivering integrated solutions that drive sustainable growth.</p>
+      </div>
+
+      <!-- orbit -->
+      <div class="relative">
+        <div class="relative mx-auto w-full max-w-[760px] aspect-square hidden lg:block">
+          <!-- rings -->
+          <svg class="absolute inset-0 w-full h-full" viewBox="0 0 760 760" fill="none">
+            <circle cx="380" cy="380" r="286" stroke="#B9CDE4" stroke-width="1.4"/>
+            <g class="orbit-ring" style="transform-origin:380px 380px">
+              <circle cx="380" cy="380" r="150" stroke="#7FA9D8" stroke-width="1.6" stroke-dasharray="6 9"/>
+            </g>
+            <g class="orbit-ring-r" style="transform-origin:380px 380px">
+              <circle cx="380" cy="380" r="126" stroke="#C6D8EC" stroke-width="1.2" stroke-dasharray="2 10"/>
+            </g>
+            <!-- connector nodes on outer ring -->
+            <circle cx="380" cy="94"  r="9" fill="#001C52"/>
+            <circle cx="120" cy="330" r="9" fill="#001C52"/>
+            <circle cx="655" cy="330" r="9" fill="#E36414"/>
+            <circle cx="215" cy="600" r="9" fill="#17A398"/>
+            <circle cx="540" cy="600" r="9" fill="#8E5BD3"/>
+          </svg>
+
+          <!-- center -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rv-s">
+            <div class="h-[220px] w-[220px] rounded-full bg-white/85 backdrop-blur shadow-lift grid place-items-center ring-1 ring-navy/10">
+              <div class="text-center px-5">
+                <img src="assets/logo_ha.png" class="h-9 w-auto mx-auto" alt="Healthcare Alliance">
+                <div class="mt-3 h-[3px] w-[130px] mx-auto bg-flame rounded"></div>
+                <div class="mt-3 flex justify-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-flame"></span><span class="h-2 w-2 rounded-full bg-[#8E5BD3]"></span>
+                  <span class="h-2 w-2 rounded-full bg-[#17A398]"></span><span class="h-2 w-2 rounded-full bg-navy-deep"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- satellites -->
+          <a href="#bu" data-tab="talent" class="eco-node rv-s card group absolute left-1/2 -translate-x-1/2 top-0 w-[336px] rounded-2xl bg-white/95 backdrop-blur shadow-card hover:shadow-lift p-4 flex items-center gap-3.5" style="transition-delay:.05s">
+            <img src="assets/logo_talent.png" class="ico-shift h-10 w-[66px] object-contain shrink-0" alt="">
+            <div>
+              <h3 class="font-head font-bold text-[13px] text-navy whitespace-nowrap">HEALTHCARE TALENT</h3>
+              <div class="mt-1 h-[2px] w-10 bg-flame rounded"></div>
+              <p class="mt-1.5 text-[12px] leading-snug text-navy/65" data-en="Executive Search &amp; HR Solutions" data-vi="Tuyển dụng Cấp cao &amp; Giải pháp Nhân sự">Executive Search &amp; HR Solutions</p>
+            </div>
+          </a>
+
+          <a href="#bu" data-tab="museco" class="eco-node rv-s card group absolute left-[-7%] top-[30%] w-[326px] rounded-2xl bg-white/95 backdrop-blur shadow-card hover:shadow-lift p-4 flex items-center gap-3.5" style="transition-delay:.13s">
+            <img src="assets/logo_museco.png" class="ico-shift h-8 w-[66px] object-contain shrink-0" alt="">
+            <div>
+              <h3 class="font-head font-bold text-[13.5px] text-navy">MUSECO</h3>
+              <div class="mt-1 h-[2px] w-10 bg-flame rounded"></div>
+              <p class="mt-1.5 text-[12px] leading-snug text-navy/65" data-en="Strategic Advisory, Business Matching &amp; Market Access" data-vi="Tư vấn Chiến lược, Kết nối Kinh doanh &amp; Tiếp cận Thị trường">Strategic Advisory, Business Matching &amp; Market Access</p>
+            </div>
+          </a>
+
+          <a href="#bu" data-tab="hcx" class="eco-node rv-s card group absolute right-[-7%] top-[30%] w-[326px] rounded-2xl bg-white/95 backdrop-blur shadow-card hover:shadow-lift p-4 flex items-center gap-3.5" style="transition-delay:.21s">
+            <img src="assets/logo_hcx.png" class="ico-shift h-9 w-[66px] object-contain shrink-0" alt="">
+            <div>
+              <h3 class="font-head font-bold text-[13px] text-navy whitespace-nowrap">HCX COACHING</h3>
+              <div class="mt-1 h-[2px] w-10 bg-flame rounded"></div>
+              <p class="mt-1.5 text-[12px] leading-snug text-navy/65" data-en="Capability Development, Training &amp; Coaching" data-vi="Phát triển Năng lực, Đào tạo &amp; Huấn luyện">Capability Development, Training &amp; Coaching</p>
+            </div>
+          </a>
+
+          <a href="#bu" data-tab="ghme" class="eco-node rv-s card group absolute left-[1%] bottom-[3%] w-[320px] rounded-2xl bg-white/95 backdrop-blur shadow-card hover:shadow-lift p-4 flex items-center gap-3.5" style="transition-delay:.29s">
+            <img src="assets/logo_ghme.png" class="ico-shift h-8 w-[66px] object-contain shrink-0" alt="">
+            <div>
+              <h3 class="font-head font-bold text-[13.5px] text-navy">GHME</h3>
+              <div class="mt-1 h-[2px] w-10 bg-flame rounded"></div>
+              <p class="mt-1.5 text-[12px] leading-snug text-navy/65" data-en="First-aid Training &amp; Health Education" data-vi="Đào tạo Sơ cấp cứu &amp; Giáo dục Sức khỏe">First-aid Training &amp; Health Education</p>
+            </div>
+          </a>
+
+          <a href="#bu" data-tab="insights" class="eco-node rv-s card group absolute right-[-1%] bottom-[3%] w-[336px] rounded-2xl bg-white/95 backdrop-blur shadow-card hover:shadow-lift p-4 flex items-center gap-3.5" style="transition-delay:.37s">
+            <img src="assets/logo_insights.png" class="ico-shift h-10 w-[66px] object-contain shrink-0" alt="">
+            <div>
+              <h3 class="font-head font-bold text-[13px] text-navy whitespace-nowrap">HEALTHCARE INSIGHTS</h3>
+              <div class="mt-1 h-[2px] w-10 bg-flame rounded"></div>
+              <p class="mt-1.5 text-[12px] leading-snug text-navy/65" data-en="Market Intelligence &amp; Industry Knowledge" data-vi="Nghiên cứu Thị trường &amp; Tri thức Ngành">Market Intelligence &amp; Industry Knowledge</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- mobile stack -->
+        <div class="lg:hidden">
+          <div class="mx-auto mb-6 h-[150px] w-[150px] rounded-full bg-white shadow-lift grid place-items-center ring-1 ring-navy/10 rv-s">
+            <div class="text-center px-4">
+              <img src="assets/logo_ha.png" class="h-7 w-auto mx-auto" alt="">
+              <div class="mt-2 h-[3px] w-20 mx-auto bg-flame rounded"></div>
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4" id="ecoMobile"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mt-12 lg:-mt-4 bg-navy-deep">
+    <svg class="absolute -top-[1px] inset-x-0 w-full h-8 lg:h-12" viewBox="0 0 1366 48" preserveAspectRatio="none" fill="none">
+      <path d="M0,48 L0,24 C240,-14 460,4 1366,4 L1366,48 Z" fill="#001C52"/>
+      <path d="M0,24 C240,-14 460,4 1366,4" stroke="#E36414" stroke-width="2.5"/>
+    </svg>
+    <div class="mx-auto max-w-[1320px] px-6 lg:px-8 py-5 lg:py-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div class="flex gap-1.5">
+        <span class="h-2 w-2 rounded-full bg-white"></span><span class="h-2 w-2 rounded-full bg-white"></span>
+        <span class="h-2 w-2 rounded-full bg-white"></span><span class="h-2 w-2 rounded-full bg-white"></span>
+        <span class="h-2 w-2 rounded-full bg-white"></span>
+      </div>
+      <p class="font-head font-semibold text-white text-[13px] lg:text-[15px]" data-en="One Ecosystem. Multiple Solutions. Shared Success." data-vi="Một Hệ sinh thái. Đa Giải pháp. Thành công Chung.">One Ecosystem. Multiple Solutions. Shared Success.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUSINESS UNITS (slides 8–12) ============ -->
+<section id="bu" style="scroll-margin-top:96px" class="relative py-20 lg:py-24 bg-white overflow-hidden">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="rv text-center">
+      <p class="font-head font-bold text-[12px] tracking-[.24em] text-navy/55" data-en="OUR ECOSYSTEM" data-vi="HỆ SINH THÁI">OUR ECOSYSTEM</p>
+      <h2 class="mt-2 font-head font-extrabold tracking-[-.02em] text-[30px] sm:text-[38px] lg:text-[44px]">
+        <span class="text-navy" data-en="FIVE SPECIALIZED" data-vi="NĂM DOANH NGHIỆP">FIVE SPECIALIZED</span>
+        <span class="text-flame" data-en="BUSINESSES" data-vi="CHUYÊN BIỆT">BUSINESSES</span>
+      </h2>
+      <div class="mt-4 h-1 w-24 bg-flame rounded mx-auto"></div>
+    </div>
+
+    <!-- tabs -->
+    <div class="mt-9 flex flex-wrap justify-center gap-2.5 rv" id="buTabs"></div>
+  </div>
+
+  <!-- panels -->
+  <div class="mt-10" id="buPanels"></div>
+</section>
+
+<!-- ============ WHY HEALTHCARE ALLIANCE (slide 13) ============ -->
+<section id="why" style="scroll-margin-top:96px" class="relative py-20 lg:py-28 bg-gradient-to-b from-mist to-white overflow-hidden">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="rv">
+      <h2 class="font-head font-extrabold tracking-[-.02em] text-[30px] sm:text-[38px] lg:text-[46px]">
+        <span class="text-navy" data-en="WHY" data-vi="VÌ SAO CHỌN">WHY</span>
+        <span class="text-flame">HEALTHCARE ALLIANCE</span>
+      </h2>
+      <p class="mt-2 font-head font-semibold text-[17px] lg:text-[21px] text-navy" data-en="What Sets Us Apart" data-vi="Điều làm nên khác biệt">What Sets Us Apart</p>
+      <div class="mt-4 bar-orange"></div>
+    </div>
+
+    <div class="mt-10 grid lg:grid-cols-[minmax(0,180px)_minmax(0,1fr)] gap-8 lg:gap-10 items-center">
+      <p class="text-[14px] leading-[1.9] text-navy/70 rv-l"
+         data-en="Healthcare Alliance combines specialized expertise, industry connections, and integrated capabilities to help healthcare organizations achieve sustainable growth."
+         data-vi="Healthcare Alliance kết hợp chuyên môn chuyên biệt, mạng lưới ngành và năng lực tích hợp để giúp các tổ chức y tế đạt tăng trưởng bền vững.">
+        Healthcare Alliance combines specialized expertise, industry connections, and integrated capabilities to help healthcare organizations achieve sustainable growth.</p>
+
+      <div class="relative">
+        <!-- connecting arcs (desktop) -->
+        <svg class="hidden lg:block absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 900 470" fill="none" preserveAspectRatio="none">
+          <circle cx="450" cy="235" r="146" stroke="#DDE6F1" stroke-width="2"/>
+          <circle cx="450" cy="235" r="120" stroke="#EDF2F8" stroke-width="14"/>
+          <path d="M300,150 C350,90 550,90 600,150" stroke="#0B315C" stroke-width="2.5" class="draw" style="--len:420"/>
+          <path d="M300,325 C350,392 550,392 600,325" stroke="#0B315C" stroke-width="2.5" class="draw" style="--len:420"/>
+          <path d="M272,175 C226,235 226,235 272,300" stroke="#E36414" stroke-width="2.5" class="draw" style="--len:260"/>
+          <path d="M628,175 C674,235 674,235 628,300" stroke="#E36414" stroke-width="2.5" class="draw" style="--len:260"/>
+          <circle cx="300" cy="150" r="6" fill="#0B315C"/><circle cx="600" cy="150" r="6" fill="#0B315C"/>
+          <circle cx="300" cy="325" r="6" fill="#0B315C"/><circle cx="600" cy="325" r="6" fill="#0B315C"/>
+        </svg>
+
+        <div class="relative grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-x-[300px] lg:gap-y-8">
+          <!-- 1 -->
+          <article class="rv-s card group relative rounded-2xl bg-[#E8EFF8] p-5 pr-16 lg:pr-20" style="transition-delay:.05s">
+            <h3 class="font-head font-bold text-[13.5px] tracking-wide text-navy" data-en="SPECIALIZED EXPERTISE" data-vi="CHUYÊN MÔN CHUYÊN BIỆT">SPECIALIZED EXPERTISE</h3>
+            <div class="mt-2 h-[2px] w-9 bg-navy-deep rounded"></div>
+            <p class="mt-2.5 text-[13px] leading-relaxed text-navy/70" data-en="Deep industry knowledge and practical experience across the healthcare sector." data-vi="Kiến thức ngành sâu sắc và kinh nghiệm thực tiễn trên toàn lĩnh vực y tế.">Deep industry knowledge and practical experience across the healthcare sector.</p>
+            <img src="assets/ico_why1.png" class="ico-shift absolute -right-2 top-1/2 -translate-y-1/2 h-[88px] w-[88px] lg:h-[104px] lg:w-[104px] drop-shadow-lg" alt="">
+          </article>
+          <!-- 2 -->
+          <article class="rv-s card group relative rounded-2xl bg-[#FDEDE3] p-5 pl-16 lg:pl-20" style="transition-delay:.13s">
+            <h3 class="font-head font-bold text-[13.5px] tracking-wide text-flame" data-en="INTEGRATED ECOSYSTEM" data-vi="HỆ SINH THÁI TÍCH HỢP">INTEGRATED ECOSYSTEM</h3>
+            <div class="mt-2 h-[2px] w-9 bg-flame rounded"></div>
+            <p class="mt-2.5 text-[13px] leading-relaxed text-navy/70" data-en="Five specialized business units working together to deliver comprehensive solutions." data-vi="Năm đơn vị chuyên biệt phối hợp mang đến giải pháp toàn diện.">Five specialized business units working together to deliver comprehensive solutions.</p>
+            <img src="assets/ico_why2.png" class="ico-shift absolute -left-2 top-1/2 -translate-y-1/2 h-[88px] w-[88px] lg:h-[104px] lg:w-[104px] drop-shadow-lg" alt="">
+          </article>
+          <!-- 3 -->
+          <article class="rv-s card group relative rounded-2xl bg-[#FDEDE3] p-5 pr-16 lg:pr-20" style="transition-delay:.21s">
+            <h3 class="font-head font-bold text-[13.5px] tracking-wide text-flame" data-en="STRONG NETWORK" data-vi="MẠNG LƯỚI VỮNG MẠNH">STRONG NETWORK</h3>
+            <div class="mt-2 h-[2px] w-9 bg-flame rounded"></div>
+            <p class="mt-2.5 text-[13px] leading-relaxed text-navy/70" data-en="Access to healthcare leaders, organizations, professionals, and strategic partners." data-vi="Tiếp cận các nhà lãnh đạo, tổ chức, chuyên gia y tế và đối tác chiến lược.">Access to healthcare leaders, organizations, professionals, and strategic partners.</p>
+            <img src="assets/ico_why3.png" class="ico-shift absolute -right-2 top-1/2 -translate-y-1/2 h-[88px] w-[88px] lg:h-[104px] lg:w-[104px] drop-shadow-lg" alt="">
+          </article>
+          <!-- 4 -->
+          <article class="rv-s card group relative rounded-2xl bg-[#E8EFF8] p-5 pl-16 lg:pl-20" style="transition-delay:.29s">
+            <h3 class="font-head font-bold text-[13.5px] tracking-wide text-navy" data-en="END-TO-END SUPPORT" data-vi="HỖ TRỢ TOÀN DIỆN">END-TO-END SUPPORT</h3>
+            <div class="mt-2 h-[2px] w-9 bg-navy-deep rounded"></div>
+            <p class="mt-2.5 text-[13px] leading-relaxed text-navy/70" data-en="From strategy and talent to capability development and industry insights." data-vi="Từ chiến lược, nhân sự đến phát triển năng lực và tri thức ngành.">From strategy and talent to capability development and industry insights.</p>
+            <img src="assets/ico_why4.png" class="ico-shift absolute -left-2 top-1/2 -translate-y-1/2 h-[88px] w-[88px] lg:h-[104px] lg:w-[104px] drop-shadow-lg" alt="">
+          </article>
+        </div>
+
+        <!-- center logo (desktop) -->
+        <div class="hidden lg:grid absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[188px] w-[188px] rounded-full bg-white shadow-lift place-items-center ring-1 ring-navy/5 rv-s">
+          <img src="assets/logo_ha.png" class="h-9 w-auto" alt="Healthcare Alliance">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="relative mt-16 bg-navy-deep overflow-hidden">
+    <svg class="absolute -top-[1px] inset-x-0 w-full h-9 lg:h-14" viewBox="0 0 1366 56" preserveAspectRatio="none" fill="none">
+      <path d="M0,56 L0,34 C300,-18 620,8 1366,8 L1366,56 Z" fill="#001C52"/>
+      <path d="M0,34 C300,-18 620,8 1366,8" stroke="#E36414" stroke-width="2.5"/>
+    </svg>
+    <div class="mx-auto max-w-[1320px] px-6 lg:px-8 py-6 lg:py-7 flex flex-wrap items-center gap-x-4 gap-y-2">
+      <div class="flex gap-1.5">
+        <span class="h-2 w-2 rounded-full bg-flame"></span><span class="h-2 w-2 rounded-full bg-[#3B72C4]"></span>
+        <span class="h-2 w-2 rounded-full bg-[#17A398]"></span><span class="h-2 w-2 rounded-full bg-[#8E5BD3]"></span>
+      </div>
+      <span class="h-5 w-px bg-white/25"></span>
+      <p class="font-head font-semibold text-white text-[13px] lg:text-[16px]">
+        <span data-en="Expertise. Connection." data-vi="Chuyên môn. Kết nối.">Expertise. Connection.</span>
+        <span class="text-flame" data-en="Impact." data-vi="Tác động.">Impact.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTIONS (slide 14) ============ -->
+<section id="solutions" style="scroll-margin-top:96px" class="relative py-20 lg:py-28 bg-white overflow-hidden">
+  <div class="absolute right-0 top-0 w-[520px] h-[400px] opacity-[.5] pointer-events-none"
+       style="background-image:radial-gradient(circle at 2px 2px,#C9D9EC 2px,transparent 0);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 80% 10%,#000,transparent 70%);mask-image:radial-gradient(ellipse at 80% 10%,#000,transparent 70%)"></div>
+  <div class="relative mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="rv">
+      <h2 class="font-head font-extrabold tracking-[-.02em] text-[32px] sm:text-[40px] lg:text-[46px]">
+        <span class="text-navy" data-en="OUR" data-vi="GIẢI PHÁP">OUR</span>
+        <span class="text-flame" data-en="SOLUTIONS" data-vi="CỦA CHÚNG TÔI">SOLUTIONS</span>
+      </h2>
+      <p class="mt-2 font-head font-semibold text-[17px] lg:text-[21px] text-navy" data-en="Integrated Solutions Across Healthcare" data-vi="Giải pháp Tích hợp trên toàn ngành Y tế">Integrated Solutions Across Healthcare</p>
+      <div class="mt-4 bar-orange"></div>
+      <p class="mt-5 text-[14.5px] leading-[1.8] text-navy/70 justified max-w-[1000px]"
+         data-en="Healthcare Alliance delivers integrated solutions that help healthcare organizations strengthen capability, accelerate growth, and create sustainable impact."
+         data-vi="Healthcare Alliance mang đến các giải pháp tích hợp giúp tổ chức y tế củng cố năng lực, tăng tốc phát triển và tạo tác động bền vững.">
+        Healthcare Alliance delivers integrated solutions that help healthcare organizations strengthen capability, accelerate growth, and create sustainable impact.</p>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5" id="solGrid"></div>
+  </div>
+
+  <div class="relative mt-16 bg-navy-deep overflow-hidden">
+    <svg class="absolute -top-[1px] inset-x-0 w-full h-9 lg:h-14" viewBox="0 0 1366 56" preserveAspectRatio="none" fill="none">
+      <path d="M0,56 L0,30 C260,-16 500,6 1366,6 L1366,56 Z" fill="#001C52"/>
+      <path d="M0,30 C260,-16 500,6 1366,6" stroke="#E36414" stroke-width="2.5"/>
+    </svg>
+    <div class="absolute inset-0 opacity-25" style="background-image:radial-gradient(circle at 2px 2px,#5B9BE8 1px,transparent 0);background-size:42px 42px"></div>
+    <div class="relative py-7 lg:py-9 text-center">
+      <p class="font-head font-bold tracking-wide text-[15px] sm:text-[19px] lg:text-[23px] text-white">
+        <span data-en="INTEGRATED SOLUTIONS." data-vi="GIẢI PHÁP TÍCH HỢP.">INTEGRATED SOLUTIONS.</span>
+        <span class="text-flame" data-en="SUSTAINABLE GROWTH" data-vi="TĂNG TRƯỞNG BỀN VỮNG">SUSTAINABLE GROWTH</span>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT (slide 15) ============ -->
+<section id="impact" style="scroll-margin-top:96px" class="relative py-20 lg:py-28 bg-gradient-to-b from-white to-mist overflow-hidden">
+  <div class="absolute right-0 top-6 w-[560px] h-[360px] opacity-[.28] pointer-events-none"
+       style="background-image:radial-gradient(circle at 2px 2px,#8FB2D8 1.6px,transparent 0);background-size:12px 12px;-webkit-mask-image:radial-gradient(ellipse at 70% 40%,#000,transparent 72%);mask-image:radial-gradient(ellipse at 70% 40%,#000,transparent 72%)"></div>
+  <div class="relative mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="rv">
+      <h2 class="font-head font-extrabold tracking-[-.02em] text-[32px] sm:text-[40px] lg:text-[48px]">
+        <span class="text-navy" data-en="OUR" data-vi="TÁC ĐỘNG">OUR</span>
+        <span class="text-flame" data-en="IMPACT" data-vi="CỦA CHÚNG TÔI">IMPACT</span>
+      </h2>
+      <p class="mt-2 font-head font-semibold text-[17px] lg:text-[21px] text-navy" data-en="Creating Value Across Healthcare" data-vi="Kiến tạo Giá trị trên toàn ngành Y tế">Creating Value Across Healthcare</p>
+      <div class="mt-4 bar-orange"></div>
+      <p class="mt-5 text-[14.5px] leading-[1.85] text-navy/70 max-w-[620px]"
+         data-en="Through our integrated ecosystem, Healthcare Alliance supports healthcare organizations, professionals, and partners in achieving sustainable growth and meaningful outcomes."
+         data-vi="Thông qua hệ sinh thái tích hợp, Healthcare Alliance đồng hành cùng các tổ chức, chuyên gia và đối tác y tế đạt được tăng trưởng bền vững và kết quả có ý nghĩa.">
+        Through our integrated ecosystem, Healthcare Alliance supports healthcare organizations, professionals, and partners in achieving sustainable growth and meaningful outcomes.</p>
+    </div>
+
+    <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-navy/10 lg:divide-x" id="impactGrid"></div>
+  </div>
+
+  <div class="relative mt-16 bg-navy-deep overflow-hidden">
+    <svg class="absolute -top-[1px] inset-x-0 w-full h-9 lg:h-14" viewBox="0 0 1366 56" preserveAspectRatio="none" fill="none">
+      <path d="M0,56 L0,32 C280,-16 540,6 1366,6 L1366,56 Z" fill="#001C52"/>
+      <path d="M0,32 C280,-16 540,6 1366,6" stroke="#E36414" stroke-width="2.5"/>
+    </svg>
+    <div class="absolute inset-0 opacity-25" style="background-image:radial-gradient(circle at 2px 2px,#5B9BE8 1px,transparent 0);background-size:42px 42px"></div>
+    <div class="relative py-7 lg:py-9 text-center">
+      <p class="font-head font-bold tracking-wide text-[14px] sm:text-[18px] lg:text-[22px] text-white">
+        <span class="text-flame">•</span>
+        <span data-en="CREATING" data-vi="TẠO RA">CREATING</span>
+        <span class="text-flame" data-en="MEASURABLE IMPACT" data-vi="TÁC ĐỘNG ĐO LƯỜNG ĐƯỢC">MEASURABLE IMPACT</span>
+        <span data-en="ACROSS HEALTHCARE" data-vi="TRÊN TOÀN NGÀNH Y TẾ">ACROSS HEALTHCARE</span>
+        <span class="text-flame">•</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS (slides 16–17) ============ -->
+<section id="projects" style="scroll-margin-top:96px" class="relative py-20 lg:py-28 bg-white overflow-hidden">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="rv">
+      <h2 class="font-head font-extrabold tracking-[-.02em] text-[32px] sm:text-[40px] lg:text-[48px]">
+        <span class="text-navy" data-en="OUR" data-vi="DỰ ÁN">OUR</span>
+        <span class="text-flame" data-en="PROJECTS" data-vi="TIÊU BIỂU">PROJECTS</span>
+      </h2>
+      <div class="mt-4 bar-orange"></div>
+    </div>
+
+    <!-- group 1 -->
+    <h3 class="mt-9 font-head font-semibold text-[17px] lg:text-[20px] text-navy rv" data-en="Leadership &amp; Sales Training" data-vi="Đào tạo Lãnh đạo &amp; Bán hàng">Leadership &amp; Sales Training</h3>
+    <div class="mt-5 grid grid-cols-2 lg:grid-cols-4 gap-3.5 lg:gap-5" id="prjA"></div>
+
+    <!-- group 2 -->
+    <h3 class="mt-12 font-head font-semibold text-[17px] lg:text-[20px] text-navy rv" data-en="Medical Training &amp; Health Talk" data-vi="Đào tạo Y khoa &amp; Health Talk">Medical Training &amp; Health Talk</h3>
+    <div class="mt-5 grid grid-cols-2 lg:grid-cols-4 gap-3.5 lg:gap-5" id="prjB"></div>
+  </div>
+</section>
+
+<!-- ============ STRATEGIC PARTNERS (slides 19, 22–25, 28) ============ -->
+<section id="partners" style="scroll-margin-top:96px" class="relative py-20 lg:py-28 bg-mist overflow-hidden">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="rv">
+      <h2 class="font-head font-extrabold tracking-[-.02em] text-[30px] sm:text-[38px] lg:text-[46px]">
+        <span class="text-navy" data-en="OUR" data-vi="ĐỐI TÁC">OUR</span>
+        <span class="text-flame" data-en="STRATEGIC" data-vi="CHIẾN LƯỢC">STRATEGIC</span>
+        <span class="text-navy" data-en="PARTNERS" data-vi="CỦA CHÚNG TÔI">PARTNERS</span>
+      </h2>
+      <p class="mt-2 font-head font-semibold text-[16px] lg:text-[19px] text-navy" data-en="Trusted Relationships Across Healthcare" data-vi="Quan hệ Tin cậy trên toàn ngành Y tế">Trusted Relationships Across Healthcare</p>
+      <div class="mt-4 bar-orange"></div>
+    </div>
+
+    <!-- overview cards -->
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-5" id="ptGrid"></div>
+
+    <!-- detail -->
+    <div class="mt-14">
+      <div class="flex flex-wrap justify-center gap-2.5 rv" id="ptTabs"></div>
+      <div class="mt-8" id="ptPanels"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTS (slide 29) ============ -->
+<section id="clients" style="scroll-margin-top:96px" class="relative py-20 lg:py-28 bg-white overflow-hidden">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-8">
+    <div class="rv">
+      <h2 class="font-head font-extrabold tracking-[-.02em] text-[32px] sm:text-[40px] lg:text-[48px]">
+        <span class="text-navy" data-en="OUR" data-vi="KHÁCH HÀNG">OUR</span>
+        <span class="text-flame" data-en="CLIENTS" data-vi="CỦA CHÚNG TÔI">CLIENTS</span>
+      </h2>
+      <p class="mt-3 font-head font-semibold text-[15px] lg:text-[18px] text-navy/85"
+         data-en="Proud to partner with leading organizations across healthcare and non-healthcare sectors."
+         data-vi="Tự hào đồng hành cùng các tổ chức hàng đầu trong và ngoài lĩnh vực y tế.">Proud to partner with leading organizations across healthcare and non-healthcare sectors.</p>
+      <div class="mt-4 bar-orange"></div>
+    </div>
+
+    <!-- healthcare -->
+    <div class="mt-10 rv-s rounded-3xl border-[3px] border-navy-deep bg-white p-5 lg:p-7">
+      <div class="grid lg:grid-cols-[190px_minmax(0,1fr)] gap-5 lg:gap-7 items-center">
+        <div class="lg:border-r-2 lg:border-navy-deep/25 lg:pr-6">
+          <h3 class="font-head font-bold text-[16px] lg:text-[18px] tracking-wide text-navy" data-en="HEALTHCARE" data-vi="Y TẾ">HEALTHCARE</h3>
+          <div class="mt-2 h-[3px] w-10 bg-navy-deep rounded"></div>
+          <p class="mt-2.5 text-[13px] leading-relaxed text-navy/65" data-en="Driving better health through innovation and collaboration." data-vi="Thúc đẩy sức khỏe tốt hơn qua đổi mới và hợp tác.">Driving better health through innovation and collaboration.</p>
+          <p class="mt-3 font-head font-extrabold text-[22px] text-navy-deep">41<span class="text-flame">+</span></p>
+        </div>
+        <div id="clHealth" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-5 lg:gap-x-8 lg:gap-y-6"></div>
+      </div>
+    </div>
+
+    <!-- non-healthcare -->
+    <div class="mt-6 rv-s rounded-3xl border-[3px] border-flame bg-white p-5 lg:p-7" style="transition-delay:.12s">
+      <div class="grid lg:grid-cols-[190px_minmax(0,1fr)] gap-5 lg:gap-7 items-center">
+        <div class="lg:border-r-2 lg:border-flame/40 lg:pr-6">
+          <h3 class="font-head font-bold text-[16px] lg:text-[18px] tracking-wide text-flame" data-en="NON-HEALTHCARE" data-vi="NGOÀI Y TẾ">NON-HEALTHCARE</h3>
+          <div class="mt-2 h-[3px] w-10 bg-flame rounded"></div>
+          <p class="mt-2.5 text-[13px] leading-relaxed text-navy/65" data-en="Empowering industries with smart solutions and sustainable growth." data-vi="Trao quyền cho các ngành với giải pháp thông minh và tăng trưởng bền vững.">Empowering industries with smart solutions and sustainable growth.</p>
+          <p class="mt-3 font-head font-extrabold text-[22px] text-flame">12<span class="text-navy-deep">+</span></p>
+        </div>
+        <div id="clOther" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-5 lg:gap-x-8 lg:gap-y-6"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / CTA (slide 30) ============ -->
+<section id="contact" style="scroll-margin-top:96px" class="relative overflow-hidden bg-navy-deep">
+  <div class="grid lg:grid-cols-[minmax(0,44%)_minmax(0,56%)]">
+    <!-- photo -->
+    <div class="relative min-h-[300px] lg:min-h-[640px] rv-l">
+      <img src="assets/contact.jpg" alt="" class="absolute inset-0 h-full w-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-navy-deep/35 via-transparent to-navy-deep/30 lg:to-transparent"></div>
+      <div class="absolute left-5 top-5 lg:left-7 lg:top-7 rounded-2xl bg-white/95 backdrop-blur px-5 py-3 shadow-lift">
+        <img src="assets/logo_ha.png" class="h-8 lg:h-10 w-auto" alt="Healthcare Alliance">
+      </div>
+      <svg class="hidden lg:block absolute top-0 right-[-2px] h-full w-[80px]" viewBox="0 0 80 640" preserveAspectRatio="none" fill="none">
+        <path d="M80,0 C18,0 76,180 76,320 C76,460 18,640 80,640 Z" fill="#001C52"/>
+        <path d="M80,0 C18,0 76,180 76,320 C76,460 18,640 80,640" stroke="#E36414" stroke-width="3.5"/>
+      </svg>
+      <div class="lg:hidden absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-navy-deep to-transparent"></div>
+    </div>
+
+    <!-- content -->
+    <div class="relative px-6 lg:px-14 py-14 lg:py-20">
+      <div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image:radial-gradient(circle at 2px 2px,#5B9BE8 1px,transparent 0);background-size:38px 38px"></div>
+      <div class="relative rv-r">
+        <h2 class="font-head font-extrabold leading-[1.1] tracking-[-.02em] text-[30px] sm:text-[38px] lg:text-[46px]">
+          <span class="block text-white" data-en="LET'S BUILD" data-vi="CÙNG KIẾN TẠO">LET'S BUILD</span>
+          <span class="block text-flame" data-en="THE FUTURE OF" data-vi="TƯƠNG LAI NGÀNH">THE FUTURE OF</span>
+          <span class="block text-flame" data-en="HEALTHCARE TOGETHER" data-vi="Y TẾ CÙNG NHAU">HEALTHCARE TOGETHER</span>
+        </h2>
+        <p class="mt-5 text-[14.5px] lg:text-[16px] leading-[1.8] text-white/80 max-w-[620px]"
+           data-en="Healthcare Alliance is committed to connecting expertise, talent, and opportunities to create sustainable growth across Vietnam's healthcare ecosystem."
+           data-vi="Healthcare Alliance cam kết kết nối chuyên môn, nhân tài và cơ hội để tạo ra tăng trưởng bền vững cho hệ sinh thái y tế Việt Nam.">
+          Healthcare Alliance is committed to connecting expertise, talent, and opportunities to create sustainable growth across Vietnam's healthcare ecosystem.</p>
+      </div>
+
+      <div class="relative mt-10 grid sm:grid-cols-2 gap-9">
+        <!-- contact -->
+        <div class="rv" style="transition-delay:.1s">
+          <h3 class="font-head font-bold text-[15px] lg:text-[17px] tracking-wide text-white" data-en="CONTACT US" data-vi="LIÊN HỆ">CONTACT US</h3>
+          <div class="mt-2 h-[3px] w-12 bg-flame rounded"></div>
+          <ul class="mt-5 space-y-3.5 text-[13.5px] text-white/85">
+            <li class="flex items-start gap-3 group">
+              <span class="mt-[2px] shrink-0 text-flame"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <span data-en="Ho Chi Minh City, Vietnam" data-vi="Thành phố Hồ Chí Minh, Việt Nam">Ho Chi Minh City, Vietnam</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-[2px] shrink-0 text-flame"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg></span>
+              <a href="https://www.healthcarealliance.vn" class="hover:text-flame transition-colors">www.healthcarealliance.vn</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-[2px] shrink-0 text-flame"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+              <a href="mailto:linh.nguyen@healthalliance.vn" class="hover:text-flame transition-colors">linh.nguyen@healthalliance.vn</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-[2px] shrink-0 text-flame"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+              <a href="tel:+84909152515" class="hover:text-flame transition-colors">+84 909 15 25 15</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-[2px] shrink-0 text-flame"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v5M8 8v.01M12 16v-3a2 2 0 0 1 4 0v3"/></svg></span>
+              <span>HEALTHCARE ALLIANCE VIETNAM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ecosystem list -->
+        <div class="rv" style="transition-delay:.2s">
+          <h3 class="font-head font-bold text-[15px] lg:text-[17px] tracking-wide text-white" data-en="OUR ECOSYSTEM" data-vi="HỆ SINH THÁI">OUR ECOSYSTEM</h3>
+          <div class="mt-2 h-[3px] w-12 bg-flame rounded"></div>
+          <ul class="mt-5 space-y-3.5 text-[13.5px] font-head font-semibold text-white/90" id="ecoLinks"></ul>
+        </div>
+      </div>
+
+      <div class="relative mt-10 flex flex-wrap gap-3 rv" style="transition-delay:.3s">
+        <a href="mailto:linh.nguyen@healthalliance.vn" class="group inline-flex items-center gap-2.5 rounded-full bg-flame px-7 py-3.5 text-[13px] font-head font-bold text-white tracking-wide shadow-lift hover:bg-flame-bright transition-all duration-300 hover:-translate-y-0.5">
+          <span data-en="START A CONVERSATION" data-vi="BẮT ĐẦU TRAO ĐỔI">START A CONVERSATION</span>
+          <svg class="transition-transform duration-300 group-hover:translate-x-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="tel:+84909152515" class="inline-flex items-center gap-2 rounded-full border-2 border-white/25 px-7 py-3.5 text-[13px] font-head font-bold text-white tracking-wide hover:border-flame hover:text-flame transition-all duration-300">
+          <span data-en="CALL US" data-vi="GỌI NGAY">CALL US</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- bottom wave -->
+  <div class="relative bg-navy-900">
+    <svg class="absolute -top-[1px] inset-x-0 w-full h-10 lg:h-16" viewBox="0 0 1366 64" preserveAspectRatio="none" fill="none">
+      <path d="M0,64 L0,26 C420,-22 900,20 1366,4 L1366,64 Z" fill="#001536"/>
+      <path d="M0,26 C420,-22 900,20 1366,4" stroke="#E36414" stroke-width="2.5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-navy-900 text-white/70">
+  <div class="mx-auto max-w-[1320px] px-6 lg:px-8 pt-10 pb-8">
+    <div class="grid md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)] gap-9">
+      <div>
+        <div class="inline-block rounded-xl bg-white px-4 py-2.5">
+          <img src="assets/logo_ha.png" class="h-9 w-auto" alt="Healthcare Alliance">
+        </div>
+        <p class="mt-4 text-[13.5px] leading-relaxed max-w-[380px]"
+           data-en="Connecting Expertise. Empowering Growth. Transforming Healthcare."
+           data-vi="Kết Nối Chuyên Môn. Thúc Đẩy Tăng Trưởng. Chuyển Đổi Y Tế.">Connecting Expertise. Empowering Growth. Transforming Healthcare.</p>
+      </div>
+      <div>
+        <h4 class="font-head font-bold text-[13px] tracking-wide text-white" data-en="COMPANY" data-vi="CÔNG TY">COMPANY</h4>
+        <ul class="mt-4 space-y-2.5 text-[13.5px]">
+          <li><a href="#about" class="hover:text-flame transition-colors" data-en="About Us" data-vi="Giới thiệu">About Us</a></li>
+          <li><a href="#vision" class="hover:text-flame transition-colors" data-en="Vision &amp; Mission" data-vi="Tầm nhìn &amp; Sứ mệnh">Vision &amp; Mission</a></li>
+          <li><a href="#leadership" class="hover:text-flame transition-colors" data-en="Leadership" data-vi="Đội ngũ Lãnh đạo">Leadership</a></li>
+          <li><a href="#projects" class="hover:text-flame transition-colors" data-en="Projects" data-vi="Dự án">Projects</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-head font-bold text-[13px] tracking-wide text-white" data-en="ECOSYSTEM" data-vi="HỆ SINH THÁI">ECOSYSTEM</h4>
+        <ul class="mt-4 space-y-2.5 text-[13.5px]">
+          <li><a href="#bu" class="hover:text-flame transition-colors">Healthcare Talent</a></li>
+          <li><a href="#bu" class="hover:text-flame transition-colors">Museco</a></li>
+          <li><a href="#bu" class="hover:text-flame transition-colors">HCX Coaching</a></li>
+          <li><a href="#bu" class="hover:text-flame transition-colors">GHME</a></li>
+          <li><a href="#bu" class="hover:text-flame transition-colors">Healthcare Insights</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-9 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[12.5px]">
+      <p>© 2026 Healthcare Alliance. <span data-en="All rights reserved." data-vi="Bảo lưu mọi quyền.">All rights reserved.</span></p>
+      <p class="text-white/45">Ho Chi Minh City, Vietnam</p>
+    </div>
+  </div>
+</footer>
+
+<!-- back to top -->
+<button id="toTop" class="fixed bottom-6 right-6 z-50 grid place-items-center h-12 w-12 rounded-full bg-flame text-white shadow-lift opacity-0 translate-y-4 pointer-events-none transition-all duration-400 hover:bg-flame-bright">
+  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+/* =========================================================
+   ICON LIBRARY (stroke SVG paths — matches profile line style)
+   ========================================================= */
+const IC = {
+  userSearch:'<circle cx="10" cy="8" r="3.4"/><path d="M4.2 19a6.2 6.2 0 0 1 8.6-5.2"/><circle cx="16.5" cy="16.5" r="3.3"/><path d="m19 19 2.4 2.4"/>',
+  users:'<circle cx="9" cy="8" r="3"/><path d="M3.5 19a5.6 5.6 0 0 1 11 0"/><circle cx="17" cy="9" r="2.3"/><path d="M16 14.4a4.8 4.8 0 0 1 4.6 4.6"/>',
+  grid:'<rect x="3.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.4"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.4"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.4"/>',
+  book:'<path d="M4 4.5h7a2.5 2.5 0 0 1 2.5 2.5v13A2 2 0 0 0 11.5 18H4Z"/><path d="M20 4.5h-6.5"/><path d="M20 4.5v13.5a2 2 0 0 0-2-1.5"/>',
+  crown:'<path d="M3 7.5 6.5 14h11L21 7.5l-4.5 3L12 4 7.5 10.5Z"/><path d="M6.5 17.5h11"/>',
+  target:'<circle cx="12" cy="12" r="8.2"/><circle cx="12" cy="12" r="4.4"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>',
+  clock:'<circle cx="12" cy="12" r="8.4"/><path d="M12 7.4V12l3.2 2"/>',
+  bars:'<path d="M4 20h16"/><rect x="5.5" y="12" width="3.2" height="6" rx=".7"/><rect x="10.4" y="8.5" width="3.2" height="9.5" rx=".7"/><rect x="15.3" y="5" width="3.2" height="13" rx=".7"/>',
+  shield:'<path d="M12 3.2 5 6v5.6c0 4.3 2.9 7.6 7 9.2 4.1-1.6 7-4.9 7-9.2V6Z"/><path d="m9 12 2.2 2.2L15.2 10"/>',
+  trend:'<path d="M4 16.5 9.5 11l3.4 3.4L20 7"/><path d="M15.4 7H20v4.6"/>',
+  globe:'<circle cx="12" cy="12" r="8.4"/><path d="M3.6 12h16.8M12 3.6c2.6 2.6 2.6 14.2 0 16.8-2.6-2.6-2.6-14.2 0-16.8Z"/>',
+  hands:'<path d="m3 12.5 3.4-3.4a2 2 0 0 1 2.8 0l1.3 1.3 1.3-1.3a2 2 0 0 1 2.8 0L21 12.5"/><path d="M8 15.5 12 19l4-3.5"/>',
+  rocket:'<path d="M13.5 4.5c3.6-1.4 6 1 4.6 4.6-1 2.6-3.6 5.3-6.6 6.9L8 13.4c1.6-3 4.3-5.6 6.9-6.6"/><circle cx="14.6" cy="9.4" r="1.5"/><path d="M8 16c-1.3 1.3-1.4 3.5-1.4 3.5S8.8 19.4 10 18"/>',
+  leaf:'<path d="M20 4c0 8.8-4.6 14-11 14a5.4 5.4 0 0 1-5-3c0-6 5.4-11 16-11Z"/><path d="M4 20c2.5-4.5 6-7.6 10-9.5"/>',
+  star:'<path d="m12 4 2.5 5.2 5.5.8-4 3.9 1 5.6-5-2.7-5 2.7 1-5.6-4-3.9 5.5-.8Z"/>',
+  award:'<circle cx="12" cy="9.5" r="5.2"/><path d="m8.6 13.8-1.4 6 4.8-2.4 4.8 2.4-1.4-6"/>',
+  heartPlus:'<path d="M12 20s-7.2-4.4-7.2-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.2 2.6C19.2 15.6 12 20 12 20Z"/><path d="M12 11v3.4M10.3 12.7h3.4"/>',
+  activity:'<path d="M3 12.5h3.6L9 7l3.4 10L15 12.5H21"/>',
+  brain:'<path d="M9 5.2A2.8 2.8 0 0 0 6.2 8 2.7 2.7 0 0 0 5 13.3 2.8 2.8 0 0 0 7.6 18a2.6 2.6 0 0 0 4.4 1V5.9A2.6 2.6 0 0 0 9 5.2Z"/><path d="M15 5.2A2.8 2.8 0 0 1 17.8 8 2.7 2.7 0 0 1 19 13.3 2.8 2.8 0 0 1 16.4 18a2.6 2.6 0 0 1-4.4 1"/>',
+  news:'<rect x="3.4" y="5" width="14" height="14" rx="1.8"/><path d="M17.4 9H20a1 1 0 0 1 1 1v7a2 2 0 0 1-3.6 1.2"/><path d="M6.6 8.6h7.6M6.6 12h7.6M6.6 15.4h4.6"/>',
+  search:'<circle cx="11" cy="11" r="6.4"/><path d="m15.8 15.8 4 4"/>',
+  pie:'<path d="M12 3.6v8.4h8.4A8.4 8.4 0 0 0 12 3.6Z"/><path d="M20.2 14.4A8.4 8.4 0 1 1 9.6 3.9"/>',
+  mega:'<path d="M4 10v4a1.4 1.4 0 0 0 1.4 1.4H8l6 3.6V5.4L8 9H5.4A1.4 1.4 0 0 0 4 10Z"/><path d="M17.4 8.6a4.6 4.6 0 0 1 0 6.8"/>',
+  bulb:'<path d="M9.2 17.5a5.6 5.6 0 1 1 5.6 0"/><path d="M9.6 20h4.8M10.2 17.5h3.6"/>',
+  check:'<circle cx="12" cy="12" r="8.4"/><path d="m8.4 12.2 2.6 2.6 4.8-5"/>',
+  siren:'<path d="M6 18v-4.5a6 6 0 0 1 12 0V18Z"/><path d="M4.2 20.4h15.6M12 4.4V2.4M5.6 7 4.2 5.6M18.4 7l1.4-1.4"/>',
+  cap:'<path d="m2.8 9.4 9.2-4 9.2 4-9.2 4Z"/><path d="M6.6 11.3V16c0 1.5 2.4 2.8 5.4 2.8s5.4-1.3 5.4-2.8v-4.7"/>',
+  medal:'<circle cx="12" cy="14.4" r="5"/><path d="m8.6 9.8-2.4-6M15.4 9.8l2.4-6"/><path d="m12 12.2.9 1.9 2 .3-1.5 1.4.4 2-1.8-1-1.8 1 .4-2-1.5-1.4 2-.3Z"/>',
+  building:'<rect x="5" y="3.6" width="14" height="16.8" rx="1.6"/><path d="M8.6 7.4h2M13.4 7.4h2M8.6 11h2M13.4 11h2M10 20.4v-4h4v4"/>',
+  handshake:'<path d="m3 11 3-3 3.4 3.4 2-2 4.6 4.6"/><path d="m13 9 2.6-2.6L21 11.8l-3.4 3.4"/><path d="m6 14 3.4 3.4"/>',
+  layers:'<path d="m12 3.4 8.4 4.4-8.4 4.4L3.6 7.8Z"/><path d="m3.6 12.4 8.4 4.4 8.4-4.4"/>',
+  gear:'<circle cx="12" cy="12" r="3.2"/><path d="M19.4 14.6a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1v.3a2 2 0 1 1-4 0v-.2a1.6 1.6 0 0 0-2.8-1.1l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H3.4a2 2 0 1 1 0-4h.2a1.6 1.6 0 0 0 1.1-2.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.6 1.6 0 0 0 2.7-1.1V3.4a2 2 0 1 1 4 0v.2a1.6 1.6 0 0 0 2.8 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7h.3a2 2 0 1 1 0 4h-.2a1.6 1.6 0 0 0-1.5 1Z"/>',
+  drop:'<path d="M12 3.4c3 3.6 5.4 6.4 5.4 9.2a5.4 5.4 0 0 1-10.8 0c0-2.8 2.4-5.6 5.4-9.2Z"/>',
+  fan:'<circle cx="12" cy="12" r="2"/><path d="M12 10c0-3.5-1-6-3.5-6S5 6.5 7.5 8.5 12 10 12 10Z"/><path d="M14 12c3.5 0 6-1 6-3.5S17.5 5 15.5 7.5 14 12 14 12Z"/><path d="M12 14c0 3.5 1 6 3.5 6s3.5-2.5 1-4.5S12 14 12 14Z"/><path d="M10 12c-3.5 0-6 1-6 3.5S6.5 19 8.5 16.5 10 12 10 12Z"/>',
+  flask:'<path d="M9.4 3.4v5.2L4.8 17a2.4 2.4 0 0 0 2.1 3.6h10.2a2.4 2.4 0 0 0 2.1-3.6l-4.6-8.4V3.4"/><path d="M8.4 3.4h7.2M7.2 14h9.6"/>',
+  bot:'<rect x="4.4" y="7.6" width="15.2" height="11.4" rx="2.6"/><path d="M12 7.6V4.4M9.4 12.6v1.6M14.6 12.6v1.6M2.6 12.6v3M21.4 12.6v3"/>',
+  camera:'<rect x="3" y="7" width="18" height="13" rx="2.4"/><circle cx="12" cy="13.6" r="3.6"/><path d="M8.6 7 10 4.4h4L15.4 7"/>',
+  lock:'<rect x="5" y="10.4" width="14" height="9.6" rx="2"/><path d="M8.4 10.4V7.6a3.6 3.6 0 0 1 7.2 0"/>',
+  box:'<path d="M12 3.4 20.4 7v10L12 20.6 3.6 17V7Z"/><path d="M3.6 7 12 10.8 20.4 7M12 10.8v9.8"/>',
+  scale:'<path d="M12 4v16M6 8h12"/><path d="m6 8-3 6h6ZM18 8l-3 6h6Z"/>',
+  wallet:'<rect x="3.4" y="6" width="17.2" height="13" rx="2.4"/><path d="M16 12.6h2.4"/><path d="M3.4 9.6h17.2"/>',
+  file:'<path d="M14 3.4H7.4A2 2 0 0 0 5.4 5.4v13.2a2 2 0 0 0 2 2h9.2a2 2 0 0 0 2-2V8Z"/><path d="M14 3.4V8h4.6"/><path d="M8.6 12.6h6.8M8.6 16h4.6"/>',
+  recycle:'<path d="m7 17-2.6-1.4 2.2-4"/><path d="M12.4 4.6 15 9l4.4-.4"/><path d="m9.6 20.4 5.6.1 1.4-4"/><path d="M4.4 15.6 3 12.4l3.6-2.2M19.4 8.6l1.4 3.2-3.6 2.2M15.2 20.5l2.6-2.2-2.4-3.2"/>',
+  city:'<path d="M3 20.4h18"/><rect x="4.4" y="9" width="6" height="11.4" rx="1"/><rect x="12.4" y="4.4" width="7.2" height="16" rx="1"/><path d="M6.4 12h2M6.4 15h2M14.6 7.6h2.8M14.6 11h2.8M14.6 14.4h2.8"/>',
+  monitor:'<rect x="3" y="4.4" width="18" height="12.6" rx="2"/><path d="M8.6 20.4h6.8M12 17v3.4"/><path d="m7.6 12.6 2.8-3 2.2 2.2 3.8-4.2"/>'
+};
+function icon(name,color){
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="'+color+'" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-[22px] w-[22px]">'+(IC[name]||IC.check)+'</svg>';
+}
+const NAVY='#0B315C', FLAME='#E36414';
+
+/* =========================================================
+   DATA
+   ========================================================= */
+const LEAD = {
+  advisors:[
+    {img:'adv1',n:'Phuong Le MD, PhD',  r_en:'Country Director, AACI Vietnam', r_vi:'Giám đốc Quốc gia, AACI Việt Nam'},
+    {img:'adv2',n:'Nhat Luong, MA',     r_en:'Founder & CEO, Diab Healthcare', r_vi:'Nhà sáng lập & CEO, Diab Healthcare'},
+    {img:'adv3',n:'Nam Phan, PhD',      r_en:'CEO, W&A Consulting',            r_vi:'CEO, W&A Consulting'},
+    {img:'adv4',n:'Huy Pham',           r_en:'Founder & CEO, Estuary Solutions', r_vi:'Nhà sáng lập & CEO, Estuary Solutions'},
+    {img:'adv5',n:'An Nguyen, MD, MSc', r_en:'Traditional Medicine',           r_vi:'Y học Cổ truyền'},
+    {img:'adv6',n:'Giang Vo, PhD',      r_en:'PhD in Generative AI, CEO AIVISION', r_vi:'Tiến sĩ AI Tạo sinh, CEO AIVISION'}
+  ],
+  team:[
+    {img:'led1',n:'Lan Le',      r_en:'CEO, HCX Coaching',                       r_vi:'CEO, HCX Coaching'},
+    {img:'led2',n:'Uyen Nguyen', r_en:'Partnership Director, GHME',              r_vi:'Giám đốc Hợp tác, GHME'},
+    {img:'led3',n:'Tuyen Le',    r_en:'Talent Search & Consulting Director',     r_vi:'Giám đốc Tuyển dụng & Tư vấn'},
+    {img:'led4',n:'Vi Duong',    r_en:'Associate Director, Talent Search & Consulting', r_vi:'Phó Giám đốc, Tuyển dụng & Tư vấn'},
+    {img:'led5',n:'Vi Huynh',    r_en:'Group Marketing Manager',                 r_vi:'Trưởng phòng Marketing Tập đoàn'}
+  ]
+};
+
+const ECO = [
+  {id:'talent', pretty:'Healthcare Talent', logo:'logo_talent',  name:'HEALTHCARE TALENT',  d_en:'Executive Search & HR Solutions', d_vi:'Tuyển dụng Cấp cao & Giải pháp Nhân sự'},
+  {id:'museco', pretty:'Museco', logo:'logo_museco',  name:'MUSECO',             d_en:'Strategic Advisory, Business Matching & Market Access', d_vi:'Tư vấn Chiến lược, Kết nối KD & Tiếp cận Thị trường'},
+  {id:'hcx',    pretty:'HCX Coaching', logo:'logo_hcx',     name:'HCX COACHING',       d_en:'Capability Development, Training & Coaching', d_vi:'Phát triển Năng lực, Đào tạo & Huấn luyện'},
+  {id:'ghme',   pretty:'GHME', logo:'logo_ghme',    name:'GHME',               d_en:'First-aid Training & Health Education', d_vi:'Đào tạo Sơ cấp cứu & Giáo dục Sức khỏe'},
+  {id:'insights',pretty:'Healthcare Insights', logo:'logo_insights',name:'HEALTHCARE INSIGHTS',d_en:'Market Intelligence & Industry Knowledge', d_vi:'Nghiên cứu Thị trường & Tri thức Ngành'}
+];
+
+const BU = [
+{ id:'talent', tab:'HEALTHCARE TALENT', logo:'logo_talent', photo:'bu_talent', strip:'strip_talent',
+  t_en:'Executive Search & Human Capital Solutions', t_vi:'Tuyển dụng Cấp cao & Giải pháp Nguồn nhân lực',
+  brand:'HEALTHCARE TALENT',
+  s_en:'Connecting Healthcare Organizations with Exceptional Talent & Leadership',
+  s_vi:'Kết nối Tổ chức Y tế với Nhân tài & Lãnh đạo Xuất sắc',
+  cap:[
+   {i:'userSearch',t_en:'Executive Search',t_vi:'Tuyển dụng Cấp cao',d_en:'Identify and recruit C-level and senior healthcare leaders.',d_vi:'Xác định và tuyển dụng lãnh đạo cấp C và cấp cao ngành y tế.'},
+   {i:'users',t_en:'Talent Acquisition',t_vi:'Thu hút Nhân tài',d_en:'Recruit high-performing professionals across commercial, medical, operations, and support functions.',d_vi:'Tuyển dụng nhân sự xuất sắc cho các mảng thương mại, y khoa, vận hành và hỗ trợ.'},
+   {i:'grid',t_en:'Organization Design',t_vi:'Thiết kế Tổ chức',d_en:'Workforce planning, succession planning, talent mapping, and organization review.',d_vi:'Hoạch định nhân lực, kế nhiệm, bản đồ nhân tài và rà soát tổ chức.'},
+   {i:'book',t_en:'Leadership Development',t_vi:'Phát triển Lãnh đạo',d_en:'Leadership assessment, executive coaching, capability building, and development programs.',d_vi:'Đánh giá lãnh đạo, khai vấn cấp cao, xây dựng năng lực và chương trình phát triển.'},
+   {i:'crown',t_en:'HR Transformation',t_vi:'Chuyển đổi Nhân sự',d_en:'HR strategy, performance management, talent management, and employee experience.',d_vi:'Chiến lược nhân sự, quản trị hiệu suất, quản trị nhân tài và trải nghiệm nhân viên.'}],
+  imp:[
+   {i:'users',t_en:'Stronger Leadership',t_vi:'Lãnh đạo Vững mạnh hơn',d_en:'Build high-performing leadership teams for sustainable growth.',d_vi:'Xây dựng đội ngũ lãnh đạo hiệu suất cao cho tăng trưởng bền vững.'},
+   {i:'clock',t_en:'Better Talent',t_vi:'Nhân tài Tốt hơn',d_en:'Access qualified healthcare professionals faster and more effectively.',d_vi:'Tiếp cận chuyên gia y tế chất lượng nhanh và hiệu quả hơn.'},
+   {i:'target',t_en:'Organizational Excellence',t_vi:'Xuất sắc Tổ chức',d_en:'Design agile organizations with future-ready workforce strategies.',d_vi:'Thiết kế tổ chức linh hoạt với chiến lược nhân lực sẵn sàng cho tương lai.'},
+   {i:'bars',t_en:'Leadership Capability',t_vi:'Năng lực Lãnh đạo',d_en:'Develop stronger leaders through assessment, coaching, and capability building.',d_vi:'Phát triển lãnh đạo mạnh hơn qua đánh giá, khai vấn và xây dựng năng lực.'},
+   {i:'shield',t_en:'Sustainable HR Growth',t_vi:'Tăng trưởng Nhân sự Bền vững',d_en:'Transform HR practices to improve performance, engagement, and long-term business success.',d_vi:'Chuyển đổi thực hành nhân sự để cải thiện hiệu suất, gắn kết và thành công dài hạn.'}]
+},
+{ id:'museco', tab:'MUSECO', logo:'logo_museco', photo:'bu_museco', strip:'strip_museco',
+  t_en:'Strategic Advisory & Market Access', t_vi:'Tư vấn Chiến lược & Tiếp cận Thị trường',
+  brand:'MUSECO',
+  s_en:'Helping Healthcare Businesses Grow in Vietnam', s_vi:'Đồng hành cùng Doanh nghiệp Y tế Phát triển tại Việt Nam',
+  cap:[
+   {i:'globe',t_en:'Market Entry',t_vi:'Gia nhập Thị trường',d_en:'Launch products and expand into Vietnam.',d_vi:'Ra mắt sản phẩm và mở rộng tại Việt Nam.'},
+   {i:'handshake',t_en:'Business Matching',t_vi:'Kết nối Kinh doanh',d_en:'Connect with trusted partners.',d_vi:'Kết nối với các đối tác tin cậy.'},
+   {i:'layers',t_en:'Market Access',t_vi:'Tiếp cận Thị trường',d_en:'Navigate the healthcare ecosystem.',d_vi:'Điều hướng hệ sinh thái y tế.'},
+   {i:'bars',t_en:'Commercial Strategy',t_vi:'Chiến lược Thương mại',d_en:'Accelerate sustainable business growth.',d_vi:'Tăng tốc tăng trưởng kinh doanh bền vững.'},
+   {i:'target',t_en:'Strategic Advisory',t_vi:'Tư vấn Chiến lược',d_en:'Support business expansion and transformation.',d_vi:'Hỗ trợ mở rộng và chuyển đổi doanh nghiệp.'}],
+  imp:[
+   {i:'rocket',t_en:'Faster Market Entry',t_vi:'Gia nhập Nhanh hơn',d_en:'Launch with confidence.',d_vi:'Ra mắt với sự tự tin.'},
+   {i:'users',t_en:'Strong Partnerships',t_vi:'Đối tác Vững mạnh',d_en:'Connect with the right ecosystem.',d_vi:'Kết nối đúng hệ sinh thái.'},
+   {i:'trend',t_en:'Sustainable Growth',t_vi:'Tăng trưởng Bền vững',d_en:'Build long-term business success.',d_vi:'Xây dựng thành công kinh doanh dài hạn.'},
+   {i:'shield',t_en:'Lower Business Risk',t_vi:'Giảm Rủi ro Kinh doanh',d_en:'Make informed strategic decisions.',d_vi:'Ra quyết định chiến lược dựa trên dữ liệu.'},
+   {i:'star',t_en:'Local Expertise',t_vi:'Am hiểu Bản địa',d_en:'Healthcare market specialists.',d_vi:'Chuyên gia thị trường y tế.'}]
+},
+{ id:'ghme', tab:'GHME', logo:'logo_ghme', photo:'bu_ghme', strip:'strip_ghme',
+  t_en:'First Aid Training & Health Education', t_vi:'Đào tạo Sơ cấp cứu & Giáo dục Sức khỏe',
+  brand:'GHME',
+  s_en:'Building Safer Communities Through Health Education', s_vi:'Xây dựng Cộng đồng An toàn hơn qua Giáo dục Sức khỏe',
+  cap:[
+   {i:'heartPlus',t_en:'First Aid Training',t_vi:'Đào tạo Sơ cấp cứu',d_en:'Practical emergency response skills.',d_vi:'Kỹ năng ứng phó khẩn cấp thực tiễn.'},
+   {i:'activity',t_en:'CPR & AED',t_vi:'CPR & AED',d_en:'Life-saving certification programs.',d_vi:'Chương trình chứng nhận cứu sinh.'},
+   {i:'shield',t_en:'Workplace Safety',t_vi:'An toàn Nơi làm việc',d_en:'Corporate health & safety training.',d_vi:'Đào tạo sức khỏe & an toàn doanh nghiệp.'},
+   {i:'users',t_en:'Community Education',t_vi:'Giáo dục Cộng đồng',d_en:'Health awareness programs.',d_vi:'Chương trình nâng cao nhận thức sức khỏe.'},
+   {i:'siren',t_en:'Emergency Preparedness',t_vi:'Sẵn sàng Ứng phó',d_en:'Build emergency response capability.',d_vi:'Xây dựng năng lực ứng phó khẩn cấp.'}],
+  imp:[
+   {i:'heartPlus',t_en:'Save Lives',t_vi:'Cứu Sống',d_en:'Respond confidently in emergencies.',d_vi:'Ứng phó tự tin trong tình huống khẩn cấp.'},
+   {i:'shield',t_en:'Safer Workplace',t_vi:'Nơi làm việc An toàn hơn',d_en:'Strengthen employee safety culture.',d_vi:'Củng cố văn hóa an toàn cho nhân viên.'},
+   {i:'users',t_en:'Health Awareness',t_vi:'Nhận thức Sức khỏe',d_en:'Promote healthier communities.',d_vi:'Thúc đẩy cộng đồng khỏe mạnh hơn.'},
+   {i:'globe',t_en:'ESG Contribution',t_vi:'Đóng góp ESG',d_en:'Support corporate social responsibility.',d_vi:'Hỗ trợ trách nhiệm xã hội doanh nghiệp.'},
+   {i:'file',t_en:'Certified Programs',t_vi:'Chương trình Chứng nhận',d_en:'Practical, internationally aligned training.',d_vi:'Đào tạo thực tiễn, chuẩn quốc tế.'}]
+},
+{ id:'hcx', tab:'HCX COACHING', logo:'logo_hcx', photo:'bu_hcx', strip:'strip_hcx',
+  t_en:'Capability Development & Leadership Coaching', t_vi:'Phát triển Năng lực & Khai vấn Lãnh đạo',
+  brand:'HCX COACHING',
+  s_en:'Turning Healthcare Capability into Commercial Performance', s_vi:'Chuyển hóa Năng lực Y tế thành Hiệu suất Thương mại',
+  cap:[
+   {i:'medal',t_en:'Leadership Development',t_vi:'Phát triển Lãnh đạo',d_en:'Develop future healthcare leaders.',d_vi:'Phát triển thế hệ lãnh đạo y tế tương lai.'},
+   {i:'userSearch',t_en:'Executive Coaching',t_vi:'Khai vấn Cấp cao',d_en:'One-on-one leadership coaching.',d_vi:'Khai vấn lãnh đạo 1:1.'},
+   {i:'target',t_en:'Sales Excellence',t_vi:'Xuất sắc Bán hàng',d_en:'Build high-performing commercial teams.',d_vi:'Xây dựng đội ngũ thương mại hiệu suất cao.'},
+   {i:'book',t_en:'Customized Learning',t_vi:'Đào tạo Tùy chỉnh',d_en:'Tailored corporate training solutions.',d_vi:'Giải pháp đào tạo doanh nghiệp thiết kế riêng.'},
+   {i:'users',t_en:'Organizational Development',t_vi:'Phát triển Tổ chức',d_en:'Strengthen culture and capability.',d_vi:'Củng cố văn hóa và năng lực.'}],
+  imp:[
+   {i:'trend',t_en:'Stronger Leaders',t_vi:'Lãnh đạo Vững mạnh hơn',d_en:'Build confident leadership teams.',d_vi:'Xây dựng đội ngũ lãnh đạo tự tin.'},
+   {i:'bars',t_en:'Higher Performance',t_vi:'Hiệu suất Cao hơn',d_en:'Improve individual and team results.',d_vi:'Cải thiện kết quả cá nhân và đội nhóm.'},
+   {i:'leaf',t_en:'Sustainable Growth',t_vi:'Tăng trưởng Bền vững',d_en:'Develop long-term organizational capability.',d_vi:'Phát triển năng lực tổ chức dài hạn.'},
+   {i:'users',t_en:'Employee Engagement',t_vi:'Gắn kết Nhân viên',d_en:'Empower people to perform.',d_vi:'Trao quyền để nhân sự bứt phá.'},
+   {i:'award',t_en:'Practical Learning',t_vi:'Học tập Thực tiễn',d_en:'Real-world healthcare leadership programs.',d_vi:'Chương trình lãnh đạo y tế thực chiến.'}]
+},
+{ id:'insights', tab:'HEALTHCARE INSIGHTS', logo:'logo_insights', photo:'bu_insights', strip:'strip_insights',
+  t_en:'Market Intelligence & Healthcare Media', t_vi:'Nghiên cứu Thị trường & Truyền thông Y tế',
+  brand:'HEALTHCARE INSIGHTS',
+  s_en:'Turning Healthcare Data into Strategic Decisions', s_vi:'Chuyển hóa Dữ liệu Y tế thành Quyết định Chiến lược',
+  cap:[
+   {i:'bars',t_en:'Industry News',t_vi:'Tin tức Ngành',d_en:'Curated healthcare news & updates.',d_vi:'Tin tức và cập nhật y tế được tuyển chọn.'},
+   {i:'search',t_en:'Market Intelligence',t_vi:'Nghiên cứu Thị trường',d_en:'Healthcare market analysis.',d_vi:'Phân tích thị trường y tế.'},
+   {i:'pie',t_en:'Research & Reports',t_vi:'Nghiên cứu & Báo cáo',d_en:'Data-driven industry insights.',d_vi:'Tri thức ngành dựa trên dữ liệu.'},
+   {i:'users',t_en:'Healthcare Media',t_vi:'Truyền thông Y tế',d_en:'Professional healthcare content.',d_vi:'Nội dung y tế chuyên nghiệp.'},
+   {i:'brain',t_en:'Executive Insights',t_vi:'Góc nhìn Lãnh đạo',d_en:'Expert opinions & thought leadership.',d_vi:'Quan điểm chuyên gia & dẫn dắt tư tưởng.'}],
+  imp:[
+   {i:'target',t_en:'Better Decisions',t_vi:'Quyết định Tốt hơn',d_en:'Support strategic planning.',d_vi:'Hỗ trợ hoạch định chiến lược.'},
+   {i:'trend',t_en:'Market Awareness',t_vi:'Nắm bắt Thị trường',d_en:'Stay ahead of industry trends.',d_vi:'Đi trước xu hướng ngành.'},
+   {i:'pie',t_en:'Stronger Visibility',t_vi:'Hiện diện Mạnh hơn',d_en:'Build brand authority.',d_vi:'Xây dựng uy tín thương hiệu.'},
+   {i:'shield',t_en:'Trusted Information',t_vi:'Thông tin Tin cậy',d_en:'Reliable healthcare intelligence.',d_vi:'Tri thức y tế đáng tin cậy.'},
+   {i:'bulb',t_en:'Thought Leadership',t_vi:'Dẫn dắt Tư tưởng',d_en:'Shape industry conversations.',d_vi:'Định hình các cuộc đối thoại ngành.'}]
+}];
+
+const SOL = [
+ {ico:'ico_sol1', grad:'linear-gradient(150deg,#0B315C,#062347)', t_en:'CONSULTING & PARTNERSHIP', t_vi:'TƯ VẤN & HỢP TÁC', d_en:'Strategic advisory, business matching, and market access support.', d_vi:'Tư vấn chiến lược, kết nối kinh doanh và hỗ trợ tiếp cận thị trường.'},
+ {ico:'ico_sol2', grad:'linear-gradient(150deg,#FF7A2E,#E85B02)', t_en:'TALENT SOLUTIONS', t_vi:'GIẢI PHÁP NHÂN SỰ', d_en:'Executive search and HR Solutions for Healthcare.', d_vi:'Tuyển dụng cấp cao và giải pháp nhân sự cho ngành y tế.'},
+ {ico:'ico_sol3', grad:'linear-gradient(150deg,#1B5FBF,#0C3D8C)', t_en:'CAPABILITY DEVELOPMENT', t_vi:'PHÁT TRIỂN NĂNG LỰC', d_en:'Capability development, coaching, and training for healthcare.', d_vi:'Phát triển năng lực, khai vấn và đào tạo cho ngành y tế.'},
+ {ico:'ico_sol4', grad:'linear-gradient(150deg,#FF7A2E,#E85B02)', t_en:'HEALTH EDUCATION', t_vi:'GIÁO DỤC SỨC KHỎE', d_en:'Health education for individual and organization.', d_vi:'Giáo dục sức khỏe cho cá nhân và tổ chức.'},
+ {ico:'ico_sol5', grad:'linear-gradient(150deg,#0B315C,#062347)', t_en:'MARKET INTELLIGENCE', t_vi:'NGHIÊN CỨU THỊ TRƯỜNG', d_en:'Industry insights and knowledge.', d_vi:'Tri thức và góc nhìn chuyên sâu về ngành.'}
+];
+
+const IMPACT = [
+ {ico:'ico_impact1', v:50,   suf:'+', d_en:'Healthcare organizations supported across multiple sectors.', d_vi:'Tổ chức y tế được hỗ trợ trên nhiều lĩnh vực.'},
+ {ico:'ico_impact2', v:100,  suf:'+', d_en:'Consulting, talent, training, and capability development projects.', d_vi:'Dự án tư vấn, nhân sự, đào tạo và phát triển năng lực.'},
+ {ico:'ico_impact3', v:10000,suf:'+', d_en:'Healthcare leaders and professionals engaged through our ecosystem.', d_vi:'Lãnh đạo và chuyên gia y tế tham gia hệ sinh thái.'},
+ {ico:'ico_impact4', v:100,  suf:'+', d_en:'Workshops, learning initiatives, and capability development programs.', d_vi:'Hội thảo, sáng kiến học tập và chương trình phát triển năng lực.'},
+ {ico:'ico_impact5', v:10,   suf:'+', d_en:'Industry partners and ecosystem collaborators.', d_vi:'Đối tác ngành và cộng tác viên hệ sinh thái.'},
+ {ico:'ico_impact6', v:5,    suf:'',  pad:true, d_en:'Integrated businesses serving diverse healthcare needs.', d_vi:'Doanh nghiệp tích hợp phục vụ đa dạng nhu cầu y tế.'}
+];
+
+const PRJ_A = [
+ {img:'prj_a1', c_en:'Leadership Training', c_vi:'Đào tạo Lãnh đạo'},
+ {img:'prj_a2', c_en:'Change Management Program', c_vi:'Chương trình Quản trị Thay đổi'},
+ {img:'prj_a3', c_en:'Leadership Workshop', c_vi:'Workshop Lãnh đạo'},
+ {img:'prj_a4', c_en:'Corporate Kick-off', c_vi:'Sự kiện Khởi động Doanh nghiệp'},
+ {img:'prj_a5', c_en:'Training For Sales Team', c_vi:'Đào tạo Đội ngũ Bán hàng'},
+ {img:'prj_a6', c_en:'Sales Capability Session', c_vi:'Buổi Nâng cao Năng lực Bán hàng'},
+ {img:'prj_a7', c_en:'National Sales Meeting', c_vi:'Hội nghị Bán hàng Toàn quốc'},
+ {img:'prj_a8', c_en:'Field Coaching', c_vi:'Huấn luyện Thực địa'}
+];
+const PRJ_B = [
+ {img:'prj_b1', c_en:'Dr Talk — Đinh Thiện Lý', c_vi:'Dr Talk — Đinh Thiện Lý'},
+ {img:'prj_b2', c_en:'BPEC — Stada', c_vi:'BPEC — Stada'},
+ {img:'prj_b3', c_en:'BPEC — Elite Dental', c_vi:'BPEC — Elite Dental'},
+ {img:'prj_b4', c_en:'BPEC — Family Riviera Point', c_vi:'BPEC — Family Riviera Point'},
+ {img:'prj_b5', c_en:'Dr Talk — Schneider Electric', c_vi:'Dr Talk — Schneider Electric'},
+ {img:'prj_b6', c_en:'BPEC — Mega We Care', c_vi:'BPEC — Mega We Care'},
+ {img:'prj_b7', c_en:'Dr Talk — Stada', c_vi:'Dr Talk — Stada'},
+ {img:'prj_b8', c_en:'BPEC — CIS', c_vi:'BPEC — CIS'}
+];
+
+const PT = [
+{ id:'humiley', logo:'plogo_humiley', photo:'pt_humiley', name:'HUMILEY', accent:'#1F9C5B',
+  role_en:'Engineering & Technology Partner', role_vi:'Đối tác Kỹ thuật & Công nghệ',
+  sub_en:'Engineering & Operations Excellence', sub_vi:'Xuất sắc Kỹ thuật & Vận hành',
+  d_en:'Advanced engineering solutions that help organizations execute complex projects with confidence, compliance, and innovation.',
+  d_vi:'Giải pháp kỹ thuật tiên tiến giúp tổ chức triển khai dự án phức tạp với sự tự tin, tuân thủ và đổi mới.',
+  hl_en:['GMP Engineering','Cleanroom Expertise','Nationwide Projects','End-to-End Support'],
+  hl_vi:['Kỹ thuật GMP','Chuyên môn Phòng sạch','Dự án Toàn quốc','Hỗ trợ Toàn diện'],
+  cap:[
+   {i:'gear',t_en:'Engineering Consulting',t_vi:'Tư vấn Kỹ thuật',d_en:'Deliver expert design and engineering for regulated, high-precision environments.',d_vi:'Thiết kế và kỹ thuật chuyên sâu cho môi trường quản lý nghiêm ngặt, độ chính xác cao.'},
+   {i:'flask',t_en:'Cleanroom & Facility Design',t_vi:'Thiết kế Phòng sạch & Nhà máy',d_en:'End-to-end cleanroom solutions compliant with GMP, ISO 14644, and FDA standards.',d_vi:'Giải pháp phòng sạch toàn diện tuân thủ GMP, ISO 14644 và FDA.'},
+   {i:'file',t_en:'Project Management',t_vi:'Quản lý Dự án',d_en:'Oversee full project lifecycles with disciplined execution, safety, and cost control.',d_vi:'Giám sát toàn bộ vòng đời dự án với triển khai kỷ luật, an toàn và kiểm soát chi phí.'},
+   {i:'leaf',t_en:'Renewable Energy (BESS)',t_vi:'Năng lượng Tái tạo (BESS)',d_en:'Support grid resilience and sustainable energy transitions through BESS manufacturing.',d_vi:'Hỗ trợ ổn định lưới điện và chuyển dịch năng lượng bền vững qua sản xuất BESS.'}],
+  imp:[{i:'trend',t_en:'Accelerate Delivery',t_vi:'Tăng tốc Triển khai'},{i:'recycle',t_en:'Ensure Compliance',t_vi:'Đảm bảo Tuân thủ'},{i:'users',t_en:'Strengthen Operations',t_vi:'Củng cố Vận hành'},{i:'leaf',t_en:'Drive Sustainability',t_vi:'Thúc đẩy Bền vững'}]
+},
+{ id:'estuary', logo:'plogo_estuary', photo:'pt_estuary', name:'ESTUARY', accent:'#1EA3E0',
+  role_en:'SalesTech & Digital Transformation Partner', role_vi:'Đối tác SalesTech & Chuyển đổi Số',
+  sub_en:'SalesTech & Digital Transformation', sub_vi:'SalesTech & Chuyển đổi Số',
+  d_en:'SalesTech solutions that help organizations digitize sales operations, engage stakeholders, and grow distribution performance across Asia-Pacific.',
+  d_vi:'Giải pháp SalesTech giúp tổ chức số hóa vận hành bán hàng, gắn kết các bên và tăng trưởng hiệu quả phân phối tại châu Á – Thái Bình Dương.',
+  hl_en:['Sales Transformation','CRM Specialists','APAC Experience','Data-Driven Solutions'],
+  hl_vi:['Chuyển đổi Bán hàng','Chuyên gia CRM','Kinh nghiệm APAC','Giải pháp Dữ liệu'],
+  cap:[
+   {i:'monitor',t_en:'Sales Automation & CRM (SaleX)',t_vi:'Tự động hóa Bán hàng & CRM (SaleX)',d_en:'Maximize sales team performance with real-time data, route optimization, and digital customer management.',d_vi:'Tối đa hiệu suất đội bán hàng với dữ liệu thời gian thực, tối ưu tuyến và quản lý khách hàng số.'},
+   {i:'award',t_en:'Loyalty & Gamification (EngageX)',t_vi:'Khách hàng Thân thiết & Gamification (EngageX)',d_en:'Engage consumers, influencers, and distributors through digital loyalty programs and gamification.',d_vi:'Gắn kết người tiêu dùng, KOL và nhà phân phối qua chương trình loyalty số và gamification.'},
+   {i:'box',t_en:'Distributor Management (eDMS)',t_vi:'Quản lý Nhà phân phối (eDMS)',d_en:'Streamline distributor interaction, order management, and after-sales service on a digital platform.',d_vi:'Tinh gọn tương tác nhà phân phối, quản lý đơn hàng và dịch vụ hậu mãi trên nền tảng số.'},
+   {i:'bars',t_en:'Dashboard & Reporting',t_vi:'Dashboard & Báo cáo',d_en:'Digitize production lines, supply chain traceability, and warehouse operations for high efficiency.',d_vi:'Số hóa dây chuyền sản xuất, truy xuất chuỗi cung ứng và vận hành kho hiệu quả cao.'}],
+  imp:[{i:'lock',t_en:'Unlock Sales Performance',t_vi:'Bứt phá Hiệu suất Bán hàng'},{i:'box',t_en:'Improve Distribution',t_vi:'Cải thiện Phân phối'},{i:'handshake',t_en:'Enhance Stakeholder Engagement',t_vi:'Tăng Gắn kết Các bên'},{i:'bot',t_en:'Drive Innovation with AI',t_vi:'Đổi mới với AI'},{i:'trend',t_en:'Sustainable Business Growth',t_vi:'Tăng trưởng Bền vững'}]
+},
+{ id:'wa', logo:'plogo_wa', photo:'pt_wa', name:'W&A', accent:'#E36414',
+  role_en:'Tax, Legal, Finance & HR Advisory Partner', role_vi:'Đối tác Tư vấn Thuế, Pháp lý, Tài chính & Nhân sự',
+  sub_en:'Tax, Legal, Finance & HR Advisory', sub_vi:'Tư vấn Thuế, Pháp lý, Tài chính & Nhân sự',
+  d_en:'Integrated advisory across tax, legal, finance, and HR — supporting cross-border operations, M&A transactions, and ESG strategy in Vietnam.',
+  d_vi:'Tư vấn tích hợp về thuế, pháp lý, tài chính và nhân sự — hỗ trợ hoạt động xuyên biên giới, giao dịch M&A và chiến lược ESG tại Việt Nam.',
+  hl_en:['Integrated Advisory','Cross-border Expertise','M&A Specialists','ESG Consulting'],
+  hl_vi:['Tư vấn Tích hợp','Chuyên môn Xuyên biên giới','Chuyên gia M&A','Tư vấn ESG'],
+  cap:[
+   {i:'target',t_en:'Tax & Customs Advisory',t_vi:'Tư vấn Thuế & Hải quan',d_en:'Strategic tax planning, transfer pricing, international tax, customs compliance, and audit support.',d_vi:'Hoạch định thuế chiến lược, chuyển giá, thuế quốc tế, tuân thủ hải quan và hỗ trợ kiểm toán.'},
+   {i:'scale',t_en:'Legal Advisory & Compliance',t_vi:'Tư vấn Pháp lý & Tuân thủ',d_en:'Legal structuring, FDI consulting, licensing, dispute resolution, and M&A legal due diligence.',d_vi:'Cấu trúc pháp lý, tư vấn FDI, cấp phép, giải quyết tranh chấp và thẩm định pháp lý M&A.'},
+   {i:'wallet',t_en:'Finance & Accounting',t_vi:'Tài chính & Kế toán',d_en:'Accounting, IFRS reporting, financial due diligence, valuation, internal audit, and Virtual CFO services.',d_vi:'Kế toán, báo cáo IFRS, thẩm định tài chính, định giá, kiểm toán nội bộ và dịch vụ CFO thuê ngoài.'},
+   {i:'handshake',t_en:'M&A & Transaction Advisory',t_vi:'Tư vấn M&A & Giao dịch',d_en:'End-to-end support for mergers, acquisitions, capital raising, and corporate restructuring.',d_vi:'Hỗ trợ toàn diện cho sáp nhập, mua lại, huy động vốn và tái cấu trúc doanh nghiệp.'}],
+  imp:[{i:'file',t_en:'Ensure Tax & Legal Compliance',t_vi:'Đảm bảo Tuân thủ Thuế & Pháp lý'},{i:'gear',t_en:'Optimize Financial Performance',t_vi:'Tối ưu Hiệu quả Tài chính'},{i:'handshake',t_en:'Support M&A Transactions',t_vi:'Hỗ trợ Giao dịch M&A'},{i:'users',t_en:'Strengthen Governance & HR',t_vi:'Củng cố Quản trị & Nhân sự'},{i:'leaf',t_en:'Drive Sustainable Growth',t_vi:'Thúc đẩy Tăng trưởng Bền vững'}]
+},
+{ id:'aivision', logo:'plogo_aivision', photo:'pt_aivision', name:'AIVISION', accent:'#7B3FE4',
+  role_en:'AI & Digital Transformation Partner', role_vi:'Đối tác AI & Chuyển đổi Số',
+  sub_en:'AI & Digital Transformation Solutions', sub_vi:'Giải pháp AI & Chuyển đổi Số',
+  d_en:'Proven enterprise AI solutions that automate retail operations, analyze real-time data, and drive measurable business performance — deployed at 500,000+ retail points across Vietnam.',
+  d_vi:'Giải pháp AI doanh nghiệp đã được kiểm chứng, tự động hóa vận hành bán lẻ, phân tích dữ liệu thời gian thực và tạo hiệu quả kinh doanh đo lường được — triển khai tại hơn 500.000 điểm bán trên toàn Việt Nam.',
+  hl_en:['500K+ Retail Outlets','50+ AI Projects','99.97% AI Accuracy','Trusted by Global Brands'],
+  hl_vi:['500K+ Điểm bán','50+ Dự án AI','99,97% Độ chính xác','Được các Thương hiệu Toàn cầu tin dùng'],
+  cap:[
+   {i:'bot',t_en:'AI Display Scoring',t_vi:'Chấm điểm Trưng bày bằng AI',d_en:'Automatically score product display compliance at retail points using Computer Vision, 97–100% accuracy, under 1-second response.',d_vi:'Tự động chấm điểm tuân thủ trưng bày tại điểm bán bằng Computer Vision, độ chính xác 97–100%, phản hồi dưới 1 giây.'},
+   {i:'search',t_en:'Agentic AI Chatbot',t_vi:'Chatbot AI Tác tử',d_en:'Deploy intelligent AI assistants integrated into enterprise systems to automate workflows and customer interactions.',d_vi:'Triển khai trợ lý AI thông minh tích hợp vào hệ thống doanh nghiệp để tự động hóa quy trình và tương tác khách hàng.'},
+   {i:'camera',t_en:'AI Camera Analytics',t_vi:'Phân tích Camera AI',d_en:'Analyze customer behavior, traffic patterns, and in-store activity through smart camera AI in real time.',d_vi:'Phân tích hành vi khách hàng, lưu lượng và hoạt động tại cửa hàng qua camera AI thời gian thực.'},
+   {i:'bars',t_en:'Custom AI Software',t_vi:'Phần mềm AI Tùy chỉnh',d_en:'Build proprietary AI models and enterprise software tailored to specific business operations and industry needs.',d_vi:'Xây dựng mô hình AI độc quyền và phần mềm doanh nghiệp thiết kế riêng theo nhu cầu ngành.'}],
+  imp:[{i:'gear',t_en:'Automate Retail Operations',t_vi:'Tự động hóa Vận hành Bán lẻ'},{i:'trend',t_en:'Boost Sales Performance',t_vi:'Tăng Hiệu suất Bán hàng'},{i:'shield',t_en:'Detect Fraud in Real Time',t_vi:'Phát hiện Gian lận Thời gian thực'},{i:'bot',t_en:'Accelerate AI Adoption',t_vi:'Tăng tốc Ứng dụng AI'},{i:'globe',t_en:'Scale Across Markets',t_vi:'Mở rộng Đa Thị trường'}]
+},
+{ id:'quilong', logo:'plogo_quilong', photo:'pt_quilong', name:'QUI LONG', accent:'#1EA07A',
+  role_en:'HVAC, M&E & Cleanroom Engineering Partner', role_vi:'Đối tác Kỹ thuật HVAC, M&E & Phòng sạch',
+  sub_en:'HVAC, M&E & Cleanroom Engineering', sub_vi:'Kỹ thuật HVAC, M&E & Phòng sạch',
+  d_en:'Professional design and construction of HVAC, M&E, and cleanroom systems for pharma, hospitals, and industrial facilities — GMP/WHO standard compliant since 2007.',
+  d_vi:'Thiết kế và thi công chuyên nghiệp hệ thống HVAC, M&E và phòng sạch cho nhà máy dược, bệnh viện và cơ sở công nghiệp — đạt chuẩn GMP/WHO từ năm 2007.',
+  hl_en:['18+ Years Experience','Pharma & Hospital Focus','International Standards','Nationwide EPC Projects'],
+  hl_vi:['18+ Năm Kinh nghiệm','Tập trung Dược & Bệnh viện','Tiêu chuẩn Quốc tế','Dự án EPC Toàn quốc'],
+  cap:[
+   {i:'fan',t_en:'HVAC & Air Conditioning',t_vi:'HVAC & Điều hòa Không khí',d_en:'Design, supply, and install central HVAC systems for factories, hospitals, commercial buildings, and cleanroom facilities.',d_vi:'Thiết kế, cung cấp và lắp đặt hệ thống HVAC trung tâm cho nhà máy, bệnh viện, tòa nhà thương mại và phòng sạch.'},
+   {i:'gear',t_en:'M&E Engineering',t_vi:'Kỹ thuật M&E',d_en:'Full mechanical and electrical engineering: power systems, fire protection, BMS/EMS, and utilities.',d_vi:'Kỹ thuật cơ điện toàn diện: hệ thống điện, phòng cháy, BMS/EMS và tiện ích.'},
+   {i:'grid',t_en:'Cleanroom Technology',t_vi:'Công nghệ Phòng sạch',d_en:'Design and build GMP/WHO-certified cleanrooms for pharmaceutical, biotech, and food manufacturing facilities.',d_vi:'Thiết kế và thi công phòng sạch đạt chuẩn GMP/WHO cho nhà máy dược, công nghệ sinh học và thực phẩm.'},
+   {i:'drop',t_en:'Wastewater & Fire Protection',t_vi:'Xử lý Nước thải & PCCC',d_en:'Wastewater treatment, fire suppression, lightning protection, and integrated building management systems.',d_vi:'Xử lý nước thải, chữa cháy, chống sét và hệ thống quản lý tòa nhà tích hợp.'}],
+  imp:[{i:'award',t_en:'GMP/WHO Compliance',t_vi:'Tuân thủ GMP/WHO'},{i:'building',t_en:'Full M&E Turnkey',t_vi:'Trọn gói M&E'},{i:'heartPlus',t_en:'Pharma Expertise',t_vi:'Chuyên môn Dược phẩm'},{i:'city',t_en:'Nationwide Projects',t_vi:'Dự án Toàn quốc'},{i:'gear',t_en:'Proven Track Record',t_vi:'Thành tích Đã được Chứng minh'}]
+}];
+</script>
+
+<script>
+/* =========================================================
+   RENDER
+   ========================================================= */
+const $ = (s,c)=> (c||document).querySelector(s);
+const $$ = (s,c)=> Array.from((c||document).querySelectorAll(s));
+const bi = (en,vi)=> 'data-en="'+en.replace(/"/g,'&quot;')+'" data-vi="'+vi.replace(/"/g,'&quot;')+'"';
+
+/* ---- leadership ---- */
+function person(p,i){
+  return '<figure class="rv-s group text-center" style="transition-delay:'+(i*.07)+'s">'
+    + '<div class="relative mx-auto h-[104px] w-[104px] lg:h-[124px] lg:w-[124px] rounded-full overflow-hidden ring-4 ring-white shadow-card bg-gradient-to-b from-[#EAF1FA] to-white transition-all duration-500 group-hover:ring-flame group-hover:shadow-lift group-hover:-translate-y-1.5">'
+    +   '<img src="assets/'+p.img+'.png" alt="'+p.n+'" class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110">'
+    +   '<div class="absolute inset-0 bg-gradient-to-t from-navy-deep/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>'
+    + '</div>'
+    + '<figcaption class="mt-3.5"><p class="font-head font-bold text-[13.5px] text-navy">'+p.n+'</p>'
+    + '<p class="mt-0.5 text-[12px] leading-snug text-navy/60" '+bi(p.r_en,p.r_vi)+'>'+p.r_en+'</p></figcaption></figure>';
+}
+$('#advisors').innerHTML = LEAD.advisors.map(person).join('');
+$('#leaders').innerHTML  = LEAD.team.map(person).join('');
+
+/* ---- ecosystem mobile + footer links ---- */
+$('#ecoMobile').innerHTML = ECO.map(function(e,i){
+  return '<a href="#bu" data-tab="'+e.id+'" class="eco-node rv-s card group rounded-2xl bg-white shadow-card hover:shadow-lift p-4 flex items-center gap-3.5" style="transition-delay:'+(i*.08)+'s">'
+   + '<img src="assets/'+e.logo+'.png" class="ico-shift h-9 w-[62px] object-contain shrink-0" alt="">'
+   + '<div><h3 class="font-head font-bold text-[13px] text-navy">'+e.name+'</h3>'
+   + '<div class="mt-1 h-[2px] w-9 bg-flame rounded"></div>'
+   + '<p class="mt-1.5 text-[11.5px] leading-snug text-navy/65" '+bi(e.d_en,e.d_vi)+'>'+e.d_en+'</p></div></a>';
+}).join('');
+
+$('#ecoLinks').innerHTML = ECO.map(function(e){
+  return '<li><a href="#bu" data-tab="'+e.id+'" class="eco-node group flex items-center gap-3 hover:text-flame transition-colors">'
+   + '<span class="grid place-items-center h-7 w-7 rounded-lg bg-white/10 group-hover:bg-flame/20 transition-colors">'
+   + '<img src="assets/'+e.logo+'.png" class="h-4 w-auto" alt=""></span>'
+   + '<span>'+e.pretty+'</span></a></li>';
+}).join('');
+
+/* ---- BU tabs & panels ---- */
+function capRow(x,color,i){
+  return '<div class="group flex items-start gap-3.5 py-3 border-b border-navy/8 last:border-0 transition-colors hover:bg-navy/[.02] rounded-lg px-1" style="animation-delay:'+(i*60)+'ms">'
+   + '<span class="ico-shift shrink-0 grid place-items-center h-10 w-10 rounded-full ring-[1.5px]" style="ring-color:'+color+';border:1.5px solid '+color+'33">'+icon(x.i,color)+'</span>'
+   + '<div><h4 class="font-head font-bold text-[13.5px] leading-tight" style="color:'+color+'" '+bi(x.t_en,x.t_vi)+'>'+x.t_en+'</h4>'
+   + (x.d_en?'<p class="mt-1 text-[12.5px] leading-relaxed text-navy/65" '+bi(x.d_en,x.d_vi)+'>'+x.d_en+'</p>':'')
+   + '</div></div>';
+}
+$('#buTabs').innerHTML = BU.map(function(b,i){
+  return '<button data-bu="'+b.id+'" class="tab-btn '+(i===0?'active':'')+' inline-flex items-center gap-2 rounded-full bg-white ring-1 ring-navy/10 px-4 lg:px-5 py-2.5 text-[11.5px] lg:text-[12.5px] font-head font-bold tracking-wide text-navy transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card">'
+   + '<span class="tb-dot h-2 w-2 rounded-full bg-navy/30 transition-colors"></span>'+b.tab+'</button>';
+}).join('');
+
+$('#buPanels').innerHTML = BU.map(function(b,i){
+  return '<div class="panel '+(i===0?'show':'')+'" data-panel="'+b.id+'">'
+  + '<div class="grid lg:grid-cols-[minmax(0,32%)_minmax(0,68%)]">'
+  +  '<div class="relative min-h-[240px] lg:min-h-[560px] overflow-hidden">'
+  +   '<img src="assets/'+b.photo+'.jpg" alt="" class="absolute inset-0 h-full w-full object-cover">'
+  +   '<div class="absolute left-4 top-4 rounded-xl bg-white/95 backdrop-blur px-3.5 py-2 shadow-card"><img src="assets/'+b.logo+'.png" class="h-7 w-auto" alt=""></div>'
+  +   '<svg class="hidden lg:block absolute top-0 right-[-2px] h-full w-[70px]" viewBox="0 0 70 560" preserveAspectRatio="none" fill="none"><path d="M70,0 C14,0 60,160 60,280 C60,400 14,560 70,560 Z" fill="#ffffff"/><path d="M70,0 C14,0 60,160 60,280 C60,400 14,560 70,560" stroke="#E36414" stroke-width="3.5"/></svg>'
+  +   '<div class="lg:hidden absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-white to-transparent"></div>'
+  +  '</div>'
+  +  '<div class="px-6 lg:px-12 py-8 lg:py-10">'
+  +   '<p class="font-head font-bold text-[11.5px] tracking-[.2em] text-navy/55" '+bi('OUR ECOSYSTEM','HỆ SINH THÁI')+'>OUR ECOSYSTEM</p>'
+  +   '<h3 class="mt-1.5 font-head font-bold text-[22px] lg:text-[30px] leading-tight text-navy" '+bi(b.t_en,b.t_vi)+'>'+b.t_en+'</h3>'
+  +   '<p class="mt-1.5 font-head font-bold text-[17px] lg:text-[22px] text-right lg:text-right"><span class="text-navy/80" '+bi('Powered by','Vận hành bởi')+'>Powered by</span> <span class="text-flame">'+b.brand+'</span></p>'
+  +   '<p class="mt-1 text-[14px] lg:text-[16px] text-navy/75" '+bi(b.s_en,b.s_vi)+'>'+b.s_en+'</p>'
+  +   '<div class="mt-6 grid md:grid-cols-2 gap-6 lg:gap-8 md:divide-x md:divide-navy/10">'
+  +    '<div><div class="pill-navy inline-block px-5 py-1.5 text-[11.5px] font-head font-bold" '+bi('CORE CAPABILITIES','NĂNG LỰC CỐT LÕI')+'>CORE CAPABILITIES</div>'
+  +      '<div class="mt-3">'+b.cap.map(function(c,j){return capRow(c,NAVY,j)}).join('')+'</div></div>'
+  +    '<div class="md:pl-6 lg:pl-8"><div class="pill-flame inline-block px-5 py-1.5 text-[11.5px] font-head font-bold" '+bi('BUSINESS IMPACT','GIÁ TRỊ MANG LẠI')+'>BUSINESS IMPACT</div>'
+  +      '<div class="mt-3">'+b.imp.map(function(c,j){return capRow(c,FLAME,j)}).join('')+'</div></div>'
+  +   '</div>'
+  +  '</div>'
+  + '</div>'
+  + '<div class="mt-2"><img src="assets/'+b.strip+'.png" alt="" class="w-full"></div>'
+  + '</div>';
+}).join('');
+
+/* ---- solutions ---- */
+$('#solGrid').innerHTML = SOL.map(function(s,i){
+  return '<article class="rv-s card group relative rounded-2xl overflow-hidden bg-white shadow-card hover:shadow-lift" style="transition-delay:'+(i*.08)+'s">'
+   + '<div class="h-[92px]" style="background:'+s.grad+'"></div>'
+   + '<div class="relative -mt-[46px] px-5 pb-7 text-center">'
+   +   '<img src="assets/'+s.ico+'.png" class="ico-shift mx-auto h-[86px] w-[86px] drop-shadow-lg" alt="">'
+   +   '<h3 class="mt-4 font-head font-bold text-[13.5px] leading-tight tracking-wide text-navy" '+bi(s.t_en,s.t_vi)+'>'+s.t_en+'</h3>'
+   +   '<div class="mx-auto mt-3 h-[2px] w-11 bg-flame rounded"></div>'
+   +   '<p class="mt-3.5 text-[13px] leading-relaxed text-navy/70" '+bi(s.d_en,s.d_vi)+'>'+s.d_en+'</p>'
+   + '</div></article>';
+}).join('');
+
+/* ---- impact ---- */
+$('#impactGrid').innerHTML = IMPACT.map(function(m,i){
+  return '<div class="rv-s group px-3 py-5 text-center" style="transition-delay:'+(i*.08)+'s">'
+   + '<img src="assets/'+m.ico+'.png" class="ico-shift mx-auto h-[86px] w-[86px] lg:h-[104px] lg:w-[104px] drop-shadow" alt="">'
+   + '<div class="mx-auto mt-4 h-[3px] w-8 rounded '+(i%2?'bg-flame':'bg-navy-deep')+'"></div>'
+   + '<p class="mt-3 font-head font-extrabold text-[26px] lg:text-[34px] '+(i%2?'text-flame':'text-navy')+'">'
+   +   '<span class="count" data-to="'+m.v+'" data-pad="'+(m.pad?1:0)+'">0</span>'+m.suf+'</p>'
+   + '<p class="mt-2 text-[12.5px] leading-snug text-navy/65" '+bi(m.d_en,m.d_vi)+'>'+m.d_en+'</p></div>';
+}).join('');
+
+/* ---- projects ---- */
+function prjCard(p,i){
+  return '<figure class="rv-s group" style="transition-delay:'+(i*.06)+'s">'
+   + '<div class="relative overflow-hidden rounded-xl shadow-card group-hover:shadow-lift transition-all duration-500 group-hover:-translate-y-1.5">'
+   +   '<img src="assets/'+p.img+'.png" alt="" class="h-[130px] sm:h-[160px] lg:h-[190px] w-full object-cover transition-transform duration-[900ms] group-hover:scale-110">'
+   +   '<div class="absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>'
+   +   '<span class="absolute right-3 top-3 grid place-items-center h-8 w-8 rounded-full bg-white/90 text-navy scale-0 group-hover:scale-100 transition-transform duration-400"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>'
+   + '</div>'
+   + '<figcaption class="mt-2.5 px-0.5"><p class="font-head font-semibold text-[12.5px] leading-tight text-navy/80 group-hover:text-flame transition-colors duration-300" '+bi(p.c_en,p.c_vi)+'>'+p.c_en+'</p></figcaption></figure>';
+}
+$('#prjA').innerHTML = PRJ_A.map(prjCard).join('');
+$('#prjB').innerHTML = PRJ_B.map(prjCard).join('');
+
+/* ---- clients ---- */
+const CL_H = ["STADA", "Mega We Care", "Santen", "Hoang Duc", "DKSH", "Novo Nordisk", "FOBIC", "GONSA", "Sun Pharma", "United", "Boehringer Ingelheim", "AstraZeneca", "Hyphens", "HappyWay", "Organon", "EGIS", "IPP Vigor", "Mayoly", "Hoan My", "Z-Waka", "Trung Son Pharma", "Biocodex", "URGO", "Molkem", "Kusum Healthcare", "Astellas", "Xuyen A Hospital", "Imexpharm", "Pfizer", "Italfarmaco", "Servier", "Zuellig Pharma", "Lavitec", "Dr. Wondersmile", "Zema", "Ngoc Dung", "Optibac", "Codupha", "Phytopharma", "ZEISS", "diaB"];
+const CL_N = ["Schneider Electric", "Warburg Pincus", "Sedbergh Vietnam", "Estuary", "LSTS", "Marico", "Perfetti Van Melle", "Amazon", "Heineken", "Lien A", "Insmart", "VPBank"];
+function logoCell(pfx,name,i){
+  return '<figure class="group relative shrink-0" title="'+name+'">'
+   + '<img src="assets/'+pfx+'_'+String(i+1).padStart(2,'0')+'.png" alt="'+name+'" loading="lazy" '
+   +   'class="h-8 lg:h-9 w-auto max-w-[120px] object-contain opacity-95 transition-all duration-500 group-hover:opacity-100 group-hover:scale-[1.18] group-hover:drop-shadow-md">'
+   + '</figure>';
+}
+$('#clHealth').innerHTML = CL_H.map(function(n,i){ return logoCell('cl',n,i); }).join('');
+$('#clOther').innerHTML  = CL_N.map(function(n,i){ return logoCell('cn',n,i); }).join('');
+
+/* ---- partners overview ---- */
+$('#ptGrid').innerHTML = PT.map(function(p,i){
+  return '<article class="rv-s card group rounded-2xl bg-white shadow-card hover:shadow-lift ring-1 ring-navy/8 p-5 cursor-pointer pt-jump" data-pt="'+p.id+'" style="transition-delay:'+(i*.08)+'s">'
+   + '<div class="h-12 flex items-center justify-center"><img src="assets/'+p.logo+'.png" class="ico-shift max-h-11 w-auto object-contain" alt="'+p.name+'"></div>'
+   + '<h3 class="mt-3 text-center font-head font-bold text-[13px] leading-snug text-navy" '+bi(p.sub_en,p.sub_vi)+'>'+p.sub_en+'</h3>'
+   + '<div class="mt-3.5 flex items-center gap-2"><svg width="15" height="15" viewBox="0 0 24 24" fill="'+p.accent+'"><path d="m5 5 7 7-7 7zM13 5l7 7-7 7z"/></svg>'
+   + '<span class="font-head font-bold text-[12.5px] text-navy" '+bi('Highlights','Điểm nổi bật')+'>Highlights</span></div>'
+   + '<ul class="mt-2 space-y-1.5 text-[12.5px] text-navy/70">'
+   + p.hl_en.map(function(h,j){return '<li class="flex gap-2"><span class="mt-[7px] h-1 w-1 rounded-full bg-navy/50 shrink-0"></span><span '+bi(h,p.hl_vi[j])+'>'+h+'</span></li>'}).join('')
+   + '</ul>'
+   + '<span class="mt-4 inline-flex items-center gap-1.5 text-[11.5px] font-head font-bold text-flame opacity-0 group-hover:opacity-100 transition-opacity duration-300">'
+   + '<span '+bi('VIEW DETAILS','XEM CHI TIẾT')+'>VIEW DETAILS</span>'
+   + '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'
+   + '</article>';
+}).join('');
+
+/* ---- partners tabs & panels ---- */
+$('#ptTabs').innerHTML = PT.map(function(p,i){
+  return '<button data-ptab="'+p.id+'" class="ptab-btn '+(i===0?'active':'')+' inline-flex items-center gap-2 rounded-full bg-white ring-1 ring-navy/10 px-4 lg:px-5 py-2.5 text-[11.5px] lg:text-[12.5px] font-head font-bold tracking-wide text-navy transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card">'
+   + '<span class="tb-dot h-2 w-2 rounded-full transition-colors" style="background:'+p.accent+'"></span>'+p.name+'</button>';
+}).join('');
+
+$('#ptPanels').innerHTML = PT.map(function(p,i){
+  return '<div class="ppanel panel '+(i===0?'show':'')+'" data-ppanel="'+p.id+'">'
+  + '<div class="grid lg:grid-cols-[minmax(0,42%)_minmax(0,58%)] rounded-3xl overflow-hidden bg-white shadow-lift">'
+  +  '<div class="relative min-h-[240px] lg:min-h-[500px] overflow-hidden">'
+  +   '<img src="assets/'+p.photo+'.jpg" alt="" class="absolute inset-0 h-full w-full object-cover">'
+  +   '<svg class="hidden lg:block absolute top-0 right-[-2px] h-full w-[62px]" viewBox="0 0 62 500" preserveAspectRatio="none" fill="none"><path d="M62,0 C12,0 54,140 54,250 C54,360 12,500 62,500 Z" fill="#ffffff"/></svg>'
+  +  '</div>'
+  +  '<div class="px-6 lg:px-10 py-8 lg:py-10">'
+  +   '<h3 class="font-head font-bold text-[19px] lg:text-[25px] leading-tight text-navy" '+bi(p.role_en,p.role_vi)+'>'+p.role_en+'</h3>'
+  +   '<p class="mt-1.5 font-head font-bold text-[18px] lg:text-[23px]"><span class="text-navy/80" '+bi('Powered by','Vận hành bởi')+'>Powered by</span> <span style="color:'+p.accent+'">'+p.name+'</span></p>'
+  +   '<p class="mt-3 text-[13.5px] leading-[1.75] text-navy/70 justified" '+bi(p.d_en,p.d_vi)+'>'+p.d_en+'</p>'
+  +   '<div class="mt-6 flex items-center gap-4"><span class="h-px flex-1" style="background:'+p.accent+'55"></span>'
+  +     '<span class="font-head font-bold text-[11.5px] tracking-[.18em]" style="color:'+p.accent+'" '+bi('CORE CAPABILITIES','NĂNG LỰC CỐT LÕI')+'>CORE CAPABILITIES</span>'
+  +     '<span class="h-px flex-1" style="background:'+p.accent+'55"></span></div>'
+  +   '<div class="mt-4 space-y-2.5">'
+  +   p.cap.map(function(c,ci){
+        return '<div class="group flex items-stretch gap-0 rounded-xl bg-navy/[.03] hover:bg-navy/[.06] transition-colors overflow-hidden">'
+        + '<span class="shrink-0 grid place-items-center w-14 self-stretch"><img src="assets/pic_'+p.id+(ci+1)+'.png" alt="" class="ico-shift h-8 w-8 object-contain"></span>'
+        + '<div class="px-3.5 py-2.5 border-l-2 min-w-[130px] lg:min-w-[170px]" style="border-color:'+p.accent+'55"><h4 class="font-head font-bold text-[13px] leading-tight text-navy" '+bi(c.t_en,c.t_vi)+'>'+c.t_en+'</h4></div>'
+        + '<p class="flex-1 px-3.5 py-2.5 text-[12.5px] leading-snug text-navy/65" '+bi(c.d_en,c.d_vi)+'>'+c.d_en+'</p></div>';
+      }).join('')
+  +   '</div>'
+  +   '<div class="mt-6 flex items-center gap-4"><span class="h-px flex-1" style="background:'+p.accent+'55"></span>'
+  +     '<span class="font-head font-bold text-[11.5px] tracking-[.18em]" style="color:'+p.accent+'" '+bi('BUSINESS IMPACT','GIÁ TRỊ MANG LẠI')+'>BUSINESS IMPACT</span>'
+  +     '<span class="h-px flex-1" style="background:'+p.accent+'55"></span></div>'
+  +   '<div class="mt-4 grid grid-cols-2 sm:grid-cols-'+p.imp.length+' divide-x divide-navy/10">'
+  +   p.imp.map(function(c){
+        return '<div class="px-2 text-center group"><span class="ico-shift mx-auto grid place-items-center h-10 w-10 rounded-full" style="background:'+p.accent+'1a">'+icon(c.i,p.accent)+'</span>'
+        + '<p class="mt-2 font-head font-bold text-[11.5px] leading-tight text-navy" '+bi(c.t_en,c.t_vi)+'>'+c.t_en+'</p></div>';
+      }).join('')
+  +   '</div>'
+  +  '</div>'
+  + '</div></div>';
+}).join('');
+</script>
+
+<script>
+/* =========================================================
+   INTERACTIONS
+   ========================================================= */
+
+/* ---------- scroll reveal ---------- */
+function settle(el){
+  if(el.classList.contains('draw')||el.classList.contains('bar-orange')) return;
+  setTimeout(function(){ el.classList.add('done'); }, 1100);
+}
+const io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('in'); settle(e.target); io.unobserve(e.target); }
+  });
+},{threshold:.12, rootMargin:'0px 0px -8% 0px'});
+function observeAll(){ $$('.rv,.rv-l,.rv-r,.rv-s,.draw,.bar-orange').forEach(function(el){ io.observe(el); }); }
+observeAll();
+
+/* ---------- counters ---------- */
+const cio = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(!e.isIntersecting) return;
+    const el = e.target, to = +el.dataset.to, pad = el.dataset.pad==='1';
+    const dur = 1500, t0 = performance.now();
+    (function step(t){
+      const k = Math.min(1,(t-t0)/dur);
+      const v = Math.round(to * (1 - Math.pow(1-k,3)));
+      el.textContent = pad ? String(v).padStart(2,'0') : v.toLocaleString('en-US');
+      if(k<1) requestAnimationFrame(step);
+    })(t0);
+    cio.unobserve(el);
+  });
+},{threshold:.5});
+$$('.count').forEach(function(el){ cio.observe(el); });
+
+/* ---------- language ---------- */
+let LANG = 'en';
+function applyLang(l){
+  LANG = l;
+  document.documentElement.lang = l;
+  $$('[data-en]').forEach(function(el){
+    const v = el.getAttribute('data-'+l);
+    if(v!=null) el.innerHTML = v;
+  });
+  $$('.lang-btn').forEach(function(b){
+    const on = b.dataset.lang===l;
+    b.classList.toggle('bg-navy-deep',on);
+    b.classList.toggle('text-white',on);
+    b.classList.toggle('text-navy',!on);
+  });
+  try{ localStorage.setItem('ha-lang',l); }catch(e){}
+}
+$$('.lang-btn').forEach(function(b){ b.addEventListener('click',function(){ applyLang(b.dataset.lang); }); });
+try{ const saved = localStorage.getItem('ha-lang'); if(saved==='vi') applyLang('vi'); }catch(e){}
+
+/* ---------- navbar ---------- */
+const nav = $('#nav'), navInner = $('#navInner');
+function onScroll(){
+  const y = window.scrollY;
+  const solid = y > 40;
+  navInner.classList.toggle('bg-white/95',solid);
+  navInner.classList.toggle('bg-white/80',!solid);
+  navInner.classList.toggle('shadow-lift',solid);
+  navInner.classList.toggle('mt-2.5',!solid);
+  navInner.classList.toggle('mt-1.5',solid);
+  // progress
+  const h = document.documentElement.scrollHeight - innerHeight;
+  $('#bar').style.transform = 'scaleX('+(h>0? y/h : 0)+')';
+  // back to top
+  const t = $('#toTop');
+  const show = y > 700;
+  t.classList.toggle('opacity-0',!show);
+  t.classList.toggle('translate-y-4',!show);
+  t.classList.toggle('pointer-events-none',!show);
+  // active nav
+  let cur = '';
+  $$('section[id]').forEach(function(s){ if(s.offsetTop - 140 <= y) cur = s.id; });
+  $$('.nav-link').forEach(function(a){ a.classList.toggle('active', a.getAttribute('href')==='#'+cur); });
+}
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+/* hero parallax */
+const heroImg = $('#heroImg');
+addEventListener('scroll',function(){
+  if(innerWidth<1024) return;
+  const y = Math.min(window.scrollY,700);
+  heroImg.style.transform = 'scale(1.05) translateY('+(y*.10)+'px)';
+},{passive:true});
+
+/* ---------- mobile menu ---------- */
+const mm = $('#mobileMenu');
+$('#burger').addEventListener('click',function(){
+  const open = mm.style.maxHeight && mm.style.maxHeight!=='0px';
+  mm.style.maxHeight = open ? '0px' : mm.scrollHeight+'px';
+});
+$$('#mobileMenu a').forEach(function(a){ a.addEventListener('click',function(){ mm.style.maxHeight='0px'; }); });
+
+/* ---------- BU tabs ---------- */
+function setBU(id){
+  $$('#buTabs .tab-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.bu===id); });
+  $$('#buPanels .panel').forEach(function(p){ p.classList.toggle('show', p.dataset.panel===id); });
+  observeAll();
+  $$('#buPanels .panel.show .rv,#buPanels .panel.show .rv-s').forEach(function(el){ el.classList.add('in'); });
+  if(LANG!=='en') applyLang(LANG);
+}
+$$('#buTabs .tab-btn').forEach(function(b){ b.addEventListener('click',function(){ setBU(b.dataset.bu); }); });
+
+/* ecosystem node → jump to matching BU tab */
+$$('.eco-node').forEach(function(n){
+  n.addEventListener('click',function(){ setTimeout(function(){ setBU(n.dataset.tab); },260); });
+});
+
+/* ---------- partner tabs ---------- */
+function setPT(id){
+  $$('#ptTabs .ptab-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.ptab===id); });
+  $$('#ptPanels .ppanel').forEach(function(p){ p.classList.toggle('show', p.dataset.ppanel===id); });
+  if(LANG!=='en') applyLang(LANG);
+}
+$$('#ptTabs .ptab-btn').forEach(function(b){ b.addEventListener('click',function(){ setPT(b.dataset.ptab); }); });
+$$('.pt-jump').forEach(function(c){
+  c.addEventListener('click',function(){
+    setPT(c.dataset.pt);
+    $('#ptTabs').scrollIntoView({behavior:'smooth',block:'center'});
+  });
+});
+
+/* ---------- back to top ---------- */
+$('#toTop').addEventListener('click',function(){ scrollTo({top:0,behavior:'smooth'}); });
+
+/* ---------- re-apply saved language to generated nodes ---------- */
+if(LANG!=='en') applyLang(LANG);
+</script>
+</body>
+</html>
