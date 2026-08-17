@@ -101,6 +101,76 @@ tailwind.config = {
     .market-desktop__caption{ position:absolute; left:1.5%; bottom:1.1%; z-index:10; display:flex; align-items:center; gap:1.9cqw; color:#fff; }
     .market-desktop__caption svg{ width:4.5cqw; height:7.2cqw; flex:none; }
     .market-desktop__caption p{ max-width:34cqw; font-size:clamp(.75rem,1.25cqw,1.5rem); line-height:1.55; letter-spacing:-.01em; }
+
+    /* Keep the founder portrait from defining the desktop section height. */
+    .founder-grid{ align-items:stretch; }
+    .founder-portrait{ min-height:0; }
+    .founder-portrait .founder-portrait__image{
+      position:absolute;
+      left:50%;
+      bottom:0;
+      width:82%;
+      height:auto;
+      max-height:calc(100% - 120px);
+      transform:translateX(-50%);
+      object-fit:contain;
+      object-position:center bottom;
+    }
+
+    /* Desktop ecosystem artwork: all overlays share the 1366 x 768 canvas. */
+    .ecosystem-desktop{
+      container-type:inline-size;
+      box-sizing:border-box;
+      width:calc(100% - 48px);
+      max-width:1366px;
+      margin:clamp(18px,2vw,32px) auto;
+      box-shadow:0 22px 54px -40px rgba(11,49,92,.35);
+    }
+    .ecosystem-desktop__canvas{ position:relative; width:100%; aspect-ratio:1672/941; overflow:hidden; }
+    .ecosystem-desktop__copy{ position:absolute; left:2.8%; top:9.6%; width:20.2%; z-index:10; }
+    .ecosystem-desktop__title{ font-size:3.55cqw; line-height:1.08; letter-spacing:-.025em; }
+    .ecosystem-desktop__rule{ width:6.8cqw; height:2px; margin-top:1.25cqw; }
+    .ecosystem-desktop__lead{ margin-top:1.35cqw; font-size:1.72cqw; line-height:1.35; letter-spacing:-.02em; }
+    .ecosystem-desktop__body{ margin-top:1.3cqw; font-size:1.12cqw; line-height:1.55; text-align:justify; text-justify:inter-word; }
+    .ecosystem-desktop__orbit{ position:absolute; inset:0; z-index:4; width:100%; height:100%; pointer-events:none; }
+    .ecosystem-art-node{ position:absolute; z-index:12; display:block; isolation:isolate; color:var(--navy); transition:transform .3s cubic-bezier(.16,1,.3,1); }
+    .ecosystem-art-node:hover{ transform:translateY(-.35cqw); }
+    .ecosystem-art-node--talent{ left:48.2%; top:3.1%; width:24.5%; height:25.2%; }
+    .ecosystem-art-node--museco{ left:26.0%; top:34.2%; width:22.7%; height:25.2%; }
+    .ecosystem-art-node--hcx{ left:72.2%; top:34.2%; width:24.3%; height:25.2%; }
+    .ecosystem-art-node--ghme{ left:33.1%; top:65.5%; width:22.1%; height:24.3%; }
+    .ecosystem-art-node--insights{ left:65.0%; top:65.5%; width:22.8%; height:24.3%; }
+    .ecosystem-art-node::before{
+      content:''; position:absolute; z-index:0; left:5.4cqw; top:0; right:0; bottom:0;
+      border-radius:2.7cqw 2.7cqw 2.7cqw 3.4cqw;
+      background:rgba(255,255,255,.94);
+      box-shadow:0 1.15cqw 2.5cqw -1.65cqw rgba(11,49,92,.28), inset 0 0 0 1px rgba(11,49,92,.035);
+    }
+    .ecosystem-art-node__badge{
+      position:absolute; z-index:1; left:0; top:.35cqw; width:11.2cqw; height:11.2cqw;
+      display:grid; place-items:center; border-radius:50%; background:rgba(255,255,255,.98);
+      box-shadow:0 .8cqw 1.6cqw -.9cqw rgba(11,49,92,.32), inset 0 0 0 1px rgba(11,49,92,.04);
+    }
+    .ecosystem-art-node__badge img{ width:78%; max-height:45%; object-fit:contain; transition:transform .3s cubic-bezier(.16,1,.3,1); }
+    .ecosystem-art-node:hover .ecosystem-art-node__badge img{ transform:scale(1.06); }
+    .ecosystem-art-node__copy{ position:absolute; z-index:1; left:11.05cqw; top:3.05cqw; right:.8cqw; }
+    .ecosystem-art-node__copy h3{ font-size:1.34cqw; line-height:1.2; letter-spacing:-.015em; }
+    .ecosystem-art-node__copy i{ display:block; width:3.7cqw; height:2px; margin-top:.55cqw; background:var(--flame); }
+    .ecosystem-art-node__copy p{ margin-top:1.05cqw; font-size:1.02cqw; line-height:1.5; }
+    .ecosystem-desktop__center{
+      position:absolute; left:60.4%; top:49.1%; z-index:11; width:18.8cqw; height:18.8cqw;
+      transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; justify-content:center;
+      border-radius:50%; background:rgba(255,255,255,.95); text-align:center;
+      box-shadow:0 1.1cqw 2.8cqw -1.7cqw rgba(11,49,92,.28), inset 0 0 0 1px rgba(11,49,92,.04);
+    }
+    .ecosystem-desktop__center img{ width:67%; height:auto; }
+    .ecosystem-desktop__center-rule{ width:12.4cqw; height:2px; margin-top:.7cqw; background:var(--flame); }
+    .ecosystem-desktop__dots{ margin-top:.75cqw; display:flex; justify-content:center; gap:.75cqw; }
+    .ecosystem-desktop__dots span{ width:.55cqw; height:.55cqw; border-radius:50%; }
+    .ecosystem-desktop__caption{ display:none; }
+    .ecosystem-desktop__caption-dots{ display:flex; gap:.75cqw; padding-right:1.8cqw; border-right:1px solid rgba(255,255,255,.3); }
+    .ecosystem-desktop__caption-dots span{ width:.55cqw; height:.55cqw; border-radius:50%; background:#fff; }
+    .ecosystem-desktop__caption p{ font-size:1.05cqw; line-height:1.2; }
   }
 
   /* ---------- cards ---------- */
@@ -685,9 +755,9 @@ tailwind.config = {
 
 <!-- ============ FOUNDER (slide 5) ============ -->
 <section id="founder" style="scroll-margin-top:96px" class="relative bg-white overflow-hidden">
-  <div class="grid lg:grid-cols-[minmax(0,34%)_minmax(0,66%)]">
+  <div class="founder-grid grid lg:grid-cols-[minmax(0,34%)_minmax(0,66%)]">
     <!-- portrait panel -->
-    <div class="relative overflow-hidden rv-l" style="background:radial-gradient(120% 100% at 50% 30%, #0F3E82 0%, #04205A 50%, #01123A 100%);">
+    <div class="founder-portrait relative overflow-hidden rv-l" style="background:radial-gradient(120% 100% at 50% 30%, #0F3E82 0%, #04205A 50%, #01123A 100%);">
       <div class="absolute inset-0 opacity-25" style="background-image:radial-gradient(circle at 2px 2px,#6FA8F0 1px,transparent 0);background-size:34px 34px"></div>
       <!-- glow arcs -->
       <svg class="absolute left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 w-[130%] opacity-60" viewBox="0 0 400 400" fill="none">
@@ -699,7 +769,7 @@ tailwind.config = {
         <h3 class="font-head font-bold text-[24px] lg:text-[28px] leading-tight">Mr. Nguyen Hoang Linh</h3>
         <p class="mt-1 italic text-[15px] lg:text-[17px] text-white/85" data-en="Founder &amp; Chief Executive Officer" data-vi="Nhà sáng lập &amp; Tổng Giám đốc">Founder &amp; Chief Executive Officer</p>
       </div>
-      <img src="assets/founder.png" alt="Nguyen Hoang Linh" class="relative mt-4 w-full max-w-[420px] mx-auto lg:max-w-none object-contain object-bottom">
+      <img src="assets/founder.png" alt="Nguyen Hoang Linh" class="founder-portrait__image relative mt-4 w-full max-w-[420px] mx-auto lg:max-w-none object-contain object-bottom">
       <!-- orange curve edge -->
       <svg class="hidden lg:block absolute top-0 right-[-1px] h-full w-[70px]" viewBox="0 0 70 700" preserveAspectRatio="none" fill="none">
         <path d="M70,0 C10,0 62,200 62,350 C62,500 10,700 70,700 Z" fill="#ffffff"/>
@@ -772,7 +842,12 @@ tailwind.config = {
           <span class="h-px flex-1 bg-navy/15"></span>
         </div>
         <div class="mt-5 flex flex-col lg:flex-row items-center gap-6 lg:gap-9">
-          <img src="assets/exp_logos.png" alt="DKSH, IQVIA, MSG, Phano Pharmacy" class="h-11 lg:h-[52px] w-auto object-contain lg:border-r lg:border-navy/15 lg:pr-8">
+          <div class="grid w-full max-w-[400px] shrink-0 items-center gap-2.5 lg:border-r lg:border-navy/15 lg:pr-8" style="grid-template-columns:97fr 138fr 105fr 104fr;">
+            <img src="assets/OUR-FOUNDER-1.png" alt="DKSH" class="h-auto max-h-[42px] w-full object-contain">
+            <img src="assets/OUR-FOUNDER-2.png" alt="IQVIA" class="h-auto max-h-[42px] w-full object-contain">
+            <img src="assets/OUR-FOUNDER-3.png" alt="MSG" class="h-auto max-h-[42px] w-full object-contain">
+            <img src="assets/OUR-FOUNDER-4.png" alt="Phano Pharmacy" class="h-auto max-h-[42px] w-full object-contain">
+          </div>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 lg:gap-6 text-center">
             <div><p class="font-head font-extrabold text-[17px] text-navy">20+</p><p class="text-[11px] leading-tight text-navy/60" data-en="Years of Experience" data-vi="Năm Kinh nghiệm">Years of Experience</p></div>
             <div><p class="font-head font-extrabold text-[15px] text-navy" data-en="Multiple" data-vi="Đa dạng">Multiple</p><p class="text-[11px] leading-tight text-navy/60" data-en="Healthcare Sectors" data-vi="Lĩnh vực Y tế">Healthcare Sectors</p></div>
@@ -838,10 +913,108 @@ tailwind.config = {
 </section>
 
 <!-- ============ ECOSYSTEM ORBIT (slide 7) ============ -->
-<section id="ecosystem" style="scroll-margin-top:96px" class="relative pt-20 lg:pt-24 pb-0 overflow-hidden"
-         style="background:linear-gradient(160deg,#EAF2FB 0%,#F7FAFD 40%,#FFFFFF 100%)">
-  <div class="absolute inset-0 opacity-[.35] pointer-events-none" style="background:radial-gradient(ellipse at 8% 80%, rgba(30,90,170,.20), transparent 55%)"></div>
-  <div class="relative mx-auto max-w-[1320px] px-6 lg:px-8">
+<section id="ecosystem" style="scroll-margin-top:96px" class="relative overflow-hidden bg-[#F2F5F9]">
+  <!-- Desktop artwork and overlays -->
+  <div class="ecosystem-desktop hidden lg:block">
+    <div class="ecosystem-desktop__canvas">
+      <img src="assets/background-our-eco.png" alt="Healthcare Alliance ecosystem network" class="absolute inset-0 h-full w-full object-fill pointer-events-none select-none">
+
+      <svg class="ecosystem-desktop__orbit" viewBox="0 0 1672 941" fill="none" aria-hidden="true">
+        <defs>
+          <filter id="ecoDotShadow" x="-80%" y="-80%" width="260%" height="260%">
+            <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#0B315C" flood-opacity=".18"/>
+          </filter>
+        </defs>
+        <circle cx="1010" cy="461" r="375" stroke="#CEE0F3" stroke-width="7" opacity=".9"/>
+        <circle cx="1010" cy="461" r="190" stroke="#E8F0FA" stroke-width="20" opacity=".78"/>
+        <circle cx="1010" cy="461" r="174" stroke="#7FA9DC" stroke-width="3"/>
+        <circle class="orbit-ring" cx="1010" cy="461" r="158" stroke="#7FA9DC" stroke-width="2" stroke-dasharray="4 8" style="transform-origin:1010px 461px"/>
+
+        <path d="M1010 287V300" stroke="#6F9FD5" stroke-width="3" stroke-linecap="round"/>
+        <path d="M842 444H852" stroke="#6F9FD5" stroke-width="3" stroke-linecap="round"/>
+        <path d="M1168 444H1182" stroke="#6F9FD5" stroke-width="3" stroke-linecap="round"/>
+        <path d="M916 598L944 570" stroke="#6F9FD5" stroke-width="3" stroke-linecap="round"/>
+        <path d="M1076 570L1105 598" stroke="#6F9FD5" stroke-width="3" stroke-linecap="round"/>
+
+        <g filter="url(#ecoDotShadow)"><circle cx="1010" cy="270" r="18" fill="white"/><circle cx="1010" cy="270" r="10" fill="#001C52"/></g>
+        <g filter="url(#ecoDotShadow)"><circle cx="842" cy="444" r="18" fill="white"/><circle cx="842" cy="444" r="10" fill="#001C52"/></g>
+        <g filter="url(#ecoDotShadow)"><circle cx="1182" cy="444" r="18" fill="white"/><circle cx="1182" cy="444" r="10" fill="#FD5B02"/></g>
+        <g filter="url(#ecoDotShadow)"><circle cx="916" cy="598" r="18" fill="white"/><circle cx="916" cy="598" r="10" fill="#169B94"/></g>
+        <g filter="url(#ecoDotShadow)"><circle cx="1105" cy="598" r="18" fill="white"/><circle cx="1105" cy="598" r="10" fill="#7445A7"/></g>
+      </svg>
+
+      <div class="ecosystem-desktop__copy rv-l">
+        <h2 class="ecosystem-desktop__title font-head font-extrabold">
+          <span class="block text-navy" data-en="OUR" data-vi="HỆ SINH">OUR</span>
+          <span class="block text-flame" data-en="ECOSYSTEM" data-vi="THÁI">ECOSYSTEM</span>
+        </h2>
+        <div class="ecosystem-desktop__rule bar-orange"></div>
+        <p class="ecosystem-desktop__lead font-head font-medium text-navy"
+           data-en="Five Specialized Businesses. One Integrated Vision."
+           data-vi="Năm Doanh nghiệp Chuyên biệt. Một Tầm nhìn Thống nhất.">Five Specialized Businesses.<br>One Integrated Vision.</p>
+        <p class="ecosystem-desktop__body text-navy"
+           data-en="Healthcare Alliance brings together specialized businesses that address critical needs across the healthcare ecosystem, delivering integrated solutions that drive sustainable growth."
+           data-vi="Healthcare Alliance quy tụ các doanh nghiệp chuyên biệt giải quyết những nhu cầu trọng yếu của hệ sinh thái y tế, mang đến giải pháp tích hợp thúc đẩy tăng trưởng bền vững.">Healthcare Alliance brings together specialized businesses that address critical needs across the healthcare ecosystem, delivering integrated solutions that drive sustainable growth.</p>
+      </div>
+
+      <div class="ecosystem-desktop__center">
+        <img src="assets/logo_ha.png" alt="Healthcare Alliance">
+        <span class="ecosystem-desktop__center-rule" aria-hidden="true"></span>
+        <div class="ecosystem-desktop__dots" aria-hidden="true">
+          <span class="bg-flame"></span><span class="bg-[#8E5BD3]"></span><span class="bg-[#17A398]"></span><span class="bg-navy-deep"></span><span class="bg-[#3B72C4]"></span>
+        </div>
+      </div>
+
+      <a href="#bu" data-tab="talent" class="eco-node ecosystem-art-node ecosystem-art-node--talent">
+        <span class="ecosystem-art-node__badge"><img src="assets/logo_talent.png" alt="Healthcare Talent"></span>
+        <span class="ecosystem-art-node__copy">
+          <h3 class="font-head font-semibold">HEALTHCARE<br>TALENT</h3><i></i>
+          <p data-en="Executive Search &amp; HR Solutions" data-vi="Tuyển dụng Cấp cao &amp; Giải pháp Nhân sự">Executive Search &amp; HR Solutions</p>
+        </span>
+      </a>
+
+      <a href="#bu" data-tab="museco" class="eco-node ecosystem-art-node ecosystem-art-node--museco">
+        <span class="ecosystem-art-node__badge"><img src="assets/logo_museco.png" alt="MUSECO"></span>
+        <span class="ecosystem-art-node__copy">
+          <h3 class="font-head font-semibold">MUSECO</h3><i></i>
+          <p data-en="Strategic Advisory, Business Matching &amp; Market Access Support" data-vi="Tư vấn Chiến lược, Kết nối Kinh doanh &amp; Hỗ trợ Tiếp cận Thị trường">Strategic Advisory, Business Matching &amp; Market Access Support</p>
+        </span>
+      </a>
+
+      <a href="#bu" data-tab="hcx" class="eco-node ecosystem-art-node ecosystem-art-node--hcx">
+        <span class="ecosystem-art-node__badge"><img src="assets/logo_hcx.png" alt="HCX Coaching"></span>
+        <span class="ecosystem-art-node__copy">
+          <h3 class="font-head font-semibold">HCX COACHING</h3><i></i>
+          <p data-en="Capability Development, Training &amp; Coaching" data-vi="Phát triển Năng lực, Đào tạo &amp; Huấn luyện">Capability Development, Training &amp; Coaching</p>
+        </span>
+      </a>
+
+      <a href="#bu" data-tab="ghme" class="eco-node ecosystem-art-node ecosystem-art-node--ghme">
+        <span class="ecosystem-art-node__badge"><img src="assets/logo_ghme.png" alt="GHME"></span>
+        <span class="ecosystem-art-node__copy">
+          <h3 class="font-head font-semibold">GHME</h3><i></i>
+          <p data-en="First-aid Training &amp; Health Education" data-vi="Đào tạo Sơ cấp cứu &amp; Giáo dục Sức khỏe">First-aid Training &amp; Health Education</p>
+        </span>
+      </a>
+
+      <a href="#bu" data-tab="insights" class="eco-node ecosystem-art-node ecosystem-art-node--insights">
+        <span class="ecosystem-art-node__badge"><img src="assets/logo_insights.png" alt="Healthcare Insights"></span>
+        <span class="ecosystem-art-node__copy">
+          <h3 class="font-head font-semibold">HEALTHCARE INSIGHTS</h3><i></i>
+          <p data-en="Market Intelligence &amp; Industry Knowledge" data-vi="Nghiên cứu Thị trường &amp; Tri thức Ngành">Market Intelligence &amp; Industry Knowledge</p>
+        </span>
+      </a>
+
+      <div class="ecosystem-desktop__caption">
+        <div class="ecosystem-desktop__caption-dots" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="font-head font-semibold" data-en="One Ecosystem. Multiple Solutions. Shared Success." data-vi="Một Hệ sinh thái. Đa Giải pháp. Thành công Chung.">One Ecosystem. Multiple Solutions. Shared Success.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile and tablet layout -->
+  <div class="absolute inset-0 opacity-[.35] pointer-events-none lg:hidden" style="background:radial-gradient(ellipse at 8% 80%, rgba(30,90,170,.20), transparent 55%)"></div>
+  <div class="relative mx-auto max-w-[1320px] px-6 pt-20 lg:hidden" style="background:linear-gradient(160deg,#EAF2FB 0%,#F7FAFD 40%,#FFFFFF 100%)">
     <div class="grid lg:grid-cols-[minmax(0,26%)_minmax(0,74%)] gap-10 lg:gap-6 items-center">
       <!-- heading -->
       <div class="rv-l">
@@ -954,7 +1127,7 @@ tailwind.config = {
     </div>
   </div>
 
-  <div class="relative mt-12 lg:-mt-4 bg-navy-deep">
+  <div class="relative mt-12 bg-navy-deep lg:hidden">
     <svg class="absolute -top-[1px] inset-x-0 w-full h-8 lg:h-12" viewBox="0 0 1366 48" preserveAspectRatio="none" fill="none">
       <path d="M0,48 L0,24 C240,-14 460,4 1366,4 L1366,48 Z" fill="#001C52"/>
       <path d="M0,24 C240,-14 460,4 1366,4" stroke="#E36414" stroke-width="2.5"/>
